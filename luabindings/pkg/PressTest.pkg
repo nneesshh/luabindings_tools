@@ -1,0 +1,50 @@
+//------------------------------------------------------------------------------
+//  PressTestHandler.cpp
+//  (C) 2011 n.lee
+//------------------------------------------------------------------------------
+$#include "../src/DataHandler/PressTestUnit.h"
+
+class	CPressTestUnit;
+CPressTestUnit *create_press_test_unit(std::string sUserId, std::string sPwd, std::string sNick);
+void press_test_unit_open(CPressTestUnit *pUnit);
+void press_test_unit_reopen(CPressTestUnit *pUnit, int nDelayInMs);
+void press_test_unit_destroy(CPressTestUnit *pUnit);
+void press_test_unit_send_packet(CPressTestUnit *pUnit, uint8_t nMsgSn, std::string& sTypeName, std::string& sBody);
+void press_test_set_network_callback(LUA_FUNCTION connected_cb, LUA_FUNCTION disconnected_cb, LUA_FUNCTION got_message_cb, LUA_FUNCTION stats_cb);
+
+class	CPressTestUnit {
+public:
+	CPressTestUnit();
+	virtual ~CPressTestUnit();
+
+	enum PRESS_TEST_UNIT_STATE {
+		PRESS_TEST_UNIT_STATE_IDLE = 1,
+		PRESS_TEST_UNIT_STATE_CONNECTING = 2,
+		PRESS_TEST_UNIT_STATE_CONNECTED = 3,
+		PRESS_TEST_UNIT_STATE_ACCOUNT_LOGIN = 4,
+		PRESS_TEST_UNIT_STATE_JOIN_GAME = 5,
+
+		PRESS_TEST_UNIT_STATE_LINGER = 11,
+		PRESS_TEST_UNIT_STATE_REOPEN = 12,
+		PRESS_TEST_UNIT_STATE_DISCONNECTED = 13,
+
+	};
+
+	void						OnCreate();
+	void						OnDestroy();
+
+public:
+	int id;
+	std::string userid;
+	std::string pwd;
+	std::string nick;
+	int state;
+
+	uint64_t _start_in_ms;
+	uint64_t _connected_in_ms;
+	uint64_t _full_login_in_ms;
+};
+
+$renaming CPressTestUnit @ press_test_unit
+
+/* -- EOF -- */
