@@ -46,6 +46,8 @@ function classCode:register (pre)
  	first_line = ""
  end
 
+ --[[
+ --remove by ben
  -- pad to 16 bytes
  local npad = 16 - (#s % 16)
  local spad = ""
@@ -53,6 +55,7 @@ function classCode:register (pre)
  	spad = spad .. "-"
  end
  s = s..spad
+ --]]
  
  -- convert to C
  output('\n'..pre..'{ /* begin embedded lua code */\n')
@@ -73,6 +76,7 @@ function classCode:register (pre)
  else
  	output(pre..' tolua_dobuffer(tolua_S,(char*)B,sizeof(B),"tolua: embedded Lua code '..code_n..'");')
  end
+
  output(pre..' lua_settop(tolua_S, top);')
  output(pre..'} /* end of embedded lua code */\n\n')
  code_n = code_n +1

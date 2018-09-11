@@ -11,7 +11,7 @@
 #include "ringbuffer.h"
 
 #if LUA_VERSION_NUM < 502
-#	include "lbind_int64.h"
+#	include "tolua_int64.h"
 #endif
 
 #define LUA_OK	0

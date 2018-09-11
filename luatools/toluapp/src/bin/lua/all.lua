@@ -1,4 +1,8 @@
 dofile(path.."compat-5.1.lua")
+
+--bug old_dofile is default dofile
+dofile=old_dofile
+
 dofile(path.."compat.lua")
 dofile(path.."basic.lua")
 dofile(path.."feature.lua")
@@ -24,7 +28,7 @@ dofile(path.."doit.lua")
 
 local err,msg = xpcall(doit, debug.traceback)
 if not err then
---print("**** msg is "..tostring(msg))
- local _,_,label,msg = strfind(msg,"(.-:.-:%s*)(.*)")
- tolua_error(msg,label)
+    print("**** msg is "..tostring(msg))
+    local _,_,label,msg = strfind(msg,"(.-:.-:%s*)(.*)")
+    tolua_error(msg,label)
 end

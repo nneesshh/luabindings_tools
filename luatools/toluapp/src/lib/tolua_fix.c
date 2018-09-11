@@ -2,6 +2,10 @@
 #include "tolua_fix.h"
 #include <stdlib.h>
 
+#if LUA_VERSION_NUM < 502
+#include "tolua_int64.h"
+#endif
+
 static int s_function_ref_id = 0;
 
 TOLUA_API void toluafix_open(lua_State* L)
@@ -17,6 +21,10 @@ TOLUA_API void toluafix_open(lua_State* L)
     lua_pushstring(L, TOLUA_REFID_FUNCTION_MAPPING);
     lua_newtable(L);
     lua_rawset(L, LUA_REGISTRYINDEX);
+
+#if LUA_VERSION_NUM < 502
+	luaopen_int64(L);
+#endif
 }
 
 TOLUA_API int toluafix_pushusertype_ccobject(lua_State* L,

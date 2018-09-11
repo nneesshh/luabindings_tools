@@ -44,28 +44,34 @@ end
 
 -- build names
 function classFeature:buildnames ()
- if self.name and self.name~='' then
-  local n = split(self.name,'@')
-  self.name = n[1]
-  self.name = string.gsub(self.name, ":%d*$", "")
-  if not n[2] then
-   n[2] = applyrenaming(n[1])
-  end
-  self.lname = n[2] or gsub(n[1],"%[.-%]","")
-  self.lname = string.gsub(self.lname, ":%d*$", "")
-  self.original_name = self.name
-  self.lname = clean_template(self.lname)
- end
- if not self.is_parameter then
-	 self.name = getonlynamespace() .. self.name
- end
+    --print("------>>>>",self.name)
+    if self.name and self.name~='' then
+        local n = split(self.name,'@')
+        self.name = n[1]
+        self.name = string.gsub(self.name, ":%d*$", "")
 
- local parent = classContainer.curr
- if parent then
- 	self.access = parent.curr_member_access
-	self.global_access = self:check_public_access()
- else
- end
+        -- bug if n[1] is Shader_getTechnique,so change to Shader_geTechnique
+        -- add by loryxia for classname_method Partten
+        -- print("buildnames------>>>",n[1],n[2])
+        -- if not n[2] then
+        --    n[2] = applyrenaming(n[1])
+        -- end
+        
+        self.lname = n[2] or gsub(n[1],"%[.-%]","")
+        self.lname = string.gsub(self.lname, ":%d*$", "")
+        self.original_name = self.name
+        self.lname = clean_template(self.lname)
+    end
+
+    if not self.is_parameter then
+        self.name = getonlynamespace() .. self.name
+    end
+
+    local parent = classContainer.curr
+    if parent then
+        self.access = parent.curr_member_access
+        self.global_access = self:check_public_access()
+    end
 end
 
 function classFeature:check_public_access()

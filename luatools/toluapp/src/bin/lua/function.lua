@@ -339,22 +339,22 @@ end
 
 -- register function
 function classFunction:register (pre)
-
-	if not self:check_public_access() then
+    if not self:check_public_access() then
 		return
 	end
-
- 	if self.name == 'new' and self.parent.flags.pure_virtual then
- 		-- no constructor for classes with pure virtual methods
+ 	
+    if self.name == 'new' and self.parent.flags.pure_virtual then
+        -- no constructor for classes with pure virtual methods
  		return
  	end
 
- output(pre..'tolua_function(tolua_S,"'..self.lname..'",'..self.cname..');')
-  if self.name == 'new' then
-	  output(pre..'tolua_function(tolua_S,"new_local",'..self.cname..'_local);')
-	  output(pre..'tolua_function(tolua_S,".call",'..self.cname..'_local);')
-	  --output(' tolua_set_call_event(tolua_S,'..self.cname..'_local, "'..self.parent.type..'");')
-  end
+    output(pre..'tolua_function(tolua_S,"'..self.lname..'",'..self.cname..');')
+
+    if self.name == 'new' then
+        output(pre..'tolua_function(tolua_S,"new_local",'..self.cname..'_local);')
+        output(pre..'tolua_function(tolua_S,".call",'..self.cname..'_local);')
+        --output(' tolua_set_call_event(tolua_S,'..self.cname..'_local, "'..self.parent.type..'");')
+    end
 end
 
 -- Print method
@@ -477,19 +477,17 @@ end
 -- Expects three strings: one representing the function declaration,
 -- another representing the argument list, and the third representing
 -- the "const" or empty string.
-function Function (d,a,c)
- --local t = split(strsub(a,2,-2),',') -- eliminate braces
- --local t = split_params(strsub(a,2,-2))
-
-	if not flags['W'] and string.find(a, "%.%.%.%s*%)") then
-
+function Function (d,a,c)   --declare,arguments,constant
+    --local t = split(strsub(a,2,-2),',') -- eliminate braces
+    --local t = split_params(strsub(a,2,-2))
+    
+    if not flags['W'] and string.find(a, "%.%.%.%s*%)") then
 		warning("Functions with variable arguments (`...') are not supported. Ignoring "..d..a..c)
 		return nil
 	end
-
-
- local i=1
- local l = {n=0}
+ 
+    local i=1
+    local l = {n=0}
 
  	a = string.gsub(a, "%s*([%(%)])%s*", "%1")
 	local t,strip,last = strip_pars(strsub(a,2,-2));
@@ -505,16 +503,17 @@ function Function (d,a,c)
 			t[i] = string.gsub(t[i], "=.*$", "")
 		end
 	end
-
- while t[i] do
-  l.n = l.n+1
-  l[l.n] = Declaration(t[i],'var',true)
-  i = i+1
- end
- local f = Declaration(d,'func')
- f.args = l
- f.const = c
- return _Function(f)
+ 
+    while t[i] do
+        l.n = l.n+1
+        l[l.n] = Declaration(t[i],'var',true)
+        i = i+1
+    end
+ 
+    local f = Declaration(d,'func')
+    f.args = l
+    f.const = c
+    return _Function(f)
 end
 
 function join(t, sep, first, last)
