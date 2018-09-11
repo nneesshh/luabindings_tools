@@ -66,13 +66,13 @@ end
 
 -- Internal container constructor
 function _Container (self)
- setmetatable(self,classContainer)
- self.n = 0
- self.typedefs = {tolua_n=0}
- self.usertypes = {}
- self.enums = {tolua_n=0}
- self.lnames = {}
- return self
+    setmetatable(self,classContainer)
+    self.n = 0
+    self.typedefs = {tolua_n=0}
+    self.usertypes = {}
+    self.enums = {tolua_n=0}
+    self.lnames = {}
+    return self
 end
 
 -- push container
@@ -306,8 +306,9 @@ end
 function classContainer:findtype (t)
 
 	t = string.gsub(t, "=.*", "")
+
 	if _basic[t] then
-	 return t
+        return t
 	end
 
 	local _,_,em = string.find(t, "([&%*])%s*$")
@@ -629,6 +630,16 @@ function classContainer:doparse (s)
   		end
   	end
    _curr_code = strsub(s,b,e)
+   
+   -- add by loryxia for classname_method Partten
+   -- local s0,s1,method=strfind(decl,"(%w*_%w*)")
+   -- if s0 then
+   --     s0,s1,new=strfind(method,"_(%w*)")
+   --     local rename=method.." @ "..new
+   --     appendrenaming(rename)
+   -- end
+   -- add by ben end
+   
    Function(decl,arg,const)
    return strsub(s,e+1)
   end
