@@ -14,9 +14,9 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 
-TOLUA_API bool toluafix_is_int64(lua_State* L, int idx);
-TOLUA_API int64_t toluafix_to_int64(lua_State *L, int idx);
-TOLUA_API void toluafix_push_int64(lua_State *L, int64_t n);
+TOLUA_API bool toluafix_is_int64(lua_State* L, int lo, const char* type, int def, tolua_Error* err);
+TOLUA_API int64_t toluafix_to_int64(lua_State *L, int lo, int def);
+TOLUA_API void toluafix_push_int64(lua_State *L, int64_t n, const char* type);
 
 #ifndef LUA_EXTERN
 # if defined(WIN32) || defined(_WIN32)

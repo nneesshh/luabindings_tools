@@ -7,12 +7,12 @@
 
 #if LUA_VERSION_NUM < 502
 
-static int s_tolua_int64_ref_mt = LUA_NOREF;
+static int s_toluafix_int64_mt = LUA_NOREF;
 
 bool
-toluafix_is_int64(lua_State* L, int idx) {
-	if (lua_getmetatable(L, idx)) {
-		lua_rawgeti(L, LUA_REGISTRYINDEX, s_tolua_int64_ref_mt);
+toluafix_is_int64(lua_State* L, int lo, const char* type, int def, tolua_Error* err) {
+	if (lua_getmetatable(L, lo)) {
+		lua_rawgeti(L, LUA_REGISTRYINDEX, s_toluafix_int64_mt);
 		int equal = lua_rawequal(L, -1, -2);
 		lua_pop(L, 2);
 		return equal;
@@ -22,19 +22,19 @@ toluafix_is_int64(lua_State* L, int idx) {
 }
 
 int64_t
-toluafix_to_int64(lua_State *L, int idx) {
+toluafix_to_int64(lua_State *L, int lo, int def) {
 	int64_t n = (int64_t)0;
-	int type = lua_type(L, idx);
+	int type = lua_type(L, lo);
 	switch (type) {
 	case LUA_TNUMBER: {
-		lua_Number d = luaL_checknumber(L, idx);
+		lua_Number d = luaL_checknumber(L, lo);
 		n = (int64_t)d;
 		break;
 	}
 
 	case LUA_TUSERDATA: {
-		if (toluafix_is_int64(L, idx)) {
-			n = *(int64_t *)lua_touserdata(L, idx);
+		if (toluafix_is_int64(L, lo, "int64", 0, 0)) {
+			n = *(int64_t *)lua_touserdata(L, lo);
 		}
 		else {
 			return luaL_error(L, "The userdata is not an int64 userdata");
@@ -43,62 +43,64 @@ toluafix_to_int64(lua_State *L, int idx) {
 	}
 
 	default:
-		return luaL_error(L, "argument %d error type %s", idx, lua_typename(L, type));
+		return luaL_error(L, "argument %d error type %s", lo, lua_typename(L, type));
 	}
 	return n;
 }
 
 void
-toluafix_push_int64(lua_State *L, int64_t n) {
+toluafix_push_int64(lua_State *L, int64_t n, const char* type) {
 	int64_t *p = (int64_t*)lua_newuserdata(L, sizeof(int64_t));
+	(void *)type;
+
 	*p = n;
-	lua_rawgeti(L, LUA_REGISTRYINDEX, s_tolua_int64_ref_mt);
+	lua_rawgeti(L, LUA_REGISTRYINDEX, s_toluafix_int64_mt);
 	lua_setmetatable(L, -2);
 }
 
 static int
 __int64_add(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
-	toluafix_push_int64(L, a + b);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
+	toluafix_push_int64(L, a + b, "int64");
 	return 1;
 }
 
 static int
 __int64_sub(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
-	toluafix_push_int64(L, a - b);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
+	toluafix_push_int64(L, a - b, "int64");
 	return 1;
 }
 
 static int
 __int64_mul(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
-	toluafix_push_int64(L, a * b);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
+	toluafix_push_int64(L, a * b, "int64");
 	return 1;
 }
 
 static int
 __int64_div(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 	if (b == 0) {
 		return luaL_error(L, "div by zero");
 	}
-	toluafix_push_int64(L, a / b);
+	toluafix_push_int64(L, a / b, "int64");
 	return 1;
 }
 
 static int
 __int64_mod(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 	if (b == 0) {
 		return luaL_error(L, "mod by zero");
 	}
-	toluafix_push_int64(L, a % b);
+	toluafix_push_int64(L, a % b, "int64");
 	return 1;
 }
 
@@ -118,8 +120,8 @@ __pow64(int64_t a, int64_t b) {
 
 static int
 __int64_pow(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 	int64_t p;
 	if (b > 0) {
 		p = __pow64(a, b);
@@ -130,14 +132,14 @@ __int64_pow(lua_State *L) {
 	else {
 		return luaL_error(L, "pow by negative number %d", (int)b);
 	}
-	toluafix_push_int64(L, p);
+	toluafix_push_int64(L, p, "int64");
 	return 1;
 }
 
 static int
 __int64_unm(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	toluafix_push_int64(L, -a);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	toluafix_push_int64(L, -a, "int64");
 	return 1;
 }
 
@@ -159,8 +161,8 @@ __str2uint64(const char *s, int base, uint64_t *result) {
 
 static int
 __int64_eq(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 // 	printf("%s %s\n", lua_typename(L, 1), lua_typename(L, 2));
 // 	printf("%lld %lld\n", a, b);
 	lua_pushboolean(L, a == b);
@@ -169,23 +171,23 @@ __int64_eq(lua_State *L) {
 
 static int
 __int64_lt(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 	lua_pushboolean(L, a < b);
 	return 1;
 }
 
 static int
 __int64_le(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
-	int64_t b = toluafix_to_int64(L, 2);
+	int64_t a = toluafix_to_int64(L, 1, 0);
+	int64_t b = toluafix_to_int64(L, 2, 0);
 	lua_pushboolean(L, a <= b);
 	return 1;
 }
 
 static int
 __int64_len(lua_State *L) {
-	int64_t a = toluafix_to_int64(L, 1);
+	int64_t a = toluafix_to_int64(L, 1, 0);
 	lua_pushnumber(L, (lua_Number)a);
 	return 1;
 }
@@ -197,7 +199,7 @@ __int64_new(lua_State *L) {
 	int top = lua_gettop(L);
 	switch (top) {
 	case 0: {
-		toluafix_push_int64(L, (int64_t)0);
+		toluafix_push_int64(L, (int64_t)0, "int64");
 		break;
 	}
 
@@ -207,7 +209,7 @@ __int64_new(lua_State *L) {
 		case LUA_TNUMBER: {
 			lua_Number d = luaL_checknumber(L, 1);
 			n = (int64_t)d;
-			toluafix_push_int64(L, n);
+			toluafix_push_int64(L, n, "int64");
 			break;
 		}
 
@@ -219,7 +221,7 @@ __int64_new(lua_State *L) {
 				return luaL_error(L, "The string(%s) is not a valid number string", str);
 			}
 			n = (int64_t)u64;
-			toluafix_push_int64(L, n);
+			toluafix_push_int64(L, n, "int64");
 			break;
 		}
 
@@ -243,7 +245,7 @@ __int64_new(lua_State *L) {
 			return luaL_error(L, "The string(%s) is not a valid number string", str);
 		}
 		n = (int64_t)u64;
-		toluafix_push_int64(L, n);
+		toluafix_push_int64(L, n, "int64");
 		break;
 	}
 	return 1;
@@ -260,7 +262,7 @@ __tostring(lua_State *L) {
 		int i;
 
 		// decimal, 10
-		int64_t dec = toluafix_to_int64(L, 1);
+		int64_t dec = toluafix_to_int64(L, 1, 0);
 
 		luaL_Buffer b;
 		luaL_buffinit(L, &b);
@@ -286,7 +288,7 @@ __tostring(lua_State *L) {
 	}
 
 	case 2: {
-		int64_t n = toluafix_to_int64(L, 1);
+		int64_t n = toluafix_to_int64(L, 1, 0);
 		int base = (int)luaL_checkinteger(L, 2);
 
 		char buffer[64];
@@ -385,7 +387,7 @@ luaopen_int64(lua_State *L) {
 	int top = lua_gettop(L);
 
 	__make_mt(L);
-	s_tolua_int64_ref_mt = luaL_ref(L, LUA_REGISTRYINDEX);
+	s_toluafix_int64_mt = luaL_ref(L, LUA_REGISTRYINDEX);
 
 	luaL_register(L, "int64", lib_);
 

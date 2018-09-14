@@ -15,7 +15,6 @@ typedef int LUA_STRING;
     
 #define TOLUA_REFID_PTR_MAPPING "toluafix_refid_ptr_mapping"
 #define TOLUA_REFID_TYPE_MAPPING "toluafix_refid_type_mapping"
-#define TOLUA_REFID_FUNCTION_MAPPING "toluafix_refid_function_mapping"
     
 TOLUA_API void toluafix_open(lua_State* L);
 TOLUA_API int toluafix_pushusertype_ccobject(lua_State* L,

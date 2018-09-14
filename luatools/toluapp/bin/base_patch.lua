@@ -1,9 +1,31 @@
 -- usage: (use instead of ant)
--- tolua++ "-L" "basic.lua" "-o" "out/AABB.cpp" "AABB.pkg"
+-- tolua++ "-L" "basic_patch.lua" "-o" "out/AABB.cpp" "AABB.pkg"
 
 _is_functions = _is_functions or {}
 _to_functions = _to_functions or {}
 _push_functions = _push_functions or {}
+
+_basic = _basic or {}
+_basic['int8_t'] = 'number'
+_basic['uint8_t'] = 'number'
+_basic['int16_t'] = 'number'
+_basic['uint16_t'] = 'number'
+_basic['int32_t'] = 'number'
+_basic['uint32_t'] = 'number'
+
+-- check version for 5.1
+assert(string.find(_VERSION, "5%.1"))
+
+_basic_ctype = _basic_ctype or {}
+_basic_ctype['integer'] = 'lua_Integer'
+
+-- register int64 type
+_to_functions["int64_t"] = "toluafix_to_int64"
+_is_functions["int64_t"] = "toluafix_is_int64"
+_push_functions["int64_t"] = "toluafix_push_int64"
+_to_functions["uint64_t"] = "toluafix_to_int64"
+_is_functions["uint64_t"] = "toluafix_is_int64"
+_push_functions["uint64_t"] = "toluafix_push_int64"
 
 local CCObjectTypes = {
     "CCObject",
@@ -83,10 +105,15 @@ function post_output_hook(package)
  #include "lua/tolua++.h"
 ]])
 
-      --replace([[*((LUA_FUNCTION*)]], [[(]])
+      --replace([[tolua_usertype(tolua_S,"uint64_t");]], [[]])
+      --replace([[tolua_usertype(tolua_S,"int64_t");]], [[]])
+      --replace([[*((uint64_t*)  ]], [[(]])
+      --replace([[*((int64_t*)  ]], [[(]])
+      replace([[toluafix_push_int64(tolua_S,(void*)]],
+        [[toluafix_push_int64(tolua_S,]])
 
       --replace([[tolua_usertype(tolua_S,"LUA_FUNCTION");]], [[]])
-
+      --replace([[*((LUA_FUNCTION*)]], [[(]])
       replace([[toluafix_pushusertype_ccobject(tolua_S,(void*)tolua_ret]],
         [[int nID = (tolua_ret) ? (int)tolua_ret->m_uID : -1;
     int* pLuaID = (tolua_ret) ? &tolua_ret->m_nLuaID : NULL;

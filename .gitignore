@@ -6,3 +6,11 @@ luatools/bin/Release/
 luatools/toluapp/build/\.vs/
 
 luatools/toluapp/build/Win32/
+
+luatools/toluapp/bin/out/
+
+luatools/toluapp/lib/Debug/
+
+luatools/toluapp/lib/
+
+luatools/\.vscode/
