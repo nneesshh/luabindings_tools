@@ -14,3 +14,5 @@ luatools/toluapp/lib/Debug/
 luatools/toluapp/lib/
 
 luatools/\.vscode/
+
+luatools/toluapp/bin/godot_api\.json

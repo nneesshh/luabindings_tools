@@ -14,7 +14,7 @@ _basic['int32_t'] = 'number'
 _basic['uint32_t'] = 'number'
 
 -- check version for 5.1
-assert(string.find(_VERSION, "5%.1"))
+assert(string.find(_VERSION, "5%.1", 1, true))
 
 _basic_ctype = _basic_ctype or {}
 _basic_ctype['integer'] = 'lua_Integer'
