@@ -14,7 +14,7 @@ _basic['int32_t'] = 'number'
 _basic['uint32_t'] = 'number'
 
 -- check version for 5.1
-assert(string.find(_VERSION, "5%.1", 1, true))
+assert(string.find(_VERSION, "5%.1", 1))
 
 _basic_ctype = _basic_ctype or {}
 _basic_ctype['integer'] = 'lua_Integer'
@@ -105,10 +105,10 @@ function post_output_hook(package)
  #include "lua/tolua++.h"
 ]])
 
-      --replace([[tolua_usertype(tolua_S,"uint64_t");]], [[]])
-      --replace([[tolua_usertype(tolua_S,"int64_t");]], [[]])
-      --replace([[*((uint64_t*)  ]], [[(]])
-      --replace([[*((int64_t*)  ]], [[(]])
+      replace([[tolua_usertype(tolua_S,"uint64_t");]], [[]])
+      replace([[tolua_usertype(tolua_S,"int64_t");]], [[]])
+      replace([[*((uint64_t*)  ]], [[(]])
+      replace([[*((int64_t*)  ]], [[(]])
       replace([[toluafix_push_int64(tolua_S,(void*)]],
         [[toluafix_push_int64(tolua_S,]])
 

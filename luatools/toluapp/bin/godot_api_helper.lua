@@ -10,6 +10,7 @@ local _M = {
 }
 
 local sb = require('stringbuffer')
+local tbl_unpack = unpack or table.unpack
 
 function table_size(t)
     local count = 0
@@ -139,9 +140,11 @@ function _M.generate_class_header(icalls, used_classes, classes, c)
     source:appendline("")
 
     -- # ___get_class_name
-    source:appendline("\tstatic inline char *___get_class_name() { return (char *) \"" .. _M.strip_name(c["name"]) .. "\"; }")
+    -- source:appendline("\tstatic inline char *___get_class_name() { return (char *) \"" .. _M.strip_name(c["name"]) .. "\"; }")
+    source:appendline("\tstatic inline char *___get_class_name();")
 
-    source:appendline("\tstatic inline Object *___get_from_variant(Variant a) { return (Object *) a; }")
+    -- source:appendline("\tstatic inline Object *___get_from_variant(Variant a) { return (Object *) a; }")
+    source:appendline("\tstatic inline Object *___get_from_variant(Variant a);")
 
     local enum_values = sb.new()
 
@@ -271,13 +274,13 @@ function _M.generate_class_header(icalls, used_classes, classes, c)
             vararg_templates:append("\ttemplate <class... Args> " .. method_signature:tostr() .. "Args... args){\n\t\treturn " .. method_name .. "(" .. method_arguments:tostr() .. "Array::make(args...));\n\t}\n")
             method_signature:append("const Array& __var_args = Array()")
         else
-            local args = {}
-            for _,arg in ipairs(method["arguments"]) do
-                table.insert(args, _M.get_icall_type_name(arg["type"]))
+            local arguments = {}
+            for _,arginfo in ipairs(method["arguments"]) do
+                table.insert(arguments, _M.get_icall_type_name(arginfo["type"]))
             end
             
             local icall_ret_type = _M.get_icall_type_name(method["return_type"])
-            local icall_sig = table.pack(icall_ret_type, table.unpack(args))
+            local icall_sig = { icall_ret_type, tbl_unpack(arguments) }
             table.insert(icalls, icall_sig)
         end
             
@@ -421,8 +424,8 @@ end
 
 
 function _M.strip_name(name)
-    if name[1] == '_' then
-        return string.substring(name, 2)
+    if string.byte(name, 1) == string.byte('_') then
+        return string.sub(name, 2)
     end
     return name
 end

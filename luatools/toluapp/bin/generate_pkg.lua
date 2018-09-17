@@ -34,6 +34,9 @@ local function __generate_pkg(json_path, pkg_path_base)
     local classes = __load_json(json_path)
     
     local icalls = {}
+
+    local tolua_bat_path = "./generate_bindings.bat"
+    local tolua_bat_file, err = io.open(tolua_bat_path, "w")
     
     for i, c in ipairs(classes) do
         -- # print c['name']
@@ -41,7 +44,8 @@ local function __generate_pkg(json_path, pkg_path_base)
         
         local header = helper.generate_class_header(icalls, used_classes, classes, c)
 		
-        local pkg_path = pkg_path_base .. "/" .. helper.strip_name(c["name"]) .. ".pkg"
+        local pkg_filename = helper.strip_name(c["name"])
+        local pkg_path = pkg_path_base .. "/" .. pkg_filename .. ".pkg"
         local pkg_file, err = io.open(pkg_path, "w")
         
         print(i, "generating: " .. pkg_path)
@@ -50,13 +54,17 @@ local function __generate_pkg(json_path, pkg_path_base)
         else
             pkg_file:write(header)
             pkg_file:close()
+
+            tolua_bat_file:write("tolua++ -L base_patch.lua -H \"out/" .. pkg_filename .. ".h\" -o \"out/" .. pkg_filename .. ".cpp\" " .. pkg_path .."\n")
         end
 	end
     
     --[[
     icall_header_file = open("src/__icalls.hpp", "w+")
     icall_header_file.write(generate_icall_header(icalls))
-	]]
+    ]]
+    
+    tolua_bat_file:close()
 end
 
 -- generate

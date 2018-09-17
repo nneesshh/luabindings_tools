@@ -1,3 +1,4 @@
+luatools/\.vscode/
 
 luatools/bin/Debug/
 
@@ -9,10 +10,6 @@ luatools/toluapp/build/Win32/
 
 luatools/toluapp/bin/out/
 
-luatools/toluapp/lib/Debug/
-
 luatools/toluapp/lib/
 
-luatools/\.vscode/
-
-luatools/toluapp/bin/godot_api\.json
+luatools/toluapp/bin/pkg/
