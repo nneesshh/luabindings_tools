@@ -1,0 +1,53 @@
+//#ifndef GODOT_CPP_COLORPICKER_HPP
+//#define GODOT_CPP_COLORPICKER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+class InputEvent;
+
+class BoxContainer;
+class ColorPicker : public BoxContainer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_pick_color(const Color color);
+	Color get_pick_color() const;
+	void set_raw_mode(const bool mode);
+	bool is_raw_mode() const;
+	void set_deferred_mode(const bool mode);
+	bool is_deferred_mode() const;
+	void set_edit_alpha(const bool show);
+	bool is_editing_alpha() const;
+	void add_preset(const Color color);
+	void _value_changed(const double arg0);
+	void _html_entered(const String arg0);
+	void _text_type_toggled();
+	void _add_preset_pressed();
+	void _screen_pick_pressed();
+	void _sample_draw();
+	void _update_presets();
+	void _hsv_draw(const int64_t arg0, const Object *arg1);
+	void _uv_input(const godot__ref_InputEvent_ arg0);
+	void _w_input(const godot__ref_InputEvent_ arg0);
+	void _preset_input(const godot__ref_InputEvent_ arg0);
+	void _screen_input(const godot__ref_InputEvent_ arg0);
+	void _focus_enter();
+	void _focus_exit();
+	void _html_focus_exit();
+};
+
+}
+
+//#endif

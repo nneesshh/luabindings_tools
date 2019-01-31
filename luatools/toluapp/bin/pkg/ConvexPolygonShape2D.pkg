@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_CONVEXPOLYGONSHAPE2D_HPP
+//#define GODOT_CPP_CONVEXPOLYGONSHAPE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Shape2D;
+class ConvexPolygonShape2D : public Shape2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_point_cloud(const PoolVector2Array point_cloud);
+	void set_points(const PoolVector2Array points);
+	PoolVector2Array get_points() const;
+};
+
+}
+
+//#endif

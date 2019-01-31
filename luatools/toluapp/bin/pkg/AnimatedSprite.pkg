@@ -1,0 +1,50 @@
+//#ifndef GODOT_CPP_ANIMATEDSPRITE_HPP
+//#define GODOT_CPP_ANIMATEDSPRITE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class SpriteFrames;
+
+class Node2D;
+class AnimatedSprite : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_sprite_frames(const godot__ref_SpriteFrames_ sprite_frames);
+	godot__ref_SpriteFrames_ get_sprite_frames() const;
+	void set_animation(const String animation);
+	String get_animation() const;
+	void _set_playing(const bool playing);
+	bool _is_playing() const;
+	void play(const String anim = "");
+	void stop();
+	bool is_playing() const;
+	void set_centered(const bool centered);
+	bool is_centered() const;
+	void set_offset(const Vector2 offset);
+	Vector2 get_offset() const;
+	void set_flip_h(const bool flip_h);
+	bool is_flipped_h() const;
+	void set_flip_v(const bool flip_v);
+	bool is_flipped_v() const;
+	void set_frame(const int64_t frame);
+	int64_t get_frame() const;
+	void set_speed_scale(const double speed_scale);
+	double get_speed_scale() const;
+	void _res_changed();
+};
+
+}
+
+//#endif

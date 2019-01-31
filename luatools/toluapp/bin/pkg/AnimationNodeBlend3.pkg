@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_ANIMATIONNODEBLEND3_HPP
+//#define GODOT_CPP_ANIMATIONNODEBLEND3_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AnimationNode;
+class AnimationNodeBlend3 : public AnimationNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_use_sync(const bool enable);
+	bool is_using_sync() const;
+};
+
+}
+
+//#endif

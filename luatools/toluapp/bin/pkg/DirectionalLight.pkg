@@ -1,0 +1,42 @@
+//#ifndef GODOT_CPP_DIRECTIONALLIGHT_HPP
+//#define GODOT_CPP_DIRECTIONALLIGHT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Light;
+class DirectionalLight : public Light {
+public:
+
+
+	// enums
+	enum ShadowMode {
+		SHADOW_PARALLEL_4_SPLITS = 2,
+		SHADOW_PARALLEL_2_SPLITS = 1,
+		SHADOW_ORTHOGONAL = 0,
+	};
+	enum ShadowDepthRange {
+		SHADOW_DEPTH_RANGE_OPTIMIZED = 1,
+		SHADOW_DEPTH_RANGE_STABLE = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_shadow_mode(const int64_t mode);
+	DirectionalLight::ShadowMode get_shadow_mode() const;
+	void set_shadow_depth_range(const int64_t mode);
+	DirectionalLight::ShadowDepthRange get_shadow_depth_range() const;
+	void set_blend_splits(const bool enabled);
+	bool is_blend_splits_enabled() const;
+};
+
+}
+
+//#endif

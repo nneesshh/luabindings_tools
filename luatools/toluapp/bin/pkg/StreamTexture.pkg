@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_STREAMTEXTURE_HPP
+//#define GODOT_CPP_STREAMTEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Texture;
+class StreamTexture : public Texture {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Error load(const String path);
+	String get_load_path() const;
+};
+
+}
+
+//#endif

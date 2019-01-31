@@ -1,0 +1,54 @@
+//#ifndef GODOT_CPP_MULTIMESH_HPP
+//#define GODOT_CPP_MULTIMESH_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Mesh;
+
+class Resource;
+class MultiMesh : public Resource {
+public:
+
+
+	// enums
+	enum TransformFormat {
+		TRANSFORM_3D = 1,
+		TRANSFORM_2D = 0,
+	};
+	enum ColorFormat {
+		COLOR_FLOAT = 2,
+		COLOR_8BIT = 1,
+		COLOR_NONE = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_mesh(const godot__ref_Mesh_ mesh);
+	godot__ref_Mesh_ get_mesh() const;
+	void set_color_format(const int64_t format);
+	MultiMesh::ColorFormat get_color_format() const;
+	void set_transform_format(const int64_t format);
+	MultiMesh::TransformFormat get_transform_format() const;
+	void set_instance_count(const int64_t count);
+	int64_t get_instance_count() const;
+	void set_instance_transform(const int64_t instance, const Transform transform);
+	Transform get_instance_transform(const int64_t instance) const;
+	void set_instance_color(const int64_t instance, const Color color);
+	Color get_instance_color(const int64_t instance) const;
+	AABB get_aabb() const;
+	void _set_transform_array(const PoolVector3Array arg0);
+	PoolVector3Array _get_transform_array() const;
+	void _set_color_array(const PoolColorArray arg0);
+	PoolColorArray _get_color_array() const;
+};
+
+}
+
+//#endif

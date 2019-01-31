@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_PROGRESSBAR_HPP
+//#define GODOT_CPP_PROGRESSBAR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Range;
+class ProgressBar : public Range {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_percent_visible(const bool visible);
+	bool is_percent_visible() const;
+};
+
+}
+
+//#endif

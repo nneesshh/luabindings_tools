@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP__THREAD_HPP
+//#define GODOT_CPP__THREAD_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class Reference;
+class _Thread : public Reference {
+public:
+
+
+	// enums
+	enum Priority {
+		PRIORITY_HIGH = 2,
+		PRIORITY_NORMAL = 1,
+		PRIORITY_LOW = 0,
+	};
+
+	// constants
+
+	// methods
+	Error start(const Object *instance, const String method, const Variant userdata = Variant(), const int64_t priority = 1);
+	String get_id() const;
+	bool is_active() const;
+	Variant wait_to_finish();
+};
+
+}
+
+//#endif

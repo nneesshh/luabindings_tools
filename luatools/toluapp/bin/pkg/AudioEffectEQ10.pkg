@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTEQ10_HPP
+//#define GODOT_CPP_AUDIOEFFECTEQ10_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffectEQ;
+class AudioEffectEQ10 : public AudioEffectEQ {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

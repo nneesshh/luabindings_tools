@@ -1,0 +1,51 @@
+//#ifndef GODOT_CPP_VEHICLEWHEEL_HPP
+//#define GODOT_CPP_VEHICLEWHEEL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class VehicleWheel : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_radius(const double length);
+	double get_radius() const;
+	void set_suspension_rest_length(const double length);
+	double get_suspension_rest_length() const;
+	void set_suspension_travel(const double length);
+	double get_suspension_travel() const;
+	void set_suspension_stiffness(const double length);
+	double get_suspension_stiffness() const;
+	void set_suspension_max_force(const double length);
+	double get_suspension_max_force() const;
+	void set_damping_compression(const double length);
+	double get_damping_compression() const;
+	void set_damping_relaxation(const double length);
+	double get_damping_relaxation() const;
+	void set_use_as_traction(const bool enable);
+	bool is_used_as_traction() const;
+	void set_use_as_steering(const bool enable);
+	bool is_used_as_steering() const;
+	void set_friction_slip(const double length);
+	double get_friction_slip() const;
+	bool is_in_contact() const;
+	void set_roll_influence(const double roll_influence);
+	double get_roll_influence() const;
+	double get_skidinfo() const;
+};
+
+}
+
+//#endif

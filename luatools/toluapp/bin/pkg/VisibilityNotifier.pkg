@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_VISIBILITYNOTIFIER_HPP
+//#define GODOT_CPP_VISIBILITYNOTIFIER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class VisibilityNotifier : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_aabb(const AABB rect);
+	AABB get_aabb() const;
+	bool is_on_screen() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_SLIDER_HPP
+//#define GODOT_CPP_SLIDER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Range;
+class Slider : public Range {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void set_ticks(const int64_t count);
+	int64_t get_ticks() const;
+	bool get_ticks_on_borders() const;
+	void set_ticks_on_borders(const bool ticks_on_border);
+	void set_editable(const bool editable);
+	bool is_editable() const;
+	void set_scrollable(const bool scrollable);
+	bool is_scrollable() const;
+};
+
+}
+
+//#endif

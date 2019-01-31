@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_SPRINGARM_HPP
+//#define GODOT_CPP_SPRINGARM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Shape;
+
+class Spatial;
+class SpringArm : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	double get_hit_length();
+	void set_length(const double length);
+	double get_length() const;
+	void set_shape(const godot__ref_Shape_ shape);
+	godot__ref_Shape_ get_shape() const;
+	void add_excluded_object(const RID RID);
+	bool remove_excluded_object(const RID RID);
+	void clear_excluded_objects();
+	void set_collision_mask(const int64_t mask);
+	int64_t get_collision_mask();
+	void set_margin(const double margin);
+	double get_margin();
+};
+
+}
+
+//#endif

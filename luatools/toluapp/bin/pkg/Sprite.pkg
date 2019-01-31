@@ -1,0 +1,54 @@
+//#ifndef GODOT_CPP_SPRITE_HPP
+//#define GODOT_CPP_SPRITE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Node2D;
+class Sprite : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_normal_map(const godot__ref_Texture_ normal_map);
+	godot__ref_Texture_ get_normal_map() const;
+	void set_centered(const bool centered);
+	bool is_centered() const;
+	void set_offset(const Vector2 offset);
+	Vector2 get_offset() const;
+	void set_flip_h(const bool flip_h);
+	bool is_flipped_h() const;
+	void set_flip_v(const bool flip_v);
+	bool is_flipped_v() const;
+	void set_region(const bool enabled);
+	bool is_region() const;
+	bool is_pixel_opaque(const Vector2 pos) const;
+	void set_region_rect(const Rect2 rect);
+	Rect2 get_region_rect() const;
+	void set_region_filter_clip(const bool enabled);
+	bool is_region_filter_clip_enabled() const;
+	void set_frame(const int64_t frame);
+	int64_t get_frame() const;
+	void set_vframes(const int64_t vframes);
+	int64_t get_vframes() const;
+	void set_hframes(const int64_t hframes);
+	int64_t get_hframes() const;
+	Rect2 get_rect() const;
+};
+
+}
+
+//#endif

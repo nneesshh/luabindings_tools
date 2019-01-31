@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_CONFIRMATIONDIALOG_HPP
+//#define GODOT_CPP_CONFIRMATIONDIALOG_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Button;
+
+class AcceptDialog;
+class ConfirmationDialog : public AcceptDialog {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Button *get_cancel();
+};
+
+}
+
+//#endif

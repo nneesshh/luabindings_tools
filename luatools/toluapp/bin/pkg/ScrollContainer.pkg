@@ -1,0 +1,45 @@
+//#ifndef GODOT_CPP_SCROLLCONTAINER_HPP
+//#define GODOT_CPP_SCROLLCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+class HScrollBar;
+class VScrollBar;
+
+class Container;
+class ScrollContainer : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _scroll_moved(const double arg0);
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void set_enable_h_scroll(const bool enable);
+	bool is_h_scroll_enabled() const;
+	void set_enable_v_scroll(const bool enable);
+	bool is_v_scroll_enabled() const;
+	void _update_scrollbar_position();
+	void set_h_scroll(const int64_t value);
+	int64_t get_h_scroll() const;
+	void set_v_scroll(const int64_t value);
+	int64_t get_v_scroll() const;
+	void set_deadzone(const int64_t deadzone);
+	int64_t get_deadzone() const;
+	HScrollBar *get_h_scrollbar();
+	VScrollBar *get_v_scrollbar();
+};
+
+}
+
+//#endif

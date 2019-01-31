@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_NAVIGATIONPOLYGONINSTANCE_HPP
+//#define GODOT_CPP_NAVIGATIONPOLYGONINSTANCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class NavigationPolygon;
+
+class Node2D;
+class NavigationPolygonInstance : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_navigation_polygon(const godot__ref_NavigationPolygon_ navpoly);
+	godot__ref_NavigationPolygon_ get_navigation_polygon() const;
+	void set_enabled(const bool enabled);
+	bool is_enabled() const;
+	void _navpoly_changed();
+};
+
+}
+
+//#endif

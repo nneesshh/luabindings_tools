@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_INPUTEVENTWITHMODIFIERS_HPP
+//#define GODOT_CPP_INPUTEVENTWITHMODIFIERS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class InputEvent;
+class InputEventWithModifiers : public InputEvent {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_alt(const bool enable);
+	bool get_alt() const;
+	void set_shift(const bool enable);
+	bool get_shift() const;
+	void set_control(const bool enable);
+	bool get_control() const;
+	void set_metakey(const bool enable);
+	bool get_metakey() const;
+	void set_command(const bool enable);
+	bool get_command() const;
+};
+
+}
+
+//#endif

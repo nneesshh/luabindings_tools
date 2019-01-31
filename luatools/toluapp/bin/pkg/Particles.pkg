@@ -1,0 +1,69 @@
+//#ifndef GODOT_CPP_PARTICLES_HPP
+//#define GODOT_CPP_PARTICLES_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+class Mesh;
+
+class GeometryInstance;
+class Particles : public GeometryInstance {
+public:
+
+
+	// enums
+	enum DrawOrder {
+		DRAW_ORDER_INDEX = 0,
+		DRAW_ORDER_LIFETIME = 1,
+		DRAW_ORDER_VIEW_DEPTH = 2,
+	};
+
+	// constants
+	const static int MAX_DRAW_PASSES = 4;
+
+	// methods
+	void set_emitting(const bool emitting);
+	void set_amount(const int64_t amount);
+	void set_lifetime(const double secs);
+	void set_one_shot(const bool enable);
+	void set_pre_process_time(const double secs);
+	void set_explosiveness_ratio(const double ratio);
+	void set_randomness_ratio(const double ratio);
+	void set_visibility_aabb(const AABB aabb);
+	void set_use_local_coordinates(const bool enable);
+	void set_fixed_fps(const int64_t fps);
+	void set_fractional_delta(const bool enable);
+	void set_process_material(const godot__ref_Material_ material);
+	void set_speed_scale(const double scale);
+	bool is_emitting() const;
+	int64_t get_amount() const;
+	double get_lifetime() const;
+	bool get_one_shot() const;
+	double get_pre_process_time() const;
+	double get_explosiveness_ratio() const;
+	double get_randomness_ratio() const;
+	AABB get_visibility_aabb() const;
+	bool get_use_local_coordinates() const;
+	int64_t get_fixed_fps() const;
+	bool get_fractional_delta() const;
+	godot__ref_Material_ get_process_material() const;
+	double get_speed_scale() const;
+	void set_draw_order(const int64_t order);
+	Particles::DrawOrder get_draw_order() const;
+	void set_draw_passes(const int64_t passes);
+	void set_draw_pass_mesh(const int64_t pass, const godot__ref_Mesh_ mesh);
+	int64_t get_draw_passes() const;
+	godot__ref_Mesh_ get_draw_pass_mesh(const int64_t pass) const;
+	void restart();
+	AABB capture_aabb() const;
+};
+
+}
+
+//#endif

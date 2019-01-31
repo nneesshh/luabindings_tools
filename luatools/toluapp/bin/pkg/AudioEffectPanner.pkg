@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTPANNER_HPP
+//#define GODOT_CPP_AUDIOEFFECTPANNER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectPanner : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_pan(const double cpanume);
+	double get_pan() const;
+};
+
+}
+
+//#endif

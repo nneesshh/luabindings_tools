@@ -1,0 +1,54 @@
+//#ifndef GODOT_CPP_VISUALSHADER_HPP
+//#define GODOT_CPP_VISUALSHADER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class VisualShaderNode;
+
+class Shader;
+class VisualShader : public Shader {
+public:
+
+
+	// enums
+	enum Type {
+		TYPE_VERTEX = 0,
+		TYPE_MAX = 3,
+		TYPE_FRAGMENT = 1,
+		TYPE_LIGHT = 2,
+	};
+
+	// constants
+	const static int NODE_ID_INVALID = -1;
+	const static int NODE_ID_OUTPUT = 0;
+
+	// methods
+	void set_mode(const int64_t mode);
+	void add_node(const int64_t type, const godot__ref_VisualShaderNode_ node, const Vector2 position, const int64_t id);
+	void set_node_position(const int64_t type, const int64_t id, const Vector2 position);
+	godot__ref_VisualShaderNode_ get_node(const int64_t type, const int64_t id) const;
+	Vector2 get_node_position(const int64_t type, const int64_t id) const;
+	PoolIntArray get_node_list(const int64_t type) const;
+	int64_t get_valid_node_id(const int64_t type) const;
+	void remove_node(const int64_t type, const int64_t id);
+	bool is_node_connection(const int64_t type, const int64_t from_node, const int64_t from_port, const int64_t to_node, const int64_t to_port) const;
+	bool can_connect_nodes(const int64_t type, const int64_t from_node, const int64_t from_port, const int64_t to_node, const int64_t to_port) const;
+	Error connect_nodes(const int64_t type, const int64_t from_node, const int64_t from_port, const int64_t to_node, const int64_t to_port);
+	void disconnect_nodes(const int64_t type, const int64_t from_node, const int64_t from_port, const int64_t to_node, const int64_t to_port);
+	Array get_node_connections(const int64_t type) const;
+	void set_graph_offset(const Vector2 offset);
+	Vector2 get_graph_offset() const;
+	void _queue_update();
+	void _update_shader() const;
+	void _input_type_changed(const int64_t arg0, const int64_t arg1);
+};
+
+}
+
+//#endif

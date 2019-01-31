@@ -1,0 +1,55 @@
+//#ifndef GODOT_CPP_TOUCHSCREENBUTTON_HPP
+//#define GODOT_CPP_TOUCHSCREENBUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+class BitMap;
+class Shape2D;
+class InputEvent;
+
+class Node2D;
+class TouchScreenButton : public Node2D {
+public:
+
+
+	// enums
+	enum VisibilityMode {
+		VISIBILITY_TOUCHSCREEN_ONLY = 1,
+		VISIBILITY_ALWAYS = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_texture_pressed(const godot__ref_Texture_ texture_pressed);
+	godot__ref_Texture_ get_texture_pressed() const;
+	void set_bitmask(const godot__ref_BitMap_ bitmask);
+	godot__ref_BitMap_ get_bitmask() const;
+	void set_shape(const godot__ref_Shape2D_ shape);
+	godot__ref_Shape2D_ get_shape() const;
+	void set_shape_centered(const bool _bool);
+	bool is_shape_centered() const;
+	void set_shape_visible(const bool _bool);
+	bool is_shape_visible() const;
+	void set_action(const String action);
+	String get_action() const;
+	void set_visibility_mode(const int64_t mode);
+	TouchScreenButton::VisibilityMode get_visibility_mode() const;
+	void set_passby_press(const bool enabled);
+	bool is_passby_press_enabled() const;
+	bool is_pressed() const;
+	void _input(const godot__ref_InputEvent_ arg0);
+};
+
+}
+
+//#endif

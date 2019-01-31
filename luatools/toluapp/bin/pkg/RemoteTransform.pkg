@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_REMOTETRANSFORM_HPP
+//#define GODOT_CPP_REMOTETRANSFORM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class RemoteTransform : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_remote_node(const NodePath path);
+	NodePath get_remote_node() const;
+	void set_use_global_coordinates(const bool use_global_coordinates);
+	bool get_use_global_coordinates() const;
+	void set_update_position(const bool update_remote_position);
+	bool get_update_position() const;
+	void set_update_rotation(const bool update_remote_rotation);
+	bool get_update_rotation() const;
+	void set_update_scale(const bool update_remote_scale);
+	bool get_update_scale() const;
+};
+
+}
+
+//#endif

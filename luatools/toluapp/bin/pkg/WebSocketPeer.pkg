@@ -1,0 +1,38 @@
+//#ifndef GODOT_CPP_WEBSOCKETPEER_HPP
+//#define GODOT_CPP_WEBSOCKETPEER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class PacketPeer;
+class WebSocketPeer : public PacketPeer {
+public:
+
+
+	// enums
+	enum WriteMode {
+		WRITE_MODE_BINARY = 1,
+		WRITE_MODE_TEXT = 0,
+	};
+
+	// constants
+
+	// methods
+	WebSocketPeer::WriteMode get_write_mode() const;
+	void set_write_mode(const int64_t mode);
+	bool is_connected_to_host() const;
+	bool was_string_packet() const;
+	void close();
+	String get_connected_host() const;
+	int64_t get_connected_port() const;
+};
+
+}
+
+//#endif

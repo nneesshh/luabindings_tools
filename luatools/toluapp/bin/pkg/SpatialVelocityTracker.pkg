@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_SPATIALVELOCITYTRACKER_HPP
+//#define GODOT_CPP_SPATIALVELOCITYTRACKER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class SpatialVelocityTracker : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_track_physics_step(const bool enable);
+	bool is_tracking_physics_step() const;
+	void update_position(const Vector3 position);
+	Vector3 get_tracked_linear_velocity() const;
+	void reset(const Vector3 position);
+};
+
+}
+
+//#endif

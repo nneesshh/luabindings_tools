@@ -1,0 +1,47 @@
+//#ifndef GODOT_CPP_EDITORPROPERTY_HPP
+//#define GODOT_CPP_EDITORPROPERTY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+class InputEvent;
+
+class Container;
+class EditorProperty : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void update_property();
+	void set_label(const String text);
+	String get_label() const;
+	void set_read_only(const bool read_only);
+	bool is_read_only() const;
+	void set_checkable(const bool checkable);
+	bool is_checkable() const;
+	void set_checked(const bool checked);
+	bool is_checked() const;
+	void set_draw_red(const bool draw_red);
+	bool is_draw_red() const;
+	void set_keying(const bool keying);
+	bool is_keying() const;
+	String get_edited_property();
+	Object *get_edited_object();
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void _focusable_focused(const int64_t arg0);
+	String get_tooltip_text() const;
+};
+
+}
+
+//#endif

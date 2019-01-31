@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTMATHCONSTANT_HPP
+//#define GODOT_CPP_VISUALSCRIPTMATHCONSTANT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptMathConstant : public VisualScriptNode {
+public:
+
+
+	// enums
+	enum MathConstant {
+		MATH_CONSTANT_NAN = 7,
+		MATH_CONSTANT_HALF_PI = 2,
+		MATH_CONSTANT_TAU = 3,
+		MATH_CONSTANT_ONE = 0,
+		MATH_CONSTANT_E = 4,
+		MATH_CONSTANT_MAX = 8,
+		MATH_CONSTANT_INF = 6,
+		MATH_CONSTANT_PI = 1,
+		MATH_CONSTANT_SQRT2 = 5,
+	};
+
+	// constants
+
+	// methods
+	void set_math_constant(const int64_t which);
+	VisualScriptMathConstant::MathConstant get_math_constant();
+};
+
+}
+
+//#endif

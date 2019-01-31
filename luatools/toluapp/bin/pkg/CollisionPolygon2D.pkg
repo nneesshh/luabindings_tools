@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_COLLISIONPOLYGON2D_HPP
+//#define GODOT_CPP_COLLISIONPOLYGON2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Node2D;
+class CollisionPolygon2D : public Node2D {
+public:
+
+
+	// enums
+	enum BuildMode {
+		BUILD_SOLIDS = 0,
+		BUILD_SEGMENTS = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_polygon(const PoolVector2Array polygon);
+	PoolVector2Array get_polygon() const;
+	void set_build_mode(const int64_t build_mode);
+	CollisionPolygon2D::BuildMode get_build_mode() const;
+	void set_disabled(const bool disabled);
+	bool is_disabled() const;
+	void set_one_way_collision(const bool enabled);
+	bool is_one_way_collision_enabled() const;
+};
+
+}
+
+//#endif

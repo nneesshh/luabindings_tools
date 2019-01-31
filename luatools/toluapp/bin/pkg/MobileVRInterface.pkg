@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_MOBILEVRINTERFACE_HPP
+//#define GODOT_CPP_MOBILEVRINTERFACE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class ARVRInterface;
+class MobileVRInterface : public ARVRInterface {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_iod(const double iod);
+	double get_iod() const;
+	void set_display_width(const double display_width);
+	double get_display_width() const;
+	void set_display_to_lens(const double display_to_lens);
+	double get_display_to_lens() const;
+	void set_oversample(const double oversample);
+	double get_oversample() const;
+	void set_k1(const double k);
+	double get_k1() const;
+	void set_k2(const double k);
+	double get_k2() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTSTEREOENHANCE_HPP
+//#define GODOT_CPP_AUDIOEFFECTSTEREOENHANCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectStereoEnhance : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_pan_pullout(const double amount);
+	double get_pan_pullout() const;
+	void set_time_pullout(const double amount);
+	double get_time_pullout() const;
+	void set_surround(const double amount);
+	double get_surround() const;
+};
+
+}
+
+//#endif

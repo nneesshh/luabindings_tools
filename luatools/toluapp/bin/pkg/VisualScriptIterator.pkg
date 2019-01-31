@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTITERATOR_HPP
+//#define GODOT_CPP_VISUALSCRIPTITERATOR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptIterator : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

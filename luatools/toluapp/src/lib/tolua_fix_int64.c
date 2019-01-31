@@ -163,8 +163,8 @@ static int
 __int64_eq(lua_State *L) {
 	int64_t a = toluafix_to_int64(L, 1, 0);
 	int64_t b = toluafix_to_int64(L, 2, 0);
-// 	printf("%s %s\n", lua_typename(L, 1), lua_typename(L, 2));
-// 	printf("%lld %lld\n", a, b);
+	// 	printf("%s %s\n", lua_typename(L, 1), lua_typename(L, 2));
+	// 	printf("%lld %lld\n", a, b);
 	lua_pushboolean(L, a == b);
 	return 1;
 }

@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_INPUTEVENTSCREENDRAG_HPP
+//#define GODOT_CPP_INPUTEVENTSCREENDRAG_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class InputEvent;
+class InputEventScreenDrag : public InputEvent {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_index(const int64_t index);
+	int64_t get_index() const;
+	void set_position(const Vector2 position);
+	Vector2 get_position() const;
+	void set_relative(const Vector2 relative);
+	Vector2 get_relative() const;
+	void set_speed(const Vector2 speed);
+	Vector2 get_speed() const;
+};
+
+}
+
+//#endif

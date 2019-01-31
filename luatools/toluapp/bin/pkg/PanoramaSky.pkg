@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_PANORAMASKY_HPP
+//#define GODOT_CPP_PANORAMASKY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Sky;
+class PanoramaSky : public Sky {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_panorama(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_panorama() const;
+};
+
+}
+
+//#endif

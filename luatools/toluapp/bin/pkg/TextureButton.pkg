@@ -1,0 +1,54 @@
+//#ifndef GODOT_CPP_TEXTUREBUTTON_HPP
+//#define GODOT_CPP_TEXTUREBUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+class BitMap;
+
+class BaseButton;
+class TextureButton : public BaseButton {
+public:
+
+
+	// enums
+	enum StretchMode {
+		STRETCH_SCALE = 0,
+		STRETCH_KEEP_CENTERED = 3,
+		STRETCH_KEEP_ASPECT_COVERED = 6,
+		STRETCH_KEEP = 2,
+		STRETCH_KEEP_ASPECT_CENTERED = 5,
+		STRETCH_KEEP_ASPECT = 4,
+		STRETCH_TILE = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_normal_texture(const godot__ref_Texture_ texture);
+	void set_pressed_texture(const godot__ref_Texture_ texture);
+	void set_hover_texture(const godot__ref_Texture_ texture);
+	void set_disabled_texture(const godot__ref_Texture_ texture);
+	void set_focused_texture(const godot__ref_Texture_ texture);
+	void set_click_mask(const godot__ref_BitMap_ mask);
+	void set_expand(const bool p_expand);
+	void set_stretch_mode(const int64_t p_mode);
+	godot__ref_Texture_ get_normal_texture() const;
+	godot__ref_Texture_ get_pressed_texture() const;
+	godot__ref_Texture_ get_hover_texture() const;
+	godot__ref_Texture_ get_disabled_texture() const;
+	godot__ref_Texture_ get_focused_texture() const;
+	godot__ref_BitMap_ get_click_mask() const;
+	bool get_expand() const;
+	TextureButton::StretchMode get_stretch_mode() const;
+};
+
+}
+
+//#endif

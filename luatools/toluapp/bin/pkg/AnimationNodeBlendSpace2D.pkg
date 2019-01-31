@@ -1,0 +1,55 @@
+//#ifndef GODOT_CPP_ANIMATIONNODEBLENDSPACE2D_HPP
+//#define GODOT_CPP_ANIMATIONNODEBLENDSPACE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AnimationRootNode;
+
+class AnimationRootNode;
+class AnimationNodeBlendSpace2D : public AnimationRootNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void add_blend_point(const godot__ref_AnimationRootNode_ node, const Vector2 pos, const int64_t at_index = -1);
+	void set_blend_point_position(const int64_t point, const Vector2 pos);
+	Vector2 get_blend_point_position(const int64_t point) const;
+	void set_blend_point_node(const int64_t point, const godot__ref_AnimationRootNode_ node);
+	godot__ref_AnimationRootNode_ get_blend_point_node(const int64_t point) const;
+	void remove_blend_point(const int64_t point);
+	int64_t get_blend_point_count() const;
+	void add_triangle(const int64_t x, const int64_t y, const int64_t z, const int64_t at_index = -1);
+	int64_t get_triangle_point(const int64_t triangle, const int64_t point);
+	void remove_triangle(const int64_t triangle);
+	int64_t get_triangle_count() const;
+	void set_min_space(const Vector2 min_space);
+	Vector2 get_min_space() const;
+	void set_max_space(const Vector2 max_space);
+	Vector2 get_max_space() const;
+	void set_snap(const Vector2 snap);
+	Vector2 get_snap() const;
+	void set_x_label(const String text);
+	String get_x_label() const;
+	void set_y_label(const String text);
+	String get_y_label() const;
+	void _add_blend_point(const int64_t index, const godot__ref_AnimationRootNode_ node);
+	void _set_triangles(const PoolIntArray triangles);
+	PoolIntArray _get_triangles() const;
+	void set_auto_triangles(const bool enable);
+	bool get_auto_triangles() const;
+	void _tree_changed();
+};
+
+}
+
+//#endif

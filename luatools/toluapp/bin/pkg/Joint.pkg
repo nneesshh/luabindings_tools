@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_JOINT_HPP
+//#define GODOT_CPP_JOINT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class Joint : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_node_a(const NodePath node);
+	NodePath get_node_a() const;
+	void set_node_b(const NodePath node);
+	NodePath get_node_b() const;
+	void set_solver_priority(const int64_t priority);
+	int64_t get_solver_priority() const;
+	void set_exclude_nodes_from_collision(const bool enable);
+	bool get_exclude_nodes_from_collision() const;
+};
+
+}
+
+//#endif

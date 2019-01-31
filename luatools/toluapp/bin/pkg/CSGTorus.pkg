@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_CSGTORUS_HPP
+//#define GODOT_CPP_CSGTORUS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+
+class CSGPrimitive;
+class CSGTorus : public CSGPrimitive {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_inner_radius(const double radius);
+	double get_inner_radius() const;
+	void set_outer_radius(const double radius);
+	double get_outer_radius() const;
+	void set_sides(const int64_t sides);
+	int64_t get_sides() const;
+	void set_ring_sides(const int64_t sides);
+	int64_t get_ring_sides() const;
+	void set_material(const godot__ref_Material_ material);
+	godot__ref_Material_ get_material() const;
+	void set_smooth_faces(const bool smooth_faces);
+	bool get_smooth_faces() const;
+};
+
+}
+
+//#endif

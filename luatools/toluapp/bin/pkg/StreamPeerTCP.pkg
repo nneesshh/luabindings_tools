@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_STREAMPEERTCP_HPP
+//#define GODOT_CPP_STREAMPEERTCP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class StreamPeer;
+class StreamPeerTCP : public StreamPeer {
+public:
+
+
+	// enums
+	enum Status {
+		STATUS_NONE = 0,
+		STATUS_ERROR = 3,
+		STATUS_CONNECTING = 1,
+		STATUS_CONNECTED = 2,
+	};
+
+	// constants
+
+	// methods
+	Error connect_to_host(const String host, const int64_t port);
+	bool is_connected_to_host() const;
+	StreamPeerTCP::Status get_status() const;
+	String get_connected_host() const;
+	int64_t get_connected_port() const;
+	void disconnect_from_host();
+	void set_no_delay(const bool enabled);
+};
+
+}
+
+//#endif

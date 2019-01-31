@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_INTERPOLATEDCAMERA_HPP
+//#define GODOT_CPP_INTERPOLATEDCAMERA_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class Camera;
+class InterpolatedCamera : public Camera {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_target_path(const NodePath target_path);
+	NodePath get_target_path() const;
+	void set_target(const Object *target);
+	void set_speed(const double speed);
+	double get_speed() const;
+	void set_interpolation_enabled(const bool target_path);
+	bool is_interpolation_enabled() const;
+};
+
+}
+
+//#endif

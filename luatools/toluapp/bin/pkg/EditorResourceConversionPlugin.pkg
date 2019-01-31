@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_EDITORRESOURCECONVERSIONPLUGIN_HPP
+//#define GODOT_CPP_EDITORRESOURCECONVERSIONPLUGIN_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Reference;
+class EditorResourceConversionPlugin : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	godot__ref_Resource_ _convert(const godot__ref_Resource_ resource);
+	String _converts_to();
+};
+
+}
+
+//#endif

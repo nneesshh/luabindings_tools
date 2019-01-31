@@ -1,0 +1,34 @@
+//#ifndef GODOT_CPP_PACKETPEERSTREAM_HPP
+//#define GODOT_CPP_PACKETPEERSTREAM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class StreamPeer;
+
+class PacketPeer;
+class PacketPeerStream : public PacketPeer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_stream_peer(const godot__ref_StreamPeer_ peer);
+	godot__ref_StreamPeer_ get_stream_peer() const;
+	void set_input_buffer_max_size(const int64_t max_size_bytes);
+	void set_output_buffer_max_size(const int64_t max_size_bytes);
+	int64_t get_input_buffer_max_size() const;
+	int64_t get_output_buffer_max_size() const;
+};
+
+}
+
+//#endif

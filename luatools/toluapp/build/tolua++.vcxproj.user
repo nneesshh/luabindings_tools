@@ -4,11 +4,12 @@
     <LocalDebuggerCommand>$(TargetPath)</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>..\bin</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>-L base_patch.lua -H "out/LuaPressTest.h" -o "out/LuaPressTest.cpp" -n "press_test" "pkg/PressTest.pkg"</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>
+    </LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerWorkingDirectory>..\bin</LocalDebuggerWorkingDirectory>
-    <LocalDebuggerCommandArguments>-L base_patch.lua -H "out/LuaPressTest.h" -o "out/LuaPressTest.cpp" -n "press_test" "pkg/PressTest.pkg"</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-L "src/basic_patch.lua" -H "out/core/LuaVariant.hpp" -o "out/core/LuaVariant.cpp" "pkg/core/Variant.pkg"</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>

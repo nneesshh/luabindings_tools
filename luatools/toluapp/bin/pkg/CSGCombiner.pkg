@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_CSGCOMBINER_HPP
+//#define GODOT_CPP_CSGCOMBINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class CSGShape;
+class CSGCombiner : public CSGShape {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

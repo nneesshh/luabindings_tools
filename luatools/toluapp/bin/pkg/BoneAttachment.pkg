@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_BONEATTACHMENT_HPP
+//#define GODOT_CPP_BONEATTACHMENT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class BoneAttachment : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_bone_name(const String bone_name);
+	String get_bone_name() const;
+};
+
+}
+
+//#endif

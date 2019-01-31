@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_VISUALINSTANCE_HPP
+//#define GODOT_CPP_VISUALINSTANCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class VisualInstance : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	RID _get_visual_instance_rid() const;
+	void set_base(const RID base);
+	void set_layer_mask(const int64_t mask);
+	int64_t get_layer_mask() const;
+	void set_layer_mask_bit(const int64_t layer, const bool enabled);
+	bool get_layer_mask_bit(const int64_t layer) const;
+	AABB get_transformed_aabb() const;
+	AABB get_aabb() const;
+};
+
+}
+
+//#endif

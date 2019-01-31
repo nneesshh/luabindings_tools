@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTCOMPRESSOR_HPP
+//#define GODOT_CPP_AUDIOEFFECTCOMPRESSOR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectCompressor : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_threshold(const double threshold);
+	double get_threshold() const;
+	void set_ratio(const double ratio);
+	double get_ratio() const;
+	void set_gain(const double gain);
+	double get_gain() const;
+	void set_attack_us(const double attack_us);
+	double get_attack_us() const;
+	void set_release_ms(const double release_ms);
+	double get_release_ms() const;
+	void set_mix(const double mix);
+	double get_mix() const;
+	void set_sidechain(const String sidechain);
+	String get_sidechain() const;
+};
+
+}
+
+//#endif

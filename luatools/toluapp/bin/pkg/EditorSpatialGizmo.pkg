@@ -1,0 +1,46 @@
+//#ifndef GODOT_CPP_EDITORSPATIALGIZMO_HPP
+//#define GODOT_CPP_EDITORSPATIALGIZMO_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Camera;
+class Material;
+class ArrayMesh;
+class TriangleMesh;
+class Object;
+
+class SpatialGizmo;
+class EditorSpatialGizmo : public SpatialGizmo {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void redraw();
+	String get_handle_name(const int64_t index);
+	Variant get_handle_value(const int64_t index);
+	void set_handle(const int64_t index, const Camera *camera, const Vector2 point);
+	void commit_handle(const int64_t index, const Variant restore, const bool cancel);
+	void add_lines(const PoolVector3Array lines, const godot__ref_Material_ material, const bool billboard = false);
+	void add_mesh(const godot__ref_ArrayMesh_ mesh, const bool billboard = false, const RID skeleton = RID());
+	void add_collision_segments(const PoolVector3Array segments);
+	void add_collision_triangles(const godot__ref_TriangleMesh_ triangles);
+	void add_unscaled_billboard(const godot__ref_Material_ material, const double default_scale = 1);
+	void add_handles(const PoolVector3Array handles, const godot__ref_Material_ material, const bool billboard = false, const bool secondary = false);
+	void set_spatial_node(const Object *node);
+	void clear();
+	void set_hidden(const bool hidden);
+};
+
+}
+
+//#endif

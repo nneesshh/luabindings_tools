@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_PHYSICS2DSERVERSW_HPP
+//#define GODOT_CPP_PHYSICS2DSERVERSW_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Physics2DServer;
+class Physics2DServerSW : public Physics2DServer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

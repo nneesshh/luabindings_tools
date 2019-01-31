@@ -1,0 +1,95 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTBUILTINFUNC_HPP
+//#define GODOT_CPP_VISUALSCRIPTBUILTINFUNC_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptBuiltinFunc : public VisualScriptNode {
+public:
+
+
+	// enums
+	enum BuiltinFunc {
+		FUNC_MAX = 63,
+		MATH_COSH = 4,
+		MATH_LOG = 19,
+		MATH_CARTESIAN2POLAR = 41,
+		MATH_SIGN = 17,
+		BYTES_TO_VAR = 61,
+		MATH_COS = 1,
+		COLORN = 62,
+		TEXT_STR = 54,
+		MATH_WRAP = 42,
+		STR_TO_VAR = 59,
+		MATH_ISNAN = 21,
+		LOGIC_NEAREST_PO2 = 47,
+		VAR_TO_STR = 58,
+		TEXT_PRINTRAW = 57,
+		TEXT_PRINT = 55,
+		TEXT_PRINTERR = 56,
+		MATH_LERP = 26,
+		MATH_FMOD = 11,
+		VAR_TO_BYTES = 60,
+		MATH_ISINF = 22,
+		MATH_TAN = 2,
+		TEXT_CHAR = 53,
+		TYPE_EXISTS = 52,
+		MATH_WRAPF = 43,
+		MATH_DEG2RAD = 36,
+		TYPE_CONVERT = 50,
+		MATH_ACOS = 7,
+		MATH_RANDSEED = 35,
+		MATH_SQRT = 10,
+		MATH_ATAN2 = 9,
+		OBJ_WEAKREF = 48,
+		MATH_FLOOR = 13,
+		FUNC_FUNCREF = 49,
+		MATH_SEED = 34,
+		LOGIC_CLAMP = 46,
+		LOGIC_MIN = 45,
+		MATH_STEPIFY = 25,
+		MATH_INVERSE_LERP = 27,
+		MATH_ASIN = 6,
+		MATH_POLAR2CARTESIAN = 40,
+		MATH_DECIMALS = 24,
+		MATH_CEIL = 14,
+		MATH_DB2LINEAR = 39,
+		MATH_LINEAR2DB = 38,
+		MATH_RAD2DEG = 37,
+		TYPE_OF = 51,
+		MATH_ROUND = 15,
+		MATH_SINH = 3,
+		MATH_RANDOMIZE = 30,
+		MATH_TANH = 5,
+		MATH_ABS = 16,
+		MATH_ATAN = 8,
+		MATH_RANDF = 32,
+		MATH_FPOSMOD = 12,
+		MATH_RANDOM = 33,
+		MATH_DECTIME = 29,
+		MATH_SIN = 0,
+		LOGIC_MAX = 44,
+		MATH_RANGE_LERP = 28,
+		MATH_EASE = 23,
+		MATH_RAND = 31,
+		MATH_POW = 18,
+		MATH_EXP = 20,
+	};
+
+	// constants
+
+	// methods
+	void set_func(const int64_t which);
+	VisualScriptBuiltinFunc::BuiltinFunc get_func();
+};
+
+}
+
+//#endif

@@ -1,0 +1,43 @@
+//#ifndef GODOT_CPP_EDITORSETTINGS_HPP
+//#define GODOT_CPP_EDITORSETTINGS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Resource;
+class EditorSettings : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	bool has_setting(const String name) const;
+	void set_setting(const String name, const Variant value);
+	Variant get_setting(const String name) const;
+	void erase(const String property);
+	void set_initial_value(const String name, const Variant value, const bool update_current);
+	bool property_can_revert(const String name);
+	Variant property_get_revert(const String name);
+	void add_property_info(const Dictionary info);
+	String get_settings_dir() const;
+	String get_project_settings_dir() const;
+	void set_project_metadata(const String section, const String key, const Variant data);
+	Variant get_project_metadata(const String section, const String key, const Variant _default = Variant()) const;
+	void set_favorite_dirs(const PoolStringArray dirs);
+	PoolStringArray get_favorite_dirs() const;
+	void set_recent_dirs(const PoolStringArray dirs);
+	PoolStringArray get_recent_dirs() const;
+};
+
+}
+
+//#endif

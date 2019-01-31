@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_CONETWISTJOINT_HPP
+//#define GODOT_CPP_CONETWISTJOINT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Joint;
+class ConeTwistJoint : public Joint {
+public:
+
+
+	// enums
+	enum Param {
+		PARAM_RELAXATION = 4,
+		PARAM_SOFTNESS = 3,
+		PARAM_SWING_SPAN = 0,
+		PARAM_BIAS = 2,
+		PARAM_MAX = 5,
+		PARAM_TWIST_SPAN = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_param(const int64_t param, const double value);
+	double get_param(const int64_t param) const;
+	void _set_swing_span(const double swing_span);
+	double _get_swing_span() const;
+	void _set_twist_span(const double twist_span);
+	double _get_twist_span() const;
+};
+
+}
+
+//#endif

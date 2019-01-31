@@ -1,0 +1,52 @@
+//#ifndef GODOT_CPP_AUDIOSTREAMSAMPLE_HPP
+//#define GODOT_CPP_AUDIOSTREAMSAMPLE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioStream;
+class AudioStreamSample : public AudioStream {
+public:
+
+
+	// enums
+	enum LoopMode {
+		LOOP_PING_PONG = 2,
+		LOOP_DISABLED = 0,
+		LOOP_FORWARD = 1,
+	};
+	enum Format {
+		FORMAT_16_BITS = 1,
+		FORMAT_IMA_ADPCM = 2,
+		FORMAT_8_BITS = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_data(const PoolByteArray data);
+	PoolByteArray get_data() const;
+	void set_format(const int64_t format);
+	AudioStreamSample::Format get_format() const;
+	void set_loop_mode(const int64_t loop_mode);
+	AudioStreamSample::LoopMode get_loop_mode() const;
+	void set_loop_begin(const int64_t loop_begin);
+	int64_t get_loop_begin() const;
+	void set_loop_end(const int64_t loop_end);
+	int64_t get_loop_end() const;
+	void set_mix_rate(const int64_t mix_rate);
+	int64_t get_mix_rate() const;
+	void set_stereo(const bool stereo);
+	bool is_stereo() const;
+	void save_to_wav(const String path);
+};
+
+}
+
+//#endif

@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_BACKBUFFERCOPY_HPP
+//#define GODOT_CPP_BACKBUFFERCOPY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Node2D;
+class BackBufferCopy : public Node2D {
+public:
+
+
+	// enums
+	enum CopyMode {
+		COPY_MODE_RECT = 1,
+		COPY_MODE_DISABLED = 0,
+		COPY_MODE_VIEWPORT = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_rect(const Rect2 rect);
+	Rect2 get_rect() const;
+	void set_copy_mode(const int64_t copy_mode);
+	BackBufferCopy::CopyMode get_copy_mode() const;
+};
+
+}
+
+//#endif

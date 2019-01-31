@@ -1,0 +1,42 @@
+//#ifndef GODOT_CPP_EDITORFILESYSTEMDIRECTORY_HPP
+//#define GODOT_CPP_EDITORFILESYSTEMDIRECTORY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class EditorFileSystemDirectory;
+
+class Object;
+class EditorFileSystemDirectory : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	int64_t get_subdir_count() const;
+	EditorFileSystemDirectory *get_subdir(const int64_t idx);
+	int64_t get_file_count() const;
+	String get_file(const int64_t idx) const;
+	String get_file_path(const int64_t idx) const;
+	String get_file_type(const int64_t idx) const;
+	String get_file_script_class_name(const int64_t idx) const;
+	String get_file_script_class_extends(const int64_t idx) const;
+	bool get_file_import_is_valid(const int64_t idx) const;
+	String get_name();
+	String get_path() const;
+	EditorFileSystemDirectory *get_parent();
+	int64_t find_file_index(const String name) const;
+	int64_t find_dir_index(const String name) const;
+};
+
+}
+
+//#endif

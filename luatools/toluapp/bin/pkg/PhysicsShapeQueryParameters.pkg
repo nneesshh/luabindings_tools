@@ -1,0 +1,43 @@
+//#ifndef GODOT_CPP_PHYSICSSHAPEQUERYPARAMETERS_HPP
+//#define GODOT_CPP_PHYSICSSHAPEQUERYPARAMETERS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Reference;
+class PhysicsShapeQueryParameters : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_shape(const godot__ref_Resource_ shape);
+	void set_shape_rid(const RID shape);
+	RID get_shape_rid() const;
+	void set_transform(const Transform transform);
+	Transform get_transform() const;
+	void set_margin(const double margin);
+	double get_margin() const;
+	void set_collision_mask(const int64_t collision_mask);
+	int64_t get_collision_mask() const;
+	void set_exclude(const Array exclude);
+	Array get_exclude() const;
+	void set_collide_with_bodies(const bool enable);
+	bool is_collide_with_bodies_enabled() const;
+	void set_collide_with_areas(const bool enable);
+	bool is_collide_with_areas_enabled() const;
+};
+
+}
+
+//#endif

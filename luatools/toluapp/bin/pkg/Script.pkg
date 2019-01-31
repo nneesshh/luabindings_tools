@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_SCRIPT_HPP
+//#define GODOT_CPP_SCRIPT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+class Script;
+
+class Resource;
+class Script : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	bool can_instance() const;
+	bool instance_has(const Object *base_object) const;
+	bool has_source_code() const;
+	String get_source_code() const;
+	void set_source_code(const String source);
+	Error reload(const bool keep_state = false);
+	godot__ref_Script_ get_base_script() const;
+	String get_instance_base_type() const;
+	bool has_script_signal(const String signal_name) const;
+	bool is_tool() const;
+};
+
+}
+
+//#endif

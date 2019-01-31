@@ -1,0 +1,34 @@
+//#ifndef GODOT_CPP_MATERIAL_HPP
+//#define GODOT_CPP_MATERIAL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+
+class Resource;
+class Material : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+	const static int RENDER_PRIORITY_MIN = -128;
+	const static int RENDER_PRIORITY_MAX = 127;
+
+	// methods
+	void set_next_pass(const godot__ref_Material_ next_pass);
+	godot__ref_Material_ get_next_pass() const;
+	void set_render_priority(const int64_t priority);
+	int64_t get_render_priority() const;
+};
+
+}
+
+//#endif

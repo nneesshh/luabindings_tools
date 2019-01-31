@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTHIGHSHELFFILTER_HPP
+//#define GODOT_CPP_AUDIOEFFECTHIGHSHELFFILTER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffectFilter;
+class AudioEffectHighShelfFilter : public AudioEffectFilter {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

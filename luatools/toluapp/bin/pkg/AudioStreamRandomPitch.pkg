@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_AUDIOSTREAMRANDOMPITCH_HPP
+//#define GODOT_CPP_AUDIOSTREAMRANDOMPITCH_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AudioStream;
+
+class AudioStream;
+class AudioStreamRandomPitch : public AudioStream {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_audio_stream(const godot__ref_AudioStream_ stream);
+	godot__ref_AudioStream_ get_audio_stream() const;
+	void set_random_pitch(const double scale);
+	double get_random_pitch() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,68 @@
+//#ifndef GODOT_CPP_CSGPOLYGON_HPP
+//#define GODOT_CPP_CSGPOLYGON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+
+class CSGPrimitive;
+class CSGPolygon : public CSGPrimitive {
+public:
+
+
+	// enums
+	enum PathRotation {
+		PATH_ROTATION_PATH = 1,
+		PATH_ROTATION_PATH_FOLLOW = 2,
+		PATH_ROTATION_POLYGON = 0,
+	};
+	enum Mode {
+		MODE_SPIN = 1,
+		MODE_DEPTH = 0,
+		MODE_PATH = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_polygon(const PoolVector2Array polygon);
+	PoolVector2Array get_polygon() const;
+	void set_mode(const int64_t mode);
+	CSGPolygon::Mode get_mode() const;
+	void set_depth(const double depth);
+	double get_depth() const;
+	void set_spin_degrees(const double degrees);
+	double get_spin_degrees() const;
+	void set_spin_sides(const int64_t spin_sides);
+	int64_t get_spin_sides() const;
+	void set_path_node(const NodePath path);
+	NodePath get_path_node() const;
+	void set_path_interval(const double distance);
+	double get_path_interval() const;
+	void set_path_rotation(const int64_t mode);
+	CSGPolygon::PathRotation get_path_rotation() const;
+	void set_path_local(const bool enable);
+	bool is_path_local() const;
+	void set_path_continuous_u(const bool enable);
+	bool is_path_continuous_u() const;
+	void set_path_joined(const bool enable);
+	bool is_path_joined() const;
+	void set_material(const godot__ref_Material_ material);
+	godot__ref_Material_ get_material() const;
+	void set_smooth_faces(const bool smooth_faces);
+	bool get_smooth_faces() const;
+	bool _is_editable_3d_polygon() const;
+	bool _has_editable_3d_polygon_no_depth() const;
+	void _path_exited();
+	void _path_changed();
+};
+
+}
+
+//#endif

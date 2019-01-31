@@ -1,0 +1,34 @@
+//#ifndef GODOT_CPP_INPUTEVENTKEY_HPP
+//#define GODOT_CPP_INPUTEVENTKEY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class InputEventWithModifiers;
+class InputEventKey : public InputEventWithModifiers {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_pressed(const bool pressed);
+	void set_scancode(const int64_t scancode);
+	int64_t get_scancode() const;
+	void set_unicode(const int64_t unicode);
+	int64_t get_unicode() const;
+	void set_echo(const bool echo);
+	int64_t get_scancode_with_modifiers() const;
+};
+
+}
+
+//#endif

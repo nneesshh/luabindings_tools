@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_JOINT2D_HPP
+//#define GODOT_CPP_JOINT2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Node2D;
+class Joint2D : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_node_a(const NodePath node);
+	NodePath get_node_a() const;
+	void set_node_b(const NodePath node);
+	NodePath get_node_b() const;
+	void set_bias(const double bias);
+	double get_bias() const;
+	void set_exclude_nodes_from_collision(const bool enable);
+	bool get_exclude_nodes_from_collision() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,48 @@
+//#ifndef GODOT_CPP_IP_HPP
+//#define GODOT_CPP_IP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Object;
+class IP : public Object {
+public:
+
+
+	// enums
+	enum ResolverStatus {
+		RESOLVER_STATUS_ERROR = 3,
+		RESOLVER_STATUS_WAITING = 1,
+		RESOLVER_STATUS_DONE = 2,
+		RESOLVER_STATUS_NONE = 0,
+	};
+	enum Type {
+		TYPE_IPV4 = 1,
+		TYPE_NONE = 0,
+		TYPE_IPV6 = 2,
+		TYPE_ANY = 3,
+	};
+
+	// constants
+	const static int RESOLVER_MAX_QUERIES = 32;
+	const static int RESOLVER_INVALID_ID = -1;
+
+	// methods
+	static String resolve_hostname(const String host, const int64_t ip_type = 3);
+	static int64_t resolve_hostname_queue_item(const String host, const int64_t ip_type = 3);
+	static IP::ResolverStatus get_resolve_item_status(const int64_t id);
+	static String get_resolve_item_address(const int64_t id);
+	static void erase_resolve_item(const int64_t id);
+	static Array get_local_addresses();
+	static void clear_cache(const String hostname = "");
+};
+
+}
+
+//#endif

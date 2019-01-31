@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_SPINBOX_HPP
+//#define GODOT_CPP_SPINBOX_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+class LineEdit;
+
+class Range;
+class SpinBox : public Range {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void _text_entered(const String arg0);
+	void set_suffix(const String suffix);
+	String get_suffix() const;
+	void set_prefix(const String prefix);
+	String get_prefix() const;
+	void set_editable(const bool editable);
+	bool is_editable() const;
+	void _line_edit_focus_exit();
+	LineEdit *get_line_edit();
+	void _line_edit_input(const godot__ref_InputEvent_ arg0);
+	void _range_click_timeout();
+};
+
+}
+
+//#endif

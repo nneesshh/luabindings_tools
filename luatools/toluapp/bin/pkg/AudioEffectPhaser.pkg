@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTPHASER_HPP
+//#define GODOT_CPP_AUDIOEFFECTPHASER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectPhaser : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_range_min_hz(const double hz);
+	double get_range_min_hz() const;
+	void set_range_max_hz(const double hz);
+	double get_range_max_hz() const;
+	void set_rate_hz(const double hz);
+	double get_rate_hz() const;
+	void set_feedback(const double fbk);
+	double get_feedback() const;
+	void set_depth(const double depth);
+	double get_depth() const;
+};
+
+}
+
+//#endif

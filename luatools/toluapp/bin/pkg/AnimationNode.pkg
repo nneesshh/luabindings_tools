@@ -1,0 +1,52 @@
+//#ifndef GODOT_CPP_ANIMATIONNODE_HPP
+//#define GODOT_CPP_ANIMATIONNODE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AnimationNode;
+
+class Resource;
+class AnimationNode : public Resource {
+public:
+
+
+	// enums
+	enum FilterAction {
+		FILTER_PASS = 1,
+		FILTER_IGNORE = 0,
+		FILTER_STOP = 2,
+		FILTER_BLEND = 3,
+	};
+
+	// constants
+
+	// methods
+	void process(const double time, const bool seek);
+	String get_caption();
+	String has_filter();
+	int64_t get_input_count() const;
+	String get_input_name(const int64_t input);
+	void add_input(const String name);
+	void remove_input(const int64_t index);
+	void set_filter_path(const NodePath path, const bool enable);
+	bool is_path_filtered(const NodePath path) const;
+	void set_filter_enabled(const bool enable);
+	bool is_filter_enabled() const;
+	void _set_filters(const Array filters);
+	Array _get_filters() const;
+	void blend_animation(const String animation, const double time, const double delta, const bool seeked, const double blend);
+	double blend_node(const String name, const godot__ref_AnimationNode_ node, const double time, const bool seek, const double blend, const int64_t filter = 0, const bool optimize = true);
+	double blend_input(const int64_t input_index, const double time, const bool seek, const double blend, const int64_t filter = 0, const bool optimize = true);
+	void set_parameter(const String name, const Variant value);
+	Variant get_parameter(const String name) const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_PARALLAXLAYER_HPP
+//#define GODOT_CPP_PARALLAXLAYER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Node2D;
+class ParallaxLayer : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_motion_scale(const Vector2 scale);
+	Vector2 get_motion_scale() const;
+	void set_motion_offset(const Vector2 offset);
+	Vector2 get_motion_offset() const;
+	void set_mirroring(const Vector2 mirror);
+	Vector2 get_mirroring() const;
+};
+
+}
+
+//#endif

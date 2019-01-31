@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_PHYSICSDIRECTSPACESTATE_HPP
+//#define GODOT_CPP_PHYSICSDIRECTSPACESTATE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class PhysicsShapeQueryParameters;
+
+class Object;
+class PhysicsDirectSpaceState : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Dictionary intersect_ray(const Vector3 from, const Vector3 to, const Array exclude = Array(), const int64_t collision_mask = 2147483647, const bool collide_with_bodies = true, const bool collide_with_areas = false);
+	Array intersect_shape(const godot__ref_PhysicsShapeQueryParameters_ shape, const int64_t max_results = 32);
+	Array cast_motion(const godot__ref_PhysicsShapeQueryParameters_ shape, const Vector3 motion);
+	Array collide_shape(const godot__ref_PhysicsShapeQueryParameters_ shape, const int64_t max_results = 32);
+	Dictionary get_rest_info(const godot__ref_PhysicsShapeQueryParameters_ shape);
+};
+
+}
+
+//#endif

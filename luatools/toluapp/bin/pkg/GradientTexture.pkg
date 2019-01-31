@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_GRADIENTTEXTURE_HPP
+//#define GODOT_CPP_GRADIENTTEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Gradient;
+
+class Texture;
+class GradientTexture : public Texture {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_gradient(const godot__ref_Gradient_ gradient);
+	godot__ref_Gradient_ get_gradient() const;
+	void set_width(const int64_t width);
+	void _update();
+};
+
+}
+
+//#endif

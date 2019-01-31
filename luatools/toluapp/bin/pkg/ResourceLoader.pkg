@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP__RESOURCELOADER_HPP
+//#define GODOT_CPP__RESOURCELOADER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class ResourceInteractiveLoader;
+class Resource;
+
+class Object;
+class _ResourceLoader : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static godot__ref_ResourceInteractiveLoader_ load_interactive(const String path, const String type_hint = "");
+	static godot__ref_Resource_ load(const String path, const String type_hint = "", const bool p_no_cache = false);
+	static PoolStringArray get_recognized_extensions_for_type(const String type);
+	static void set_abort_on_missing_resources(const bool abort);
+	static PoolStringArray get_dependencies(const String path);
+	static bool has_cached(const String path);
+	static bool exists(const String path, const String type_hint = "");
+	static bool has(const String path);
+};
+
+}
+
+//#endif

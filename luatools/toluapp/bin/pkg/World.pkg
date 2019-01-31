@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_WORLD_HPP
+//#define GODOT_CPP_WORLD_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Environment;
+class PhysicsDirectSpaceState;
+
+class Resource;
+class World : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	RID get_space() const;
+	RID get_scenario() const;
+	void set_environment(const godot__ref_Environment_ env);
+	godot__ref_Environment_ get_environment() const;
+	void set_fallback_environment(const godot__ref_Environment_ env);
+	godot__ref_Environment_ get_fallback_environment() const;
+	PhysicsDirectSpaceState *get_direct_space_state();
+};
+
+}
+
+//#endif

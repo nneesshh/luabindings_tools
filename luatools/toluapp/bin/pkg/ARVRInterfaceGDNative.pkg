@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_ARVRINTERFACEGDNATIVE_HPP
+//#define GODOT_CPP_ARVRINTERFACEGDNATIVE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class ARVRInterface;
+class ARVRInterfaceGDNative : public ARVRInterface {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP__JSON_HPP
+//#define GODOT_CPP__JSON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class JSONParseResult;
+
+class Object;
+class _JSON : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static String print(const Variant value, const String indent = "", const bool sort_keys = false);
+	static godot__ref_JSONParseResult_ parse(const String json);
+};
+
+}
+
+//#endif

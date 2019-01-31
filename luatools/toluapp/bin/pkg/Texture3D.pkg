@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_TEXTURE3D_HPP
+//#define GODOT_CPP_TEXTURE3D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class TextureLayered;
+class Texture3D : public TextureLayered {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

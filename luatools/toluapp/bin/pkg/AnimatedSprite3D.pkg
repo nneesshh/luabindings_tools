@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_ANIMATEDSPRITE3D_HPP
+//#define GODOT_CPP_ANIMATEDSPRITE3D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class SpriteFrames;
+
+class SpriteBase3D;
+class AnimatedSprite3D : public SpriteBase3D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_sprite_frames(const godot__ref_SpriteFrames_ sprite_frames);
+	godot__ref_SpriteFrames_ get_sprite_frames() const;
+	void set_animation(const String animation);
+	String get_animation() const;
+	void _set_playing(const bool playing);
+	bool _is_playing() const;
+	void play(const String anim = "");
+	void stop();
+	bool is_playing() const;
+	void set_frame(const int64_t frame);
+	int64_t get_frame() const;
+	void _res_changed();
+};
+
+}
+
+//#endif

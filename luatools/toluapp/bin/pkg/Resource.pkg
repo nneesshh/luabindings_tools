@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_RESOURCE_HPP
+//#define GODOT_CPP_RESOURCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Node;
+class Resource;
+
+class Reference;
+class Resource : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _setup_local_to_scene();
+	void set_path(const String path);
+	void take_over_path(const String path);
+	String get_path() const;
+	void set_name(const String name);
+	String get_name() const;
+	RID get_rid() const;
+	void set_local_to_scene(const bool enable);
+	bool is_local_to_scene() const;
+	Node *get_local_scene() const;
+	void setup_local_to_scene();
+	godot__ref_Resource_ duplicate(const bool subresources = false) const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_EXPRESSION_HPP
+//#define GODOT_CPP_EXPRESSION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class Reference;
+class Expression : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Error parse(const String expression, const PoolStringArray input_names = PoolStringArray());
+	Variant execute(const Array inputs = Array(), const Object *base_instance = nullptr, const bool show_error = true);
+	bool has_execute_failed() const;
+	String get_error_text() const;
+};
+
+}
+
+//#endif

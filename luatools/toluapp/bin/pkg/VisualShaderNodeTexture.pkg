@@ -1,0 +1,45 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODETEXTURE_HPP
+//#define GODOT_CPP_VISUALSHADERNODETEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class VisualShaderNode;
+class VisualShaderNodeTexture : public VisualShaderNode {
+public:
+
+
+	// enums
+	enum TextureType {
+		TYPE_DATA = 0,
+		TYPE_COLOR = 1,
+		TYPE_NORMALMAP = 2,
+	};
+	enum Source {
+		SOURCE_TEXTURE = 0,
+		SOURCE_2D_TEXTURE = 2,
+		SOURCE_SCREEN = 1,
+		SOURCE_2D_NORMAL = 3,
+	};
+
+	// constants
+
+	// methods
+	void set_source(const int64_t value);
+	VisualShaderNodeTexture::Source get_source() const;
+	void set_texture(const godot__ref_Texture_ value);
+	godot__ref_Texture_ get_texture() const;
+	void set_texture_type(const int64_t value);
+	VisualShaderNodeTexture::TextureType get_texture_type() const;
+};
+
+}
+
+//#endif

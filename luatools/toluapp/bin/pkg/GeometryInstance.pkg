@@ -1,0 +1,54 @@
+//#ifndef GODOT_CPP_GEOMETRYINSTANCE_HPP
+//#define GODOT_CPP_GEOMETRYINSTANCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+
+class VisualInstance;
+class GeometryInstance : public VisualInstance {
+public:
+
+
+	// enums
+	enum Flags {
+		FLAG_MAX = 2,
+		FLAG_USE_BAKED_LIGHT = 0,
+	};
+	enum ShadowCastingSetting {
+		SHADOW_CASTING_SETTING_SHADOWS_ONLY = 3,
+		SHADOW_CASTING_SETTING_OFF = 0,
+		SHADOW_CASTING_SETTING_DOUBLE_SIDED = 2,
+		SHADOW_CASTING_SETTING_ON = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_material_override(const godot__ref_Material_ material);
+	godot__ref_Material_ get_material_override() const;
+	void set_flag(const int64_t flag, const bool value);
+	bool get_flag(const int64_t flag) const;
+	void set_cast_shadows_setting(const int64_t shadow_casting_setting);
+	GeometryInstance::ShadowCastingSetting get_cast_shadows_setting() const;
+	void set_lod_max_hysteresis(const double mode);
+	double get_lod_max_hysteresis() const;
+	void set_lod_max_distance(const double mode);
+	double get_lod_max_distance() const;
+	void set_lod_min_hysteresis(const double mode);
+	double get_lod_min_hysteresis() const;
+	void set_lod_min_distance(const double mode);
+	double get_lod_min_distance() const;
+	void set_extra_cull_margin(const double margin);
+	double get_extra_cull_margin() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_LINESHAPE2D_HPP
+//#define GODOT_CPP_LINESHAPE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Shape2D;
+class LineShape2D : public Shape2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_normal(const Vector2 normal);
+	Vector2 get_normal() const;
+	void set_d(const double d);
+	double get_d() const;
+};
+
+}
+
+//#endif

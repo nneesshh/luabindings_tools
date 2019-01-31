@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_EDITORRESOURCEPREVIEWGENERATOR_HPP
+//#define GODOT_CPP_EDITORRESOURCEPREVIEWGENERATOR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+class Resource;
+
+class Reference;
+class EditorResourcePreviewGenerator : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	bool handles(const String type);
+	godot__ref_Texture_ generate(const godot__ref_Resource_ from);
+	godot__ref_Texture_ generate_from_path(const String path);
+};
+
+}
+
+//#endif

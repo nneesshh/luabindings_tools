@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTLOWPASSFILTER_HPP
+//#define GODOT_CPP_AUDIOEFFECTLOWPASSFILTER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffectFilter;
+class AudioEffectLowPassFilter : public AudioEffectFilter {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

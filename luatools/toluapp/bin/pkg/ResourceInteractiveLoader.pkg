@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_RESOURCEINTERACTIVELOADER_HPP
+//#define GODOT_CPP_RESOURCEINTERACTIVELOADER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Reference;
+class ResourceInteractiveLoader : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	godot__ref_Resource_ get_resource();
+	Error poll();
+	Error wait();
+	int64_t get_stage() const;
+	int64_t get_stage_count() const;
+};
+
+}
+
+//#endif

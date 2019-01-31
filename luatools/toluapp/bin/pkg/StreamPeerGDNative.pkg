@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_STREAMPEERGDNATIVE_HPP
+//#define GODOT_CPP_STREAMPEERGDNATIVE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class StreamPeer;
+class StreamPeerGDNative : public StreamPeer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

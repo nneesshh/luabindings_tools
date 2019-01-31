@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTCOMMENT_HPP
+//#define GODOT_CPP_VISUALSCRIPTCOMMENT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptComment : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_title(const String title);
+	String get_title() const;
+	void set_description(const String description);
+	String get_description() const;
+	void set_size(const Vector2 size);
+	Vector2 get_size() const;
+};
+
+}
+
+//#endif

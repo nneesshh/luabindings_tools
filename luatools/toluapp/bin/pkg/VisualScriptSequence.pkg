@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTSEQUENCE_HPP
+//#define GODOT_CPP_VISUALSCRIPTSEQUENCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptSequence : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_steps(const int64_t steps);
+	int64_t get_steps() const;
+};
+
+}
+
+//#endif

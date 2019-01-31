@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_INPUTMAP_HPP
+//#define GODOT_CPP_INPUTMAP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Object;
+class InputMap : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static bool has_action(const String action);
+	static Array get_actions();
+	static void add_action(const String action, const double deadzone = 0.5);
+	static void erase_action(const String action);
+	static void action_set_deadzone(const String action, const double deadzone);
+	static void action_add_event(const String action, const godot__ref_InputEvent_ event);
+	static bool action_has_event(const String action, const godot__ref_InputEvent_ event);
+	static void action_erase_event(const String action, const godot__ref_InputEvent_ event);
+	static void action_erase_events(const String action);
+	static Array get_action_list(const String action);
+	static bool event_is_action(const godot__ref_InputEvent_ event, const String action);
+	static void load_from_globals();
+};
+
+}
+
+//#endif

@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_STYLEBOXLINE_HPP
+//#define GODOT_CPP_STYLEBOXLINE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class StyleBox;
+class StyleBoxLine : public StyleBox {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_color(const Color color);
+	Color get_color() const;
+	void set_thickness(const int64_t thickness);
+	int64_t get_thickness() const;
+	void set_grow_begin(const double offset);
+	double get_grow_begin() const;
+	void set_grow_end(const double offset);
+	double get_grow_end() const;
+	void set_vertical(const bool vertical);
+	bool is_vertical() const;
+};
+
+}
+
+//#endif

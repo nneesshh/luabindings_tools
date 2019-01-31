@@ -1,0 +1,34 @@
+//#ifndef GODOT_CPP_BONE2D_HPP
+//#define GODOT_CPP_BONE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Node2D;
+class Bone2D : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_rest(const Transform2D rest);
+	Transform2D get_rest() const;
+	void apply_rest();
+	Transform2D get_skeleton_rest() const;
+	int64_t get_index_in_skeleton() const;
+	void set_default_length(const double default_length);
+	double get_default_length() const;
+};
+
+}
+
+//#endif

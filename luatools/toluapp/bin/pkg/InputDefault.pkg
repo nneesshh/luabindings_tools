@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_INPUTDEFAULT_HPP
+//#define GODOT_CPP_INPUTDEFAULT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Input;
+class InputDefault : public Input {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

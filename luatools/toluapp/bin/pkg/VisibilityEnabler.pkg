@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_VISIBILITYENABLER_HPP
+//#define GODOT_CPP_VISIBILITYENABLER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class VisibilityNotifier;
+class VisibilityEnabler : public VisibilityNotifier {
+public:
+
+
+	// enums
+	enum Enabler {
+		ENABLER_PAUSE_ANIMATIONS = 0,
+		ENABLER_MAX = 2,
+		ENABLER_FREEZE_BODIES = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_enabler(const int64_t enabler, const bool enabled);
+	bool is_enabler_enabled(const int64_t enabler) const;
+	void _node_removed(const Object *arg0);
+};
+
+}
+
+//#endif

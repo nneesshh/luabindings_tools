@@ -1,0 +1,52 @@
+//#ifndef GODOT_CPP_SURFACETOOL_HPP
+//#define GODOT_CPP_SURFACETOOL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+class Mesh;
+class ArrayMesh;
+
+class Reference;
+class SurfaceTool : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void begin(const int64_t primitive);
+	void add_vertex(const Vector3 vertex);
+	void add_color(const Color color);
+	void add_normal(const Vector3 normal);
+	void add_tangent(const Plane tangent);
+	void add_uv(const Vector2 uv);
+	void add_uv2(const Vector2 uv2);
+	void add_bones(const PoolIntArray bones);
+	void add_weights(const PoolRealArray weights);
+	void add_smooth_group(const bool smooth);
+	void add_triangle_fan(const PoolVector3Array vertexes, const PoolVector2Array uvs = PoolVector2Array(), const PoolColorArray colors = PoolColorArray(), const PoolVector2Array uv2s = PoolVector2Array(), const PoolVector3Array normals = PoolVector3Array(), const Array tangents = Array());
+	void add_index(const int64_t index);
+	void index();
+	void deindex();
+	void generate_normals(const bool flip = false);
+	void generate_tangents();
+	void add_to_format(const int64_t flags);
+	void set_material(const godot__ref_Material_ material);
+	void clear();
+	void create_from(const godot__ref_Mesh_ existing, const int64_t surface);
+	void append_from(const godot__ref_Mesh_ existing, const int64_t surface, const Transform transform);
+	godot__ref_ArrayMesh_ commit(const godot__ref_ArrayMesh_ existing = nullptr, const int64_t flags = 97280);
+};
+
+}
+
+//#endif

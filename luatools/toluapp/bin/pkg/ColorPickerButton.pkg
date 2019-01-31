@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_COLORPICKERBUTTON_HPP
+//#define GODOT_CPP_COLORPICKERBUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class ColorPicker;
+class PopupPanel;
+
+class Button;
+class ColorPickerButton : public Button {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_pick_color(const Color color);
+	Color get_pick_color() const;
+	ColorPicker *get_picker();
+	PopupPanel *get_popup();
+	void set_edit_alpha(const bool show);
+	bool is_editing_alpha() const;
+	void _color_changed(const Color arg0);
+	void _modal_closed();
+};
+
+}
+
+//#endif

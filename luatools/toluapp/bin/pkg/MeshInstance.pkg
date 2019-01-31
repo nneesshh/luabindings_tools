@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_MESHINSTANCE_HPP
+//#define GODOT_CPP_MESHINSTANCE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Mesh;
+class Material;
+
+class GeometryInstance;
+class MeshInstance : public GeometryInstance {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_mesh(const godot__ref_Mesh_ mesh);
+	godot__ref_Mesh_ get_mesh() const;
+	void set_skeleton_path(const NodePath skeleton_path);
+	NodePath get_skeleton_path();
+	void set_surface_material(const int64_t surface, const godot__ref_Material_ material);
+	godot__ref_Material_ get_surface_material(const int64_t surface) const;
+	void create_trimesh_collision();
+	void create_convex_collision();
+	void _mesh_changed();
+	void create_debug_tangents();
+};
+
+}
+
+//#endif

@@ -1,0 +1,51 @@
+//#ifndef GODOT_CPP__ENGINE_HPP
+//#define GODOT_CPP__ENGINE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class MainLoop;
+class Object;
+
+class Object;
+class _Engine : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static void set_iterations_per_second(const int64_t iterations_per_second);
+	static int64_t get_iterations_per_second();
+	static void set_physics_jitter_fix(const double physics_jitter_fix);
+	static double get_physics_jitter_fix();
+	static void set_target_fps(const int64_t target_fps);
+	static int64_t get_target_fps();
+	static void set_time_scale(const double time_scale);
+	static double get_time_scale();
+	static int64_t get_frames_drawn();
+	static double get_frames_per_second();
+	static MainLoop *get_main_loop();
+	static Dictionary get_version_info();
+	static Dictionary get_author_info();
+	static Array get_copyright_info();
+	static Dictionary get_donor_info();
+	static Dictionary get_license_info();
+	static String get_license_text();
+	static bool is_in_physics_frame();
+	static bool has_singleton(const String name);
+	static Object *get_singleton(const String name);
+	static void set_editor_hint(const bool enabled);
+	static bool is_editor_hint();
+};
+
+}
+
+//#endif

@@ -1,0 +1,34 @@
+//#ifndef GODOT_CPP_COLLISIONPOLYGON_HPP
+//#define GODOT_CPP_COLLISIONPOLYGON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class CollisionPolygon : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_depth(const double depth);
+	double get_depth() const;
+	void set_polygon(const PoolVector2Array polygon);
+	PoolVector2Array get_polygon() const;
+	void set_disabled(const bool disabled);
+	bool is_disabled() const;
+	bool _is_editable_3d_polygon() const;
+};
+
+}
+
+//#endif

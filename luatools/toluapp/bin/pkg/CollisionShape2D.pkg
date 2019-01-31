@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_COLLISIONSHAPE2D_HPP
+//#define GODOT_CPP_COLLISIONSHAPE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Shape2D;
+
+class Node2D;
+class CollisionShape2D : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_shape(const godot__ref_Shape2D_ shape);
+	godot__ref_Shape2D_ get_shape() const;
+	void set_disabled(const bool disabled);
+	bool is_disabled() const;
+	void set_one_way_collision(const bool enabled);
+	bool is_one_way_collision_enabled() const;
+	void _shape_changed();
+};
+
+}
+
+//#endif

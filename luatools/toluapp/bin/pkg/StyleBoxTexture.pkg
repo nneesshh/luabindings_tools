@@ -1,0 +1,53 @@
+//#ifndef GODOT_CPP_STYLEBOXTEXTURE_HPP
+//#define GODOT_CPP_STYLEBOXTEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class StyleBox;
+class StyleBoxTexture : public StyleBox {
+public:
+
+
+	// enums
+	enum AxisStretchMode {
+		AXIS_STRETCH_MODE_TILE_FIT = 2,
+		AXIS_STRETCH_MODE_TILE = 1,
+		AXIS_STRETCH_MODE_STRETCH = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_normal_map(const godot__ref_Texture_ normal_map);
+	godot__ref_Texture_ get_normal_map() const;
+	void set_margin_size(const int64_t margin, const double size);
+	double get_margin_size(const int64_t margin) const;
+	void set_expand_margin_size(const int64_t margin, const double size);
+	void set_expand_margin_all(const double size);
+	void set_expand_margin_individual(const double size_left, const double size_top, const double size_right, const double size_bottom);
+	double get_expand_margin_size(const int64_t margin) const;
+	void set_region_rect(const Rect2 region);
+	Rect2 get_region_rect() const;
+	void set_draw_center(const bool enable);
+	bool is_draw_center_enabled() const;
+	void set_modulate(const Color color);
+	Color get_modulate() const;
+	void set_h_axis_stretch_mode(const int64_t mode);
+	StyleBoxTexture::AxisStretchMode get_h_axis_stretch_mode() const;
+	void set_v_axis_stretch_mode(const int64_t mode);
+	StyleBoxTexture::AxisStretchMode get_v_axis_stretch_mode() const;
+};
+
+}
+
+//#endif

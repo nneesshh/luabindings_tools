@@ -1,0 +1,43 @@
+//#ifndef GODOT_CPP_CANVASITEMMATERIAL_HPP
+//#define GODOT_CPP_CANVASITEMMATERIAL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Material;
+class CanvasItemMaterial : public Material {
+public:
+
+
+	// enums
+	enum LightMode {
+		LIGHT_MODE_UNSHADED = 1,
+		LIGHT_MODE_NORMAL = 0,
+		LIGHT_MODE_LIGHT_ONLY = 2,
+	};
+	enum BlendMode {
+		BLEND_MODE_SUB = 2,
+		BLEND_MODE_PREMULT_ALPHA = 4,
+		BLEND_MODE_ADD = 1,
+		BLEND_MODE_MIX = 0,
+		BLEND_MODE_MUL = 3,
+	};
+
+	// constants
+
+	// methods
+	void set_blend_mode(const int64_t blend_mode);
+	CanvasItemMaterial::BlendMode get_blend_mode() const;
+	void set_light_mode(const int64_t light_mode);
+	CanvasItemMaterial::LightMode get_light_mode() const;
+};
+
+}
+
+//#endif

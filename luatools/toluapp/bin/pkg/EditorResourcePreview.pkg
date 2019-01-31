@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_EDITORRESOURCEPREVIEW_HPP
+//#define GODOT_CPP_EDITORRESOURCEPREVIEW_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+class Object;
+class Resource;
+class EditorResourcePreviewGenerator;
+
+class Node;
+class EditorResourcePreview : public Node {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _preview_ready(const String arg0, const godot__ref_Texture_ arg1, const int64_t arg2, const String arg3, const Variant arg4);
+	void queue_resource_preview(const String path, const Object *receiver, const String receiver_func, const Variant userdata);
+	void queue_edited_resource_preview(const godot__ref_Resource_ resource, const Object *receiver, const String receiver_func, const Variant userdata);
+	void add_preview_generator(const godot__ref_EditorResourcePreviewGenerator_ generator);
+	void remove_preview_generator(const godot__ref_EditorResourcePreviewGenerator_ generator);
+	void check_for_invalidation(const String path);
+};
+
+}
+
+//#endif

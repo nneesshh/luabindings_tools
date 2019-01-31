@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP__MUTEX_HPP
+//#define GODOT_CPP__MUTEX_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class _Mutex : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void lock();
+	Error try_lock();
+	void unlock();
+};
+
+}
+
+//#endif

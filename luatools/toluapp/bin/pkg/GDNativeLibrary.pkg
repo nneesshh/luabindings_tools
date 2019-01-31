@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_GDNATIVELIBRARY_HPP
+//#define GODOT_CPP_GDNATIVELIBRARY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class ConfigFile;
+
+class Resource;
+class GDNativeLibrary : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	godot__ref_ConfigFile_ get_config_file();
+	void set_config_file(const godot__ref_ConfigFile_ config_file);
+	String get_current_library_path() const;
+	PoolStringArray get_current_dependencies() const;
+	bool should_load_once() const;
+	bool is_singleton() const;
+	String get_symbol_prefix() const;
+	bool is_reloadable() const;
+	void set_load_once(const bool load_once);
+	void set_singleton(const bool singleton);
+	void set_symbol_prefix(const String symbol_prefix);
+	void set_reloadable(const bool reloadable);
+};
+
+}
+
+//#endif

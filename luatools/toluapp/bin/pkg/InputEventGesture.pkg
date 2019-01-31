@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_INPUTEVENTGESTURE_HPP
+//#define GODOT_CPP_INPUTEVENTGESTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class InputEventWithModifiers;
+class InputEventGesture : public InputEventWithModifiers {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_position(const Vector2 position);
+	Vector2 get_position() const;
+};
+
+}
+
+//#endif

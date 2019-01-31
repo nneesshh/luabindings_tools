@@ -1,0 +1,38 @@
+//#ifndef GODOT_CPP__RESOURCESAVER_HPP
+//#define GODOT_CPP__RESOURCESAVER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Object;
+class _ResourceSaver : public Object {
+public:
+
+
+	// enums
+	enum SaverFlags {
+		FLAG_OMIT_EDITOR_PROPERTIES = 8,
+		FLAG_COMPRESS = 32,
+		FLAG_SAVE_BIG_ENDIAN = 16,
+		FLAG_CHANGE_PATH = 4,
+		FLAG_RELATIVE_PATHS = 1,
+		FLAG_BUNDLE_RESOURCES = 2,
+	};
+
+	// constants
+
+	// methods
+	static Error save(const String path, const godot__ref_Resource_ resource, const int64_t flags = 0);
+	static PoolStringArray get_recognized_extensions(const godot__ref_Resource_ type);
+};
+
+}
+
+//#endif

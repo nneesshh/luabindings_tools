@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_RESOURCEPRELOADER_HPP
+//#define GODOT_CPP_RESOURCEPRELOADER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Node;
+class ResourcePreloader : public Node {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _set_resources(const Array arg0);
+	Array _get_resources() const;
+	void add_resource(const String name, const godot__ref_Resource_ resource);
+	void remove_resource(const String name);
+	void rename_resource(const String name, const String newname);
+	bool has_resource(const String name) const;
+	godot__ref_Resource_ get_resource(const String name) const;
+	PoolStringArray get_resource_list() const;
+};
+
+}
+
+//#endif

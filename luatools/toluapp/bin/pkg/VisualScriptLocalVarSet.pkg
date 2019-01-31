@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTLOCALVARSET_HPP
+//#define GODOT_CPP_VISUALSCRIPTLOCALVARSET_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptLocalVarSet : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_var_name(const String name);
+	String get_var_name() const;
+	void set_var_type(const int64_t type);
+	Variant::Type get_var_type() const;
+};
+
+}
+
+//#endif

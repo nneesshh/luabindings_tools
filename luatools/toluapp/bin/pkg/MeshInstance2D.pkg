@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_MESHINSTANCE2D_HPP
+//#define GODOT_CPP_MESHINSTANCE2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Mesh;
+class Texture;
+
+class Node2D;
+class MeshInstance2D : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_mesh(const godot__ref_Mesh_ mesh);
+	godot__ref_Mesh_ get_mesh() const;
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_normal_map(const godot__ref_Texture_ normal_map);
+	godot__ref_Texture_ get_normal_map() const;
+};
+
+}
+
+//#endif

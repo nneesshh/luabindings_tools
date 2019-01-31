@@ -1,0 +1,78 @@
+//#ifndef GODOT_CPP_OBJECT_HPP
+//#define GODOT_CPP_OBJECT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Reference;
+class Object;
+
+class Object {
+public:
+
+
+	// enums
+	enum ConnectFlags {
+		CONNECT_REFERENCE_COUNTED = 8,
+		CONNECT_DEFERRED = 1,
+		CONNECT_ONESHOT = 4,
+		CONNECT_PERSIST = 2,
+	};
+
+	// constants
+	const static int NOTIFICATION_POSTINITIALIZE = 0;
+	const static int NOTIFICATION_PREDELETE = 1;
+
+	// methods
+	void free();
+	void _notification(const int64_t what);
+	bool _set(const String property, const Variant value);
+	Variant _get(const String property);
+	Array _get_property_list();
+	void _init();
+	String get_class() const;
+	bool is_class(const String type) const;
+	void set(const String property, const Variant value);
+	Variant get(const String property) const;
+	void set_indexed(const NodePath property, const Variant value);
+	Variant get_indexed(const NodePath property) const;
+	Array get_property_list() const;
+	Array get_method_list() const;
+	void notification(const int64_t what, const bool reversed = false);
+	int64_t get_instance_id() const;
+	void set_script(const Reference *script);
+	Reference *get_script() const;
+	void set_meta(const String name, const Variant value);
+	Variant get_meta(const String name) const;
+	bool has_meta(const String name) const;
+	PoolStringArray get_meta_list() const;
+	void add_user_signal(const String signal, const Array arguments = Array());
+	bool has_user_signal(const String signal) const;
+	Variant emit_signal(const String signal, const Array& __var_args);
+	Variant call(const String method, const Array& __var_args);
+	Variant call_deferred(const String method, const Array& __var_args);
+	Variant callv(const String method, const Array arg_array);
+	bool has_method(const String method) const;
+	Array get_signal_list() const;
+	Array get_signal_connection_list(const String signal) const;
+	Array get_incoming_connections() const;
+	Error connect(const String signal, const Object *target, const String method, const Array binds = Array(), const int64_t flags = 0);
+	void disconnect(const String signal, const Object *target, const String method);
+	bool is_connected(const String signal, const Object *target, const String method) const;
+	void set_block_signals(const bool enable);
+	bool is_blocking_signals() const;
+	void property_list_changed_notify();
+	void set_message_translation(const bool enable);
+	bool can_translate_messages() const;
+	String tr(const String message) const;
+	bool is_queued_for_deletion() const;
+};
+
+}
+
+//#endif

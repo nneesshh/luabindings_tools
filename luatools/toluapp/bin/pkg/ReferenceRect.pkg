@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_REFERENCERECT_HPP
+//#define GODOT_CPP_REFERENCERECT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Control;
+class ReferenceRect : public Control {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Color get_border_color() const;
+	void set_border_color(const Color color);
+};
+
+}
+
+//#endif

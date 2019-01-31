@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_REGEX_HPP
+//#define GODOT_CPP_REGEX_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class RegExMatch;
+
+class Reference;
+class RegEx : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void clear();
+	Error compile(const String pattern);
+	godot__ref_RegExMatch_ search(const String subject, const int64_t offset = 0, const int64_t end = -1) const;
+	Array search_all(const String subject, const int64_t offset = 0, const int64_t end = -1) const;
+	String sub(const String subject, const String replacement, const bool all = false, const int64_t offset = 0, const int64_t end = -1) const;
+	bool is_valid() const;
+	String get_pattern() const;
+	int64_t get_group_count() const;
+	Array get_names() const;
+};
+
+}
+
+//#endif

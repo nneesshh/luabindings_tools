@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_SHADER_HPP
+//#define GODOT_CPP_SHADER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Resource;
+class Shader : public Resource {
+public:
+
+
+	// enums
+	enum Mode {
+		MODE_CANVAS_ITEM = 1,
+		MODE_SPATIAL = 0,
+		MODE_PARTICLES = 2,
+	};
+
+	// constants
+
+	// methods
+	Shader::Mode get_mode() const;
+	void set_code(const String code);
+	String get_code() const;
+	void set_default_texture_param(const String param, const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_default_texture_param(const String param) const;
+	bool has_param(const String name) const;
+};
+
+}
+
+//#endif

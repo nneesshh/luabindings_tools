@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_COLLISIONSHAPE_HPP
+//#define GODOT_CPP_COLLISIONSHAPE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+class Shape;
+
+class Spatial;
+class CollisionShape : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void resource_changed(const godot__ref_Resource_ resource);
+	void set_shape(const godot__ref_Shape_ shape);
+	godot__ref_Shape_ get_shape() const;
+	void set_disabled(const bool enable);
+	bool is_disabled() const;
+	void make_convex_from_brothers();
+};
+
+}
+
+//#endif

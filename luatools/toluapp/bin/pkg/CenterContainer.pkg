@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_CENTERCONTAINER_HPP
+//#define GODOT_CPP_CENTERCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Container;
+class CenterContainer : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_use_top_left(const bool enable);
+	bool is_using_top_left() const;
+};
+
+}
+
+//#endif

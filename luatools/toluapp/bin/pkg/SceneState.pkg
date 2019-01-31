@@ -1,0 +1,53 @@
+//#ifndef GODOT_CPP_SCENESTATE_HPP
+//#define GODOT_CPP_SCENESTATE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class PackedScene;
+
+class Reference;
+class SceneState : public Reference {
+public:
+
+
+	// enums
+	enum GenEditState {
+		GEN_EDIT_STATE_MAIN = 2,
+		GEN_EDIT_STATE_DISABLED = 0,
+		GEN_EDIT_STATE_INSTANCE = 1,
+	};
+
+	// constants
+
+	// methods
+	int64_t get_node_count() const;
+	String get_node_type(const int64_t idx) const;
+	String get_node_name(const int64_t idx) const;
+	NodePath get_node_path(const int64_t idx, const bool for_parent = false) const;
+	NodePath get_node_owner_path(const int64_t idx) const;
+	bool is_node_instance_placeholder(const int64_t idx) const;
+	String get_node_instance_placeholder(const int64_t idx) const;
+	godot__ref_PackedScene_ get_node_instance(const int64_t idx) const;
+	PoolStringArray get_node_groups(const int64_t idx) const;
+	int64_t get_node_index(const int64_t idx) const;
+	int64_t get_node_property_count(const int64_t idx) const;
+	String get_node_property_name(const int64_t idx, const int64_t prop_idx) const;
+	Variant get_node_property_value(const int64_t idx, const int64_t prop_idx) const;
+	int64_t get_connection_count() const;
+	NodePath get_connection_source(const int64_t idx) const;
+	String get_connection_signal(const int64_t idx) const;
+	NodePath get_connection_target(const int64_t idx) const;
+	String get_connection_method(const int64_t idx) const;
+	int64_t get_connection_flags(const int64_t idx) const;
+	Array get_connection_binds(const int64_t idx) const;
+};
+
+}
+
+//#endif

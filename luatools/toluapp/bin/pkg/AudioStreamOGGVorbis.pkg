@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_AUDIOSTREAMOGGVORBIS_HPP
+//#define GODOT_CPP_AUDIOSTREAMOGGVORBIS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioStream;
+class AudioStreamOGGVorbis : public AudioStream {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_data(const PoolByteArray data);
+	PoolByteArray get_data() const;
+	void set_loop(const bool enable);
+	bool has_loop() const;
+	void set_loop_offset(const double seconds);
+	double get_loop_offset() const;
+};
+
+}
+
+//#endif

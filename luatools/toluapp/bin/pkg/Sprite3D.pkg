@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_SPRITE3D_HPP
+//#define GODOT_CPP_SPRITE3D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class SpriteBase3D;
+class Sprite3D : public SpriteBase3D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_region(const bool enabled);
+	bool is_region() const;
+	void set_region_rect(const Rect2 rect);
+	Rect2 get_region_rect() const;
+	void set_frame(const int64_t frame);
+	int64_t get_frame() const;
+	void set_vframes(const int64_t vframes);
+	int64_t get_vframes() const;
+	void set_hframes(const int64_t hframes);
+	int64_t get_hframes() const;
+};
+
+}
+
+//#endif

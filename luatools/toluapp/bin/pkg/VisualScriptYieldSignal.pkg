@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTYIELDSIGNAL_HPP
+//#define GODOT_CPP_VISUALSCRIPTYIELDSIGNAL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptYieldSignal : public VisualScriptNode {
+public:
+
+
+	// enums
+	enum CallMode {
+		CALL_MODE_NODE_PATH = 1,
+		CALL_MODE_INSTANCE = 2,
+		CALL_MODE_SELF = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_base_type(const String base_type);
+	String get_base_type() const;
+	void set_signal(const String signal);
+	String get_signal() const;
+	void set_call_mode(const int64_t mode);
+	VisualScriptYieldSignal::CallMode get_call_mode() const;
+	void set_base_path(const NodePath base_path);
+	NodePath get_base_path() const;
+};
+
+}
+
+//#endif

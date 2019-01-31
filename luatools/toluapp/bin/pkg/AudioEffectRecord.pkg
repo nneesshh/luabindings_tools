@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTRECORD_HPP
+//#define GODOT_CPP_AUDIOEFFECTRECORD_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AudioStreamSample;
+
+class AudioEffect;
+class AudioEffectRecord : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_recording_active(const bool record);
+	bool is_recording_active() const;
+	void set_format(const int64_t format);
+	AudioStreamSample::Format get_format() const;
+	godot__ref_AudioStreamSample_ get_recording() const;
+};
+
+}
+
+//#endif

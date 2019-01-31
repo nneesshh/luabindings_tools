@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODECOLOROP_HPP
+//#define GODOT_CPP_VISUALSHADERNODECOLOROP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualShaderNode;
+class VisualShaderNodeColorOp : public VisualShaderNode {
+public:
+
+
+	// enums
+	enum Operator {
+		OP_SCREEN = 0,
+		OP_SOFT_LIGHT = 7,
+		OP_HARD_LIGHT = 8,
+		OP_OVERLAY = 4,
+		OP_DIFFERENCE = 1,
+		OP_LIGHTEN = 3,
+		OP_BURN = 6,
+		OP_DODGE = 5,
+		OP_DARKEN = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_operator(const int64_t op);
+	VisualShaderNodeColorOp::Operator get_operator() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_BITMAP_HPP
+//#define GODOT_CPP_BITMAP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Image;
+
+class Resource;
+class BitMap : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void create(const Vector2 size);
+	void create_from_image_alpha(const godot__ref_Image_ image, const double threshold = 0.1);
+	void set_bit(const Vector2 position, const bool bit);
+	bool get_bit(const Vector2 position) const;
+	void set_bit_rect(const Rect2 p_rect, const bool bit);
+	int64_t get_true_bit_count() const;
+	Vector2 get_size() const;
+	void _set_data(const Dictionary arg0);
+	Dictionary _get_data() const;
+	void grow_mask(const int64_t pixels, const Rect2 rect);
+	Array opaque_to_polygons(const Rect2 rect, const double epsilon = 2) const;
+};
+
+}
+
+//#endif

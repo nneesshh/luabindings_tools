@@ -1,0 +1,48 @@
+//#ifndef GODOT_CPP_SPRITEFRAMES_HPP
+//#define GODOT_CPP_SPRITEFRAMES_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Resource;
+class SpriteFrames : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void add_animation(const String anim);
+	bool has_animation(const String anim) const;
+	void remove_animation(const String anim);
+	void rename_animation(const String anim, const String newname);
+	PoolStringArray get_animation_names() const;
+	void set_animation_speed(const String anim, const double speed);
+	double get_animation_speed(const String anim) const;
+	void set_animation_loop(const String anim, const bool loop);
+	bool get_animation_loop(const String anim) const;
+	void add_frame(const String anim, const godot__ref_Texture_ frame, const int64_t at_position = -1);
+	int64_t get_frame_count(const String anim) const;
+	godot__ref_Texture_ get_frame(const String anim, const int64_t idx) const;
+	void set_frame(const String anim, const int64_t idx, const godot__ref_Texture_ txt);
+	void remove_frame(const String anim, const int64_t idx);
+	void clear(const String anim);
+	void clear_all();
+	void _set_frames(const Array arg0);
+	Array _get_frames() const;
+	void _set_animations(const Array arg0);
+	Array _get_animations() const;
+};
+
+}
+
+//#endif

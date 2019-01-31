@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_ANIMATIONNODETRANSITION_HPP
+//#define GODOT_CPP_ANIMATIONNODETRANSITION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AnimationNode;
+class AnimationNodeTransition : public AnimationNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_enabled_inputs(const int64_t amount);
+	int64_t get_enabled_inputs();
+	void set_input_as_auto_advance(const int64_t input, const bool enable);
+	bool is_input_set_as_auto_advance(const int64_t input) const;
+	void set_input_caption(const int64_t input, const String caption);
+	String get_input_caption(const int64_t input) const;
+	void set_cross_fade_time(const double time);
+	double get_cross_fade_time() const;
+};
+
+}
+
+//#endif

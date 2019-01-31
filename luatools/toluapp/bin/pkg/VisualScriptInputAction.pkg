@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTINPUTACTION_HPP
+//#define GODOT_CPP_VISUALSCRIPTINPUTACTION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptInputAction : public VisualScriptNode {
+public:
+
+
+	// enums
+	enum Mode {
+		MODE_JUST_RELEASED = 3,
+		MODE_RELEASED = 1,
+		MODE_PRESSED = 0,
+		MODE_JUST_PRESSED = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_action_name(const String name);
+	String get_action_name() const;
+	void set_action_mode(const int64_t mode);
+	VisualScriptInputAction::Mode get_action_mode() const;
+};
+
+}
+
+//#endif

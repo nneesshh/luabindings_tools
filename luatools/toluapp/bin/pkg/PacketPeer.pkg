@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_PACKETPEER_HPP
+//#define GODOT_CPP_PACKETPEER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class PacketPeer : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Variant get_var();
+	Error put_var(const Variant var);
+	PoolByteArray get_packet();
+	Error put_packet(const PoolByteArray buffer);
+	Error get_packet_error() const;
+	int64_t get_available_packet_count() const;
+	void set_allow_object_decoding(const bool enable);
+	bool is_object_decoding_allowed() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,48 @@
+//#ifndef GODOT_CPP_ARVRPOSITIONALTRACKER_HPP
+//#define GODOT_CPP_ARVRPOSITIONALTRACKER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Object;
+class ARVRPositionalTracker : public Object {
+public:
+
+
+	// enums
+	enum TrackerHand {
+		TRACKER_HAND_UNKNOWN = 0,
+		TRACKER_RIGHT_HAND = 2,
+		TRACKER_LEFT_HAND = 1,
+	};
+
+	// constants
+
+	// methods
+	ARVRServer::TrackerType get_type() const;
+	String get_name() const;
+	int64_t get_joy_id() const;
+	bool get_tracks_orientation() const;
+	Basis get_orientation() const;
+	bool get_tracks_position() const;
+	Vector3 get_position() const;
+	ARVRPositionalTracker::TrackerHand get_hand() const;
+	Transform get_transform(const bool adjust_by_reference_frame) const;
+	void _set_type(const int64_t type);
+	void _set_name(const String name);
+	void _set_joy_id(const int64_t joy_id);
+	void _set_orientation(const Basis orientation);
+	void _set_rw_position(const Vector3 rw_position);
+	double get_rumble() const;
+	void set_rumble(const double rumble);
+};
+
+}
+
+//#endif

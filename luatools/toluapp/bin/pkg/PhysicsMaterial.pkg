@@ -1,0 +1,35 @@
+//#ifndef GODOT_CPP_PHYSICSMATERIAL_HPP
+//#define GODOT_CPP_PHYSICSMATERIAL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Resource;
+class PhysicsMaterial : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_friction(const double friction);
+	double get_friction() const;
+	void set_rough(const bool rough);
+	bool is_rough() const;
+	void set_bounce(const double bounce);
+	double get_bounce() const;
+	void set_absorbent(const bool absorbent);
+	bool is_absorbent() const;
+};
+
+}
+
+//#endif

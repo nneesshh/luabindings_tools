@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_PCKPACKER_HPP
+//#define GODOT_CPP_PCKPACKER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class PCKPacker : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Error pck_start(const String pck_name, const int64_t alignment);
+	Error add_file(const String pck_path, const String source_path);
+	Error flush(const bool verbose);
+};
+
+}
+
+//#endif

@@ -1,0 +1,91 @@
+//#ifndef GODOT_CPP_INPUT_HPP
+//#define GODOT_CPP_INPUT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+class InputEvent;
+
+class Object;
+class Input : public Object {
+public:
+
+
+	// enums
+	enum MouseMode {
+		MOUSE_MODE_HIDDEN = 1,
+		MOUSE_MODE_CONFINED = 3,
+		MOUSE_MODE_CAPTURED = 2,
+		MOUSE_MODE_VISIBLE = 0,
+	};
+	enum CursorShape {
+		CURSOR_CAN_DROP = 7,
+		CURSOR_FDIAGSIZE = 12,
+		CURSOR_POINTING_HAND = 2,
+		CURSOR_IBEAM = 1,
+		CURSOR_BDIAGSIZE = 11,
+		CURSOR_HSIZE = 10,
+		CURSOR_DRAG = 6,
+		CURSOR_VSIZE = 9,
+		CURSOR_FORBIDDEN = 8,
+		CURSOR_VSPLIT = 14,
+		CURSOR_ARROW = 0,
+		CURSOR_MOVE = 13,
+		CURSOR_HELP = 16,
+		CURSOR_HSPLIT = 15,
+		CURSOR_BUSY = 5,
+		CURSOR_WAIT = 4,
+		CURSOR_CROSS = 3,
+	};
+
+	// constants
+
+	// methods
+	static bool is_key_pressed(const int64_t scancode);
+	static bool is_mouse_button_pressed(const int64_t button);
+	static bool is_joy_button_pressed(const int64_t device, const int64_t button);
+	static bool is_action_pressed(const String action);
+	static bool is_action_just_pressed(const String action);
+	static bool is_action_just_released(const String action);
+	static double get_action_strength(const String action);
+	static void add_joy_mapping(const String mapping, const bool update_existing = false);
+	static void remove_joy_mapping(const String guid);
+	static void joy_connection_changed(const int64_t device, const bool connected, const String name, const String guid);
+	static bool is_joy_known(const int64_t device);
+	static double get_joy_axis(const int64_t device, const int64_t axis);
+	static String get_joy_name(const int64_t device);
+	static String get_joy_guid(const int64_t device);
+	static Array get_connected_joypads();
+	static Vector2 get_joy_vibration_strength(const int64_t device);
+	static double get_joy_vibration_duration(const int64_t device);
+	static String get_joy_button_string(const int64_t button_index);
+	static int64_t get_joy_button_index_from_string(const String button);
+	static String get_joy_axis_string(const int64_t axis_index);
+	static int64_t get_joy_axis_index_from_string(const String axis);
+	static void start_joy_vibration(const int64_t device, const double weak_magnitude, const double strong_magnitude, const double duration = 0);
+	static void stop_joy_vibration(const int64_t device);
+	static Vector3 get_gravity();
+	static Vector3 get_accelerometer();
+	static Vector3 get_magnetometer();
+	static Vector3 get_gyroscope();
+	static Vector2 get_last_mouse_speed();
+	static int64_t get_mouse_button_mask();
+	static void set_mouse_mode(const int64_t mode);
+	static Input::MouseMode get_mouse_mode();
+	static void warp_mouse_position(const Vector2 to);
+	static void action_press(const String action);
+	static void action_release(const String action);
+	static void set_default_cursor_shape(const int64_t shape = 0);
+	static void set_custom_mouse_cursor(const godot__ref_Resource_ image, const int64_t shape = 0, const Vector2 hotspot = Vector2(0, 0));
+	static void parse_input_event(const godot__ref_InputEvent_ event);
+};
+
+}
+
+//#endif

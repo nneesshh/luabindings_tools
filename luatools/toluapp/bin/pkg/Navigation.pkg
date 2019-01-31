@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_NAVIGATION_HPP
+//#define GODOT_CPP_NAVIGATION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class NavigationMesh;
+class Object;
+
+class Spatial;
+class Navigation : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	int64_t navmesh_add(const godot__ref_NavigationMesh_ mesh, const Transform xform, const Object *owner = nullptr);
+	void navmesh_set_transform(const int64_t id, const Transform xform);
+	void navmesh_remove(const int64_t id);
+	PoolVector3Array get_simple_path(const Vector3 start, const Vector3 end, const bool optimize = true);
+	Vector3 get_closest_point_to_segment(const Vector3 start, const Vector3 end, const bool use_collision = false);
+	Vector3 get_closest_point(const Vector3 to_point);
+	Vector3 get_closest_point_normal(const Vector3 to_point);
+	Object *get_closest_point_owner(const Vector3 to_point);
+	void set_up_vector(const Vector3 up);
+	Vector3 get_up_vector() const;
+};
+
+}
+
+//#endif

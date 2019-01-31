@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_VEHICLEBODY_HPP
+//#define GODOT_CPP_VEHICLEBODY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class RigidBody;
+class VehicleBody : public RigidBody {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_engine_force(const double engine_force);
+	double get_engine_force() const;
+	void set_brake(const double brake);
+	double get_brake() const;
+	void set_steering(const double steering);
+	double get_steering() const;
+};
+
+}
+
+//#endif

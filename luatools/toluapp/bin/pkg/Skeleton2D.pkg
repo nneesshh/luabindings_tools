@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_SKELETON2D_HPP
+//#define GODOT_CPP_SKELETON2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Bone2D;
+
+class Node2D;
+class Skeleton2D : public Node2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _update_bone_setup();
+	void _update_transform();
+	int64_t get_bone_count() const;
+	Bone2D *get_bone(const int64_t idx);
+	RID get_skeleton() const;
+};
+
+}
+
+//#endif

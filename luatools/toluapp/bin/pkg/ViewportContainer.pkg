@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_VIEWPORTCONTAINER_HPP
+//#define GODOT_CPP_VIEWPORTCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Container;
+class ViewportContainer : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _input(const godot__ref_InputEvent_ event);
+	void set_stretch(const bool enable);
+	bool is_stretch_enabled() const;
+	void set_stretch_shrink(const int64_t amount);
+	int64_t get_stretch_shrink() const;
+};
+
+}
+
+//#endif

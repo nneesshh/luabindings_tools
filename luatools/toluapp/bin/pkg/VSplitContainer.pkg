@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_VSPLITCONTAINER_HPP
+//#define GODOT_CPP_VSPLITCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class SplitContainer;
+class VSplitContainer : public SplitContainer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

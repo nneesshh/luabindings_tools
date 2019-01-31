@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_WORLD2D_HPP
+//#define GODOT_CPP_WORLD2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Physics2DDirectSpaceState;
+
+class Resource;
+class World2D : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	RID get_canvas();
+	RID get_space();
+	Physics2DDirectSpaceState *get_direct_space_state();
+};
+
+}
+
+//#endif

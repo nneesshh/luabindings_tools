@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_GDSCRIPTFUNCTIONSTATE_HPP
+//#define GODOT_CPP_GDSCRIPTFUNCTIONSTATE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class GDScriptFunctionState : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Variant resume(const Variant arg = Variant());
+	bool is_valid(const bool extended_check = false) const;
+	Variant _signal_callback(const Array& __var_args);
+};
+
+}
+
+//#endif

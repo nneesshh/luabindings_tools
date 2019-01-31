@@ -1,0 +1,73 @@
+//#ifndef GODOT_CPP_AUDIOSERVER_HPP
+//#define GODOT_CPP_AUDIOSERVER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AudioEffect;
+class AudioBusLayout;
+
+class Object;
+class AudioServer : public Object {
+public:
+
+
+	// enums
+	enum SpeakerMode {
+		SPEAKER_SURROUND_51 = 2,
+		SPEAKER_SURROUND_71 = 3,
+		SPEAKER_MODE_STEREO = 0,
+	};
+
+	// constants
+
+	// methods
+	static void set_bus_count(const int64_t amount);
+	static int64_t get_bus_count();
+	static void remove_bus(const int64_t index);
+	static void add_bus(const int64_t at_position = -1);
+	static void move_bus(const int64_t index, const int64_t to_index);
+	static void set_bus_name(const int64_t bus_idx, const String name);
+	static String get_bus_name(const int64_t bus_idx);
+	static int64_t get_bus_index(const String bus_name);
+	static void set_bus_volume_db(const int64_t bus_idx, const double volume_db);
+	static double get_bus_volume_db(const int64_t bus_idx);
+	static void set_bus_send(const int64_t bus_idx, const String send);
+	static String get_bus_send(const int64_t bus_idx);
+	static void set_bus_solo(const int64_t bus_idx, const bool enable);
+	static bool is_bus_solo(const int64_t bus_idx);
+	static void set_bus_mute(const int64_t bus_idx, const bool enable);
+	static bool is_bus_mute(const int64_t bus_idx);
+	static void set_bus_bypass_effects(const int64_t bus_idx, const bool enable);
+	static bool is_bus_bypassing_effects(const int64_t bus_idx);
+	static void add_bus_effect(const int64_t bus_idx, const godot__ref_AudioEffect_ effect, const int64_t at_position = -1);
+	static void remove_bus_effect(const int64_t bus_idx, const int64_t effect_idx);
+	static int64_t get_bus_effect_count(const int64_t bus_idx);
+	static godot__ref_AudioEffect_ get_bus_effect(const int64_t bus_idx, const int64_t effect_idx);
+	static void swap_bus_effects(const int64_t bus_idx, const int64_t effect_idx, const int64_t by_effect_idx);
+	static void set_bus_effect_enabled(const int64_t bus_idx, const int64_t effect_idx, const bool enabled);
+	static bool is_bus_effect_enabled(const int64_t bus_idx, const int64_t effect_idx);
+	static double get_bus_peak_volume_left_db(const int64_t bus_idx, const int64_t channel);
+	static double get_bus_peak_volume_right_db(const int64_t bus_idx, const int64_t channel);
+	static void lock();
+	static void unlock();
+	static AudioServer::SpeakerMode get_speaker_mode();
+	static double get_mix_rate();
+	static Array get_device_list();
+	static String get_device();
+	static void set_device(const String device);
+	static Array capture_get_device_list();
+	static String capture_get_device();
+	static void capture_set_device(const String name);
+	static void set_bus_layout(const godot__ref_AudioBusLayout_ bus_layout);
+	static godot__ref_AudioBusLayout_ generate_bus_layout();
+};
+
+}
+
+//#endif

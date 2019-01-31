@@ -1,0 +1,191 @@
+//#ifndef GODOT_CPP__OS_HPP
+//#define GODOT_CPP__OS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Image;
+
+class Object;
+class _OS : public Object {
+public:
+
+
+	// enums
+	enum SystemDir {
+		SYSTEM_DIR_PICTURES = 6,
+		SYSTEM_DIR_RINGTONES = 7,
+		SYSTEM_DIR_DOWNLOADS = 3,
+		SYSTEM_DIR_DESKTOP = 0,
+		SYSTEM_DIR_DOCUMENTS = 2,
+		SYSTEM_DIR_MUSIC = 5,
+		SYSTEM_DIR_MOVIES = 4,
+		SYSTEM_DIR_DCIM = 1,
+	};
+	enum ScreenOrientation {
+		SCREEN_ORIENTATION_PORTRAIT = 1,
+		SCREEN_ORIENTATION_LANDSCAPE = 0,
+		SCREEN_ORIENTATION_REVERSE_PORTRAIT = 3,
+		SCREEN_ORIENTATION_REVERSE_LANDSCAPE = 2,
+		SCREEN_ORIENTATION_SENSOR_LANDSCAPE = 4,
+		SCREEN_ORIENTATION_SENSOR = 6,
+		SCREEN_ORIENTATION_SENSOR_PORTRAIT = 5,
+	};
+	enum PowerState {
+		POWERSTATE_CHARGED = 4,
+		POWERSTATE_ON_BATTERY = 1,
+		POWERSTATE_NO_BATTERY = 2,
+		POWERSTATE_UNKNOWN = 0,
+		POWERSTATE_CHARGING = 3,
+	};
+	enum Month {
+		MONTH_MARCH = 3,
+		MONTH_MAY = 5,
+		MONTH_AUGUST = 8,
+		MONTH_DECEMBER = 12,
+		MONTH_NOVEMBER = 11,
+		MONTH_JANUARY = 1,
+		MONTH_SEPTEMBER = 9,
+		MONTH_FEBRUARY = 2,
+		MONTH_JULY = 7,
+		MONTH_APRIL = 4,
+		MONTH_OCTOBER = 10,
+		MONTH_JUNE = 6,
+	};
+	enum Weekday {
+		DAY_MONDAY = 1,
+		DAY_SATURDAY = 6,
+		DAY_FRIDAY = 5,
+		DAY_THURSDAY = 4,
+		DAY_WEDNESDAY = 3,
+		DAY_SUNDAY = 0,
+		DAY_TUESDAY = 2,
+	};
+
+	// constants
+
+	// methods
+	static void set_clipboard(const String clipboard);
+	static String get_clipboard();
+	static int64_t get_video_driver_count();
+	static String get_video_driver_name(const int64_t driver);
+	static int64_t get_audio_driver_count();
+	static String get_audio_driver_name(const int64_t driver);
+	static PoolStringArray get_connected_midi_inputs();
+	static void open_midi_inputs();
+	static void close_midi_inputs();
+	static int64_t get_screen_count();
+	static int64_t get_current_screen();
+	static void set_current_screen(const int64_t screen);
+	static Vector2 get_screen_position(const int64_t screen = -1);
+	static Vector2 get_screen_size(const int64_t screen = -1);
+	static int64_t get_screen_dpi(const int64_t screen = -1);
+	static Vector2 get_window_position();
+	static void set_window_position(const Vector2 position);
+	static Vector2 get_window_size();
+	static void set_window_size(const Vector2 size);
+	static Rect2 get_window_safe_area();
+	static void set_window_fullscreen(const bool enabled);
+	static bool is_window_fullscreen();
+	static void set_window_resizable(const bool enabled);
+	static bool is_window_resizable();
+	static void set_window_minimized(const bool enabled);
+	static bool is_window_minimized();
+	static void set_window_maximized(const bool enabled);
+	static bool is_window_maximized();
+	static void set_window_always_on_top(const bool enabled);
+	static bool is_window_always_on_top();
+	static void request_attention();
+	static Vector2 get_real_window_size();
+	static void center_window();
+	static void set_borderless_window(const bool borderless);
+	static bool get_borderless_window();
+	static bool get_window_per_pixel_transparency_enabled();
+	static void set_window_per_pixel_transparency_enabled(const bool enabled);
+	static void set_ime_position(const Vector2 position);
+	static void set_screen_orientation(const int64_t orientation);
+	static _OS::ScreenOrientation get_screen_orientation();
+	static void set_keep_screen_on(const bool enabled);
+	static bool is_keep_screen_on();
+	static bool has_touchscreen_ui_hint();
+	static void set_window_title(const String title);
+	static void set_low_processor_usage_mode(const bool enable);
+	static bool is_in_low_processor_usage_mode();
+	static int64_t get_processor_count();
+	static String get_executable_path();
+	static int64_t execute(const String path, const PoolStringArray arguments, const bool blocking, const Array output = Array());
+	static Error kill(const int64_t pid);
+	static Error shell_open(const String uri);
+	static int64_t get_process_id();
+	static String get_environment(const String environment);
+	static bool has_environment(const String environment);
+	static String get_name();
+	static PoolStringArray get_cmdline_args();
+	static Dictionary get_datetime(const bool utc = false);
+	static Dictionary get_date(const bool utc = false);
+	static Dictionary get_time(const bool utc = false);
+	static Dictionary get_time_zone_info();
+	static int64_t get_unix_time();
+	static Dictionary get_datetime_from_unix_time(const int64_t unix_time_val);
+	static int64_t get_unix_time_from_datetime(const Dictionary datetime);
+	static int64_t get_system_time_secs();
+	static void set_icon(const godot__ref_Image_ icon);
+	static int64_t get_exit_code();
+	static void set_exit_code(const int64_t code);
+	static void delay_usec(const int64_t usec);
+	static void delay_msec(const int64_t msec);
+	static int64_t get_ticks_msec();
+	static int64_t get_ticks_usec();
+	static int64_t get_splash_tick_msec();
+	static String get_locale();
+	static String get_latin_keyboard_variant();
+	static String get_model_name();
+	static bool can_draw();
+	static bool is_userfs_persistent();
+	static bool is_stdout_verbose();
+	static bool can_use_threads();
+	static bool is_debug_build();
+	static void dump_memory_to_file(const String file);
+	static void dump_resources_to_file(const String file);
+	static bool has_virtual_keyboard();
+	static void show_virtual_keyboard(const String existing_text = "");
+	static void hide_virtual_keyboard();
+	static int64_t get_virtual_keyboard_height();
+	static void print_resources_in_use(const bool _short = false);
+	static void print_all_resources(const String tofile = "");
+	static int64_t get_static_memory_usage();
+	static int64_t get_static_memory_peak_usage();
+	static int64_t get_dynamic_memory_usage();
+	static String get_user_data_dir();
+	static String get_system_dir(const int64_t dir);
+	static String get_unique_id();
+	static bool is_ok_left_and_cancel_right();
+	static void print_all_textures_by_size();
+	static void print_resources_by_type(const PoolStringArray types);
+	static Error native_video_play(const String path, const double volume, const String audio_track, const String subtitle_track);
+	static bool native_video_is_playing();
+	static void native_video_stop();
+	static void native_video_pause();
+	static void native_video_unpause();
+	static String get_scancode_string(const int64_t code);
+	static bool is_scancode_unicode(const int64_t code);
+	static int64_t find_scancode_from_string(const String string);
+	static void set_use_file_access_save_and_swap(const bool enabled);
+	static void alert(const String text, const String title = "Alert!");
+	static Error set_thread_name(const String name);
+	static void set_use_vsync(const bool enable);
+	static bool is_vsync_enabled();
+	static bool has_feature(const String tag_name);
+	static _OS::PowerState get_power_state();
+	static int64_t get_power_seconds_left();
+	static int64_t get_power_percent_left();
+};
+
+}
+
+//#endif

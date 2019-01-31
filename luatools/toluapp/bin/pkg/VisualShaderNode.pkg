@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODE_HPP
+//#define GODOT_CPP_VISUALSHADERNODE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Resource;
+class VisualShaderNode : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_output_port_for_preview(const int64_t port);
+	int64_t get_output_port_for_preview() const;
+	void set_input_port_default_value(const int64_t port, const Variant value);
+	Variant get_input_port_default_value(const int64_t port) const;
+	void _set_default_input_values(const Array values);
+	Array _get_default_input_values() const;
+};
+
+}
+
+//#endif

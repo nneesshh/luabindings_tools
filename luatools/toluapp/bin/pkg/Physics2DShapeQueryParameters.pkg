@@ -1,0 +1,45 @@
+//#ifndef GODOT_CPP_PHYSICS2DSHAPEQUERYPARAMETERS_HPP
+//#define GODOT_CPP_PHYSICS2DSHAPEQUERYPARAMETERS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Resource;
+
+class Reference;
+class Physics2DShapeQueryParameters : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_shape(const godot__ref_Resource_ shape);
+	void set_shape_rid(const RID shape);
+	RID get_shape_rid() const;
+	void set_transform(const Transform2D transform);
+	Transform2D get_transform() const;
+	void set_motion(const Vector2 motion);
+	Vector2 get_motion() const;
+	void set_margin(const double margin);
+	double get_margin() const;
+	void set_collision_layer(const int64_t collision_layer);
+	int64_t get_collision_layer() const;
+	void set_exclude(const Array exclude);
+	Array get_exclude() const;
+	void set_collide_with_bodies(const bool enable);
+	bool is_collide_with_bodies_enabled() const;
+	void set_collide_with_areas(const bool enable);
+	bool is_collide_with_areas_enabled() const;
+};
+
+}
+
+//#endif

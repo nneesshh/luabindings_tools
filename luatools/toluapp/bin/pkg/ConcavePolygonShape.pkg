@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_CONCAVEPOLYGONSHAPE_HPP
+//#define GODOT_CPP_CONCAVEPOLYGONSHAPE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Shape;
+class ConcavePolygonShape : public Shape {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_faces(const PoolVector3Array faces);
+	PoolVector3Array get_faces() const;
+};
+
+}
+
+//#endif

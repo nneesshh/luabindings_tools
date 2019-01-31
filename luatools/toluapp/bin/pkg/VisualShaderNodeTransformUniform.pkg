@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODETRANSFORMUNIFORM_HPP
+//#define GODOT_CPP_VISUALSHADERNODETRANSFORMUNIFORM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualShaderNodeUniform;
+class VisualShaderNodeTransformUniform : public VisualShaderNodeUniform {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

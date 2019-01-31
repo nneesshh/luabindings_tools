@@ -1,0 +1,43 @@
+//#ifndef GODOT_CPP_BUTTON_HPP
+//#define GODOT_CPP_BUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class BaseButton;
+class Button : public BaseButton {
+public:
+
+
+	// enums
+	enum TextAlign {
+		ALIGN_LEFT = 0,
+		ALIGN_RIGHT = 2,
+		ALIGN_CENTER = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_text(const String text);
+	String get_text() const;
+	void set_button_icon(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_button_icon() const;
+	void set_flat(const bool enabled);
+	void set_clip_text(const bool enabled);
+	bool get_clip_text() const;
+	void set_text_align(const int64_t align);
+	Button::TextAlign get_text_align() const;
+	bool is_flat() const;
+};
+
+}
+
+//#endif

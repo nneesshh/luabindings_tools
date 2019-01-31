@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_CHECKBUTTON_HPP
+//#define GODOT_CPP_CHECKBUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Button;
+class CheckButton : public Button {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

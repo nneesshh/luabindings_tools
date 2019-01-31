@@ -1,0 +1,51 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODESCALARFUNC_HPP
+//#define GODOT_CPP_VISUALSHADERNODESCALARFUNC_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualShaderNode;
+class VisualShaderNodeScalarFunc : public VisualShaderNode {
+public:
+
+
+	// enums
+	enum Function {
+		FUNC_ABS = 12,
+		FUNC_SIGN = 13,
+		FUNC_LOG = 9,
+		FUNC_ROUND = 15,
+		FUNC_ATAN = 5,
+		FUNC_TANH = 8,
+		FUNC_COS = 1,
+		FUNC_SATURATE = 18,
+		FUNC_SINH = 6,
+		FUNC_SIN = 0,
+		FUNC_ASIN = 3,
+		FUNC_NEGATE = 19,
+		FUNC_FRAC = 17,
+		FUNC_CEIL = 16,
+		FUNC_EXP = 10,
+		FUNC_TAN = 2,
+		FUNC_FLOOR = 14,
+		FUNC_COSH = 7,
+		FUNC_SQRT = 11,
+		FUNC_ACOS = 4,
+	};
+
+	// constants
+
+	// methods
+	void set_function(const int64_t func);
+	VisualShaderNodeScalarFunc::Function get_function() const;
+};
+
+}
+
+//#endif

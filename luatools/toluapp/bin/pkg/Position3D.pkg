@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_POSITION3D_HPP
+//#define GODOT_CPP_POSITION3D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class Position3D : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

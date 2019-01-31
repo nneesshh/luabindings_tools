@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTDECONSTRUCT_HPP
+//#define GODOT_CPP_VISUALSCRIPTDECONSTRUCT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptDeconstruct : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_deconstruct_type(const int64_t type);
+	Variant::Type get_deconstruct_type() const;
+	void _set_elem_cache(const Array _cache);
+	Array _get_elem_cache() const;
+};
+
+}
+
+//#endif

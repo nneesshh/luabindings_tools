@@ -1,0 +1,67 @@
+//#ifndef GODOT_CPP_MESHDATATOOL_HPP
+//#define GODOT_CPP_MESHDATATOOL_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class ArrayMesh;
+class Material;
+
+class Reference;
+class MeshDataTool : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void clear();
+	Error create_from_surface(const godot__ref_ArrayMesh_ mesh, const int64_t surface);
+	Error commit_to_surface(const godot__ref_ArrayMesh_ mesh);
+	int64_t get_format() const;
+	int64_t get_vertex_count() const;
+	int64_t get_edge_count() const;
+	int64_t get_face_count() const;
+	void set_vertex(const int64_t idx, const Vector3 vertex);
+	Vector3 get_vertex(const int64_t idx) const;
+	void set_vertex_normal(const int64_t idx, const Vector3 normal);
+	Vector3 get_vertex_normal(const int64_t idx) const;
+	void set_vertex_tangent(const int64_t idx, const Plane tangent);
+	Plane get_vertex_tangent(const int64_t idx) const;
+	void set_vertex_uv(const int64_t idx, const Vector2 uv);
+	Vector2 get_vertex_uv(const int64_t idx) const;
+	void set_vertex_uv2(const int64_t idx, const Vector2 uv2);
+	Vector2 get_vertex_uv2(const int64_t idx) const;
+	void set_vertex_color(const int64_t idx, const Color color);
+	Color get_vertex_color(const int64_t idx) const;
+	void set_vertex_bones(const int64_t idx, const PoolIntArray bones);
+	PoolIntArray get_vertex_bones(const int64_t idx) const;
+	void set_vertex_weights(const int64_t idx, const PoolRealArray weights);
+	PoolRealArray get_vertex_weights(const int64_t idx) const;
+	void set_vertex_meta(const int64_t idx, const Variant meta);
+	Variant get_vertex_meta(const int64_t idx) const;
+	PoolIntArray get_vertex_edges(const int64_t idx) const;
+	PoolIntArray get_vertex_faces(const int64_t idx) const;
+	int64_t get_edge_vertex(const int64_t idx, const int64_t vertex) const;
+	PoolIntArray get_edge_faces(const int64_t idx) const;
+	void set_edge_meta(const int64_t idx, const Variant meta);
+	Variant get_edge_meta(const int64_t idx) const;
+	int64_t get_face_vertex(const int64_t idx, const int64_t vertex) const;
+	int64_t get_face_edge(const int64_t idx, const int64_t edge) const;
+	void set_face_meta(const int64_t idx, const Variant meta);
+	Variant get_face_meta(const int64_t idx) const;
+	Vector3 get_face_normal(const int64_t idx) const;
+	void set_material(const godot__ref_Material_ material);
+	godot__ref_Material_ get_material() const;
+};
+
+}
+
+//#endif

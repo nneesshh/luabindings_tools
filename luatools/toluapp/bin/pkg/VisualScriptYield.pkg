@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTYIELD_HPP
+//#define GODOT_CPP_VISUALSCRIPTYIELD_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptYield : public VisualScriptNode {
+public:
+
+
+	// enums
+	enum YieldMode {
+		YIELD_FRAME = 1,
+		YIELD_PHYSICS_FRAME = 2,
+		YIELD_WAIT = 3,
+	};
+
+	// constants
+
+	// methods
+	void set_yield_mode(const int64_t mode);
+	VisualScriptYield::YieldMode get_yield_mode();
+	void set_wait_time(const double sec);
+	double get_wait_time();
+};
+
+}
+
+//#endif

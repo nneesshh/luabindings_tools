@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_GROOVEJOINT2D_HPP
+//#define GODOT_CPP_GROOVEJOINT2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Joint2D;
+class GrooveJoint2D : public Joint2D {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_length(const double length);
+	double get_length() const;
+	void set_initial_offset(const double offset);
+	double get_initial_offset() const;
+};
+
+}
+
+//#endif

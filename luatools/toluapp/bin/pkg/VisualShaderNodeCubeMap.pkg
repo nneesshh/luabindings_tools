@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODECUBEMAP_HPP
+//#define GODOT_CPP_VISUALSHADERNODECUBEMAP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class CubeMap;
+
+class VisualShaderNode;
+class VisualShaderNodeCubeMap : public VisualShaderNode {
+public:
+
+
+	// enums
+	enum TextureType {
+		TYPE_DATA = 0,
+		TYPE_COLOR = 1,
+		TYPE_NORMALMAP = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_cube_map(const godot__ref_CubeMap_ value);
+	godot__ref_CubeMap_ get_cube_map() const;
+	void set_texture_type(const int64_t value);
+	VisualShaderNodeCubeMap::TextureType get_texture_type() const;
+};
+
+}
+
+//#endif

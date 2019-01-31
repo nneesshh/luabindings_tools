@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_SCENETREETIMER_HPP
+//#define GODOT_CPP_SCENETREETIMER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class SceneTreeTimer : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_time_left(const double time);
+	double get_time_left() const;
+};
+
+}
+
+//#endif

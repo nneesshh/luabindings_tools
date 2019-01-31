@@ -1,0 +1,52 @@
+//#ifndef GODOT_CPP_MAINLOOP_HPP
+//#define GODOT_CPP_MAINLOOP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Object;
+class MainLoop : public Object {
+public:
+
+
+	// enums
+
+	// constants
+	const static int NOTIFICATION_WM_UNFOCUS_REQUEST = 8;
+	const static int NOTIFICATION_WM_MOUSE_EXIT = 3;
+	const static int NOTIFICATION_WM_GO_BACK_REQUEST = 7;
+	const static int NOTIFICATION_WM_MOUSE_ENTER = 2;
+	const static int NOTIFICATION_WM_QUIT_REQUEST = 6;
+	const static int NOTIFICATION_WM_ABOUT = 91;
+	const static int NOTIFICATION_WM_FOCUS_IN = 4;
+	const static int NOTIFICATION_CRASH = 92;
+	const static int NOTIFICATION_WM_FOCUS_OUT = 5;
+	const static int NOTIFICATION_TRANSLATION_CHANGED = 90;
+	const static int NOTIFICATION_OS_MEMORY_WARNING = 9;
+
+	// methods
+	void _input_event(const godot__ref_InputEvent_ event);
+	void _input_text(const String text);
+	void _initialize();
+	void _iteration(const double delta);
+	void _idle(const double delta);
+	void _drop_files(const PoolStringArray files, const int64_t screen);
+	void _finalize();
+	void input_event(const godot__ref_InputEvent_ event);
+	void input_text(const String text);
+	void init();
+	bool iteration(const double delta);
+	bool idle(const double delta);
+	void finish();
+};
+
+}
+
+//#endif

@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP__VISUALSCRIPTEDITOR_HPP
+//#define GODOT_CPP__VISUALSCRIPTEDITOR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Script;
+
+class Object;
+class _VisualScriptEditor : public Object {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static void add_custom_node(const String name, const String category, const godot__ref_Script_ script);
+	static void remove_custom_node(const String name, const String category);
+};
+
+}
+
+//#endif

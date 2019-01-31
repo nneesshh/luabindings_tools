@@ -1,0 +1,673 @@
+//#ifndef GODOT_CPP_VISUALSERVER_HPP
+//#define GODOT_CPP_VISUALSERVER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Image;
+class Object;
+
+class Object;
+class VisualServer : public Object {
+public:
+
+
+	// enums
+	enum ReflectionProbeUpdateMode {
+		REFLECTION_PROBE_UPDATE_ONCE = 0,
+		REFLECTION_PROBE_UPDATE_ALWAYS = 1,
+	};
+	enum LightDirectionalShadowDepthRangeMode {
+		LIGHT_DIRECTIONAL_SHADOW_DEPTH_RANGE_STABLE = 0,
+		LIGHT_DIRECTIONAL_SHADOW_DEPTH_RANGE_OPTIMIZED = 1,
+	};
+	enum BlendShapeMode {
+		BLEND_SHAPE_MODE_NORMALIZED = 0,
+		BLEND_SHAPE_MODE_RELATIVE = 1,
+	};
+	enum PrimitiveType {
+		PRIMITIVE_MAX = 7,
+		PRIMITIVE_TRIANGLE_FAN = 6,
+		PRIMITIVE_LINES = 1,
+		PRIMITIVE_LINE_STRIP = 2,
+		PRIMITIVE_TRIANGLE_STRIP = 5,
+		PRIMITIVE_LINE_LOOP = 3,
+		PRIMITIVE_TRIANGLES = 4,
+		PRIMITIVE_POINTS = 0,
+	};
+	enum TextureType {
+		TEXTURE_TYPE_2D = 0,
+		TEXTURE_TYPE_CUBEMAP = 1,
+		TEXTURE_TYPE_2D_ARRAY = 2,
+		TEXTURE_TYPE_3D = 3,
+	};
+	enum EnvironmentSSAOQuality {
+		ENV_SSAO_QUALITY_LOW = 0,
+		ENV_SSAO_QUALITY_HIGH = 2,
+		ENV_SSAO_QUALITY_MEDIUM = 1,
+	};
+	enum EnvironmentDOFBlurQuality {
+		ENV_DOF_BLUR_QUALITY_MEDIUM = 1,
+		ENV_DOF_BLUR_QUALITY_LOW = 0,
+		ENV_DOF_BLUR_QUALITY_HIGH = 2,
+	};
+	enum RenderInfo {
+		INFO_DRAW_CALLS_IN_FRAME = 5,
+		INFO_OBJECTS_IN_FRAME = 0,
+		INFO_SHADER_CHANGES_IN_FRAME = 3,
+		INFO_VERTEX_MEM_USED = 9,
+		INFO_VIDEO_MEM_USED = 7,
+		INFO_TEXTURE_MEM_USED = 8,
+		INFO_MATERIAL_CHANGES_IN_FRAME = 2,
+		INFO_SURFACE_CHANGES_IN_FRAME = 4,
+		INFO_USAGE_VIDEO_MEM_TOTAL = 6,
+		INFO_VERTICES_IN_FRAME = 1,
+	};
+	enum NinePatchAxisMode {
+		NINE_PATCH_TILE_FIT = 2,
+		NINE_PATCH_STRETCH = 0,
+		NINE_PATCH_TILE = 1,
+	};
+	enum ViewportRenderInfo {
+		VIEWPORT_RENDER_INFO_MAX = 6,
+		VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME = 5,
+		VIEWPORT_RENDER_INFO_MATERIAL_CHANGES_IN_FRAME = 2,
+		VIEWPORT_RENDER_INFO_SURFACE_CHANGES_IN_FRAME = 4,
+		VIEWPORT_RENDER_INFO_SHADER_CHANGES_IN_FRAME = 3,
+		VIEWPORT_RENDER_INFO_VERTICES_IN_FRAME = 1,
+		VIEWPORT_RENDER_INFO_OBJECTS_IN_FRAME = 0,
+	};
+	enum ViewportClearMode {
+		VIEWPORT_CLEAR_ALWAYS = 0,
+		VIEWPORT_CLEAR_NEVER = 1,
+		VIEWPORT_CLEAR_ONLY_NEXT_FRAME = 2,
+	};
+	enum LightOmniShadowDetail {
+		LIGHT_OMNI_SHADOW_DETAIL_HORIZONTAL = 1,
+		LIGHT_OMNI_SHADOW_DETAIL_VERTICAL = 0,
+	};
+	enum ShaderMode {
+		SHADER_MAX = 3,
+		SHADER_CANVAS_ITEM = 1,
+		SHADER_PARTICLES = 2,
+		SHADER_SPATIAL = 0,
+	};
+	enum MultimeshTransformFormat {
+		MULTIMESH_TRANSFORM_2D = 0,
+		MULTIMESH_TRANSFORM_3D = 1,
+	};
+	enum ShadowCastingSetting {
+		SHADOW_CASTING_SETTING_SHADOWS_ONLY = 3,
+		SHADOW_CASTING_SETTING_OFF = 0,
+		SHADOW_CASTING_SETTING_DOUBLE_SIDED = 2,
+		SHADOW_CASTING_SETTING_ON = 1,
+	};
+	enum ViewportDebugDraw {
+		VIEWPORT_DEBUG_DRAW_WIREFRAME = 3,
+		VIEWPORT_DEBUG_DRAW_DISABLED = 0,
+		VIEWPORT_DEBUG_DRAW_UNSHADED = 1,
+		VIEWPORT_DEBUG_DRAW_OVERDRAW = 2,
+	};
+	enum ViewportUsage {
+		VIEWPORT_USAGE_3D = 2,
+		VIEWPORT_USAGE_2D_NO_SAMPLING = 1,
+		VIEWPORT_USAGE_3D_NO_EFFECTS = 3,
+		VIEWPORT_USAGE_2D = 0,
+	};
+	enum EnvironmentBG {
+		ENV_BG_SKY = 2,
+		ENV_BG_MAX = 6,
+		ENV_BG_CANVAS = 4,
+		ENV_BG_CLEAR_COLOR = 0,
+		ENV_BG_COLOR_SKY = 3,
+		ENV_BG_KEEP = 5,
+		ENV_BG_COLOR = 1,
+	};
+	enum LightOmniShadowMode {
+		LIGHT_OMNI_SHADOW_CUBE = 1,
+		LIGHT_OMNI_SHADOW_DUAL_PARABOLOID = 0,
+	};
+	enum TextureFlags {
+		TEXTURE_FLAG_USED_FOR_STREAMING = 2048,
+		TEXTURE_FLAG_FILTER = 4,
+		TEXTURE_FLAGS_DEFAULT = 7,
+		TEXTURE_FLAG_REPEAT = 2,
+		TEXTURE_FLAG_ANISOTROPIC_FILTER = 8,
+		TEXTURE_FLAG_CONVERT_TO_LINEAR = 16,
+		TEXTURE_FLAG_MIRRORED_REPEAT = 32,
+		TEXTURE_FLAG_MIPMAPS = 1,
+	};
+	enum Features {
+		FEATURE_SHADERS = 0,
+		FEATURE_MULTITHREADED = 1,
+	};
+	enum InstanceType {
+		INSTANCE_PARTICLES = 4,
+		INSTANCE_MAX = 9,
+		INSTANCE_REFLECTION_PROBE = 6,
+		INSTANCE_IMMEDIATE = 3,
+		INSTANCE_GEOMETRY_MASK = 30,
+		INSTANCE_GI_PROBE = 7,
+		INSTANCE_MULTIMESH = 2,
+		INSTANCE_LIGHTMAP_CAPTURE = 8,
+		INSTANCE_MESH = 1,
+		INSTANCE_LIGHT = 5,
+		INSTANCE_NONE = 0,
+	};
+	enum EnvironmentSSAOBlur {
+		ENV_SSAO_BLUR_DISABLED = 0,
+		ENV_SSAO_BLUR_1x1 = 1,
+		ENV_SSAO_BLUR_2x2 = 2,
+		ENV_SSAO_BLUR_3x3 = 3,
+	};
+	enum EnvironmentToneMapper {
+		ENV_TONE_MAPPER_ACES = 3,
+		ENV_TONE_MAPPER_REINHARDT = 1,
+		ENV_TONE_MAPPER_FILMIC = 2,
+		ENV_TONE_MAPPER_LINEAR = 0,
+	};
+	enum EnvironmentGlowBlendMode {
+		GLOW_BLEND_MODE_REPLACE = 3,
+		GLOW_BLEND_MODE_SOFTLIGHT = 2,
+		GLOW_BLEND_MODE_ADDITIVE = 0,
+		GLOW_BLEND_MODE_SCREEN = 1,
+	};
+	enum MultimeshColorFormat {
+		MULTIMESH_COLOR_8BIT = 1,
+		MULTIMESH_COLOR_NONE = 0,
+		MULTIMESH_COLOR_FLOAT = 2,
+	};
+	enum CanvasLightShadowFilter {
+		CANVAS_LIGHT_FILTER_PCF3 = 1,
+		CANVAS_LIGHT_FILTER_NONE = 0,
+		CANVAS_LIGHT_FILTER_PCF9 = 4,
+		CANVAS_LIGHT_FILTER_PCF13 = 5,
+		CANVAS_LIGHT_FILTER_PCF5 = 2,
+		CANVAS_LIGHT_FILTER_PCF7 = 3,
+	};
+	enum ScenarioDebugMode {
+		SCENARIO_DEBUG_WIREFRAME = 1,
+		SCENARIO_DEBUG_OVERDRAW = 2,
+		SCENARIO_DEBUG_SHADELESS = 3,
+		SCENARIO_DEBUG_DISABLED = 0,
+	};
+	enum ViewportUpdateMode {
+		VIEWPORT_UPDATE_ALWAYS = 3,
+		VIEWPORT_UPDATE_DISABLED = 0,
+		VIEWPORT_UPDATE_WHEN_VISIBLE = 2,
+		VIEWPORT_UPDATE_ONCE = 1,
+	};
+	enum ArrayFormat {
+		ARRAY_COMPRESS_TEX_UV = 8192,
+		ARRAY_FORMAT_VERTEX = 1,
+		ARRAY_FORMAT_NORMAL = 2,
+		ARRAY_FORMAT_BONES = 64,
+		ARRAY_COMPRESS_TEX_UV2 = 16384,
+		ARRAY_COMPRESS_TANGENT = 2048,
+		ARRAY_FORMAT_WEIGHTS = 128,
+		ARRAY_FORMAT_INDEX = 256,
+		ARRAY_FLAG_USE_2D_VERTICES = 262144,
+		ARRAY_COMPRESS_VERTEX = 512,
+		ARRAY_COMPRESS_NORMAL = 1024,
+		ARRAY_COMPRESS_WEIGHTS = 65536,
+		ARRAY_COMPRESS_COLOR = 4096,
+		ARRAY_FORMAT_TEX_UV = 16,
+		ARRAY_FLAG_USE_16_BIT_BONES = 524288,
+		ARRAY_COMPRESS_INDEX = 131072,
+		ARRAY_COMPRESS_BONES = 32768,
+		ARRAY_FORMAT_TEX_UV2 = 32,
+		ARRAY_COMPRESS_DEFAULT = 97280,
+		ARRAY_FORMAT_COLOR = 8,
+		ARRAY_FORMAT_TANGENT = 4,
+	};
+	enum ParticlesDrawOrder {
+		PARTICLES_DRAW_ORDER_LIFETIME = 1,
+		PARTICLES_DRAW_ORDER_VIEW_DEPTH = 2,
+		PARTICLES_DRAW_ORDER_INDEX = 0,
+	};
+	enum CanvasLightMode {
+		CANVAS_LIGHT_MODE_MIX = 2,
+		CANVAS_LIGHT_MODE_MASK = 3,
+		CANVAS_LIGHT_MODE_ADD = 0,
+		CANVAS_LIGHT_MODE_SUB = 1,
+	};
+	enum LightDirectionalShadowMode {
+		LIGHT_DIRECTIONAL_SHADOW_PARALLEL_4_SPLITS = 2,
+		LIGHT_DIRECTIONAL_SHADOW_PARALLEL_2_SPLITS = 1,
+		LIGHT_DIRECTIONAL_SHADOW_ORTHOGONAL = 0,
+	};
+	enum LightParam {
+		LIGHT_PARAM_ENERGY = 0,
+		LIGHT_PARAM_SPECULAR = 2,
+		LIGHT_PARAM_CONTACT_SHADOW_SIZE = 7,
+		LIGHT_PARAM_MAX = 15,
+		LIGHT_PARAM_RANGE = 3,
+		LIGHT_PARAM_SHADOW_BIAS = 13,
+		LIGHT_PARAM_SHADOW_NORMAL_BIAS = 12,
+		LIGHT_PARAM_SPOT_ATTENUATION = 6,
+		LIGHT_PARAM_SPOT_ANGLE = 5,
+		LIGHT_PARAM_SHADOW_BIAS_SPLIT_SCALE = 14,
+		LIGHT_PARAM_SHADOW_SPLIT_3_OFFSET = 11,
+		LIGHT_PARAM_SHADOW_MAX_DISTANCE = 8,
+		LIGHT_PARAM_SHADOW_SPLIT_2_OFFSET = 10,
+		LIGHT_PARAM_SHADOW_SPLIT_1_OFFSET = 9,
+		LIGHT_PARAM_ATTENUATION = 4,
+	};
+	enum ArrayType {
+		ARRAY_VERTEX = 0,
+		ARRAY_NORMAL = 1,
+		ARRAY_TEX_UV2 = 5,
+		ARRAY_TEX_UV = 4,
+		ARRAY_MAX = 9,
+		ARRAY_COLOR = 3,
+		ARRAY_WEIGHTS = 7,
+		ARRAY_INDEX = 8,
+		ARRAY_TANGENT = 2,
+		ARRAY_BONES = 6,
+	};
+	enum CanvasOccluderPolygonCullMode {
+		CANVAS_OCCLUDER_POLYGON_CULL_CLOCKWISE = 1,
+		CANVAS_OCCLUDER_POLYGON_CULL_DISABLED = 0,
+		CANVAS_OCCLUDER_POLYGON_CULL_COUNTER_CLOCKWISE = 2,
+	};
+	enum InstanceFlags {
+		INSTANCE_FLAG_MAX = 2,
+		INSTANCE_FLAG_DRAW_NEXT_FRAME_IF_VISIBLE = 1,
+		INSTANCE_FLAG_USE_BAKED_LIGHT = 0,
+	};
+	enum ViewportMSAA {
+		VIEWPORT_MSAA_16X = 4,
+		VIEWPORT_MSAA_4X = 2,
+		VIEWPORT_MSAA_DISABLED = 0,
+		VIEWPORT_MSAA_8X = 3,
+		VIEWPORT_MSAA_2X = 1,
+	};
+	enum LightType {
+		LIGHT_DIRECTIONAL = 0,
+		LIGHT_SPOT = 2,
+		LIGHT_OMNI = 1,
+	};
+	enum CubeMapSide {
+		CUBEMAP_TOP = 3,
+		CUBEMAP_LEFT = 0,
+		CUBEMAP_RIGHT = 1,
+		CUBEMAP_BOTTOM = 2,
+		CUBEMAP_BACK = 5,
+		CUBEMAP_FRONT = 4,
+	};
+
+	// constants
+	const static int ARRAY_WEIGHTS_SIZE = 4;
+	const static int MATERIAL_RENDER_PRIORITY_MAX = 127;
+	const static int MAX_GLOW_LEVELS = 7;
+	const static int MATERIAL_RENDER_PRIORITY_MIN = -128;
+	const static int MAX_CURSORS = 8;
+	const static int NO_INDEX_ARRAY = -1;
+	const static int CANVAS_ITEM_Z_MIN = -4096;
+	const static int CANVAS_ITEM_Z_MAX = 4096;
+
+	// methods
+	static void force_sync();
+	static void force_draw(const bool swap_buffers = true, const double frame_step = 0);
+	static void sync();
+	static void draw(const bool swap_buffers = true, const double frame_step = 0);
+	static RID texture_create();
+	static RID texture_create_from_image(const godot__ref_Image_ image, const int64_t flags = 7);
+	static void texture_allocate(const RID texture, const int64_t width, const int64_t height, const int64_t depth_3d, const int64_t format, const int64_t type, const int64_t flags = 7);
+	static void texture_set_data(const RID texture, const godot__ref_Image_ image, const int64_t layer = 0);
+	static void texture_set_data_partial(const RID texture, const godot__ref_Image_ image, const int64_t src_x, const int64_t src_y, const int64_t src_w, const int64_t src_h, const int64_t dst_x, const int64_t dst_y, const int64_t dst_mip, const int64_t layer = 0);
+	static godot__ref_Image_ texture_get_data(const RID texture, const int64_t cube_side = 0);
+	static void texture_set_flags(const RID texture, const int64_t flags);
+	static int64_t texture_get_flags(const RID texture);
+	static Image::Format texture_get_format(const RID texture);
+	static VisualServer::TextureType texture_get_type(const RID texture);
+	static int64_t texture_get_texid(const RID texture);
+	static int64_t texture_get_width(const RID texture);
+	static int64_t texture_get_height(const RID texture);
+	static int64_t texture_get_depth(const RID texture);
+	static void texture_set_size_override(const RID texture, const int64_t width, const int64_t height, const int64_t depth);
+	static void texture_set_path(const RID texture, const String path);
+	static String texture_get_path(const RID texture);
+	static void texture_set_shrink_all_x2_on_set_data(const bool shrink);
+	static Array texture_debug_usage();
+	static void textures_keep_original(const bool enable);
+	static RID sky_create();
+	static void sky_set_texture(const RID sky, const RID cube_map, const int64_t radiance_size);
+	static RID shader_create();
+	static void shader_set_code(const RID shader, const String code);
+	static String shader_get_code(const RID shader);
+	static Array shader_get_param_list(const RID shader);
+	static void shader_set_default_texture_param(const RID shader, const String name, const RID texture);
+	static RID shader_get_default_texture_param(const RID shader, const String name);
+	static RID material_create();
+	static void material_set_shader(const RID shader_material, const RID shader);
+	static RID material_get_shader(const RID shader_material);
+	static void material_set_param(const RID material, const String parameter, const Variant value);
+	static Variant material_get_param(const RID material, const String parameter);
+	static void material_set_render_priority(const RID material, const int64_t priority);
+	static void material_set_line_width(const RID material, const double width);
+	static void material_set_next_pass(const RID material, const RID next_material);
+	static RID mesh_create();
+	static int64_t mesh_surface_get_format_offset(const int64_t format, const int64_t vertex_len, const int64_t index_len, const int64_t array_index);
+	static int64_t mesh_surface_get_format_stride(const int64_t format, const int64_t vertex_len, const int64_t index_len);
+	static void mesh_add_surface_from_arrays(const RID mesh, const int64_t primtive, const Array arrays, const Array blend_shapes = Array(), const int64_t compress_format = 97280);
+	static void mesh_set_blend_shape_count(const RID mesh, const int64_t amount);
+	static int64_t mesh_get_blend_shape_count(const RID mesh);
+	static void mesh_set_blend_shape_mode(const RID mesh, const int64_t mode);
+	static VisualServer::BlendShapeMode mesh_get_blend_shape_mode(const RID mesh);
+	static void mesh_surface_update_region(const RID mesh, const int64_t surface, const int64_t offset, const PoolByteArray data);
+	static void mesh_surface_set_material(const RID mesh, const int64_t surface, const RID material);
+	static RID mesh_surface_get_material(const RID mesh, const int64_t surface);
+	static int64_t mesh_surface_get_array_len(const RID mesh, const int64_t surface);
+	static int64_t mesh_surface_get_array_index_len(const RID mesh, const int64_t surface);
+	static PoolByteArray mesh_surface_get_array(const RID mesh, const int64_t surface);
+	static PoolByteArray mesh_surface_get_index_array(const RID mesh, const int64_t surface);
+	static Array mesh_surface_get_arrays(const RID mesh, const int64_t surface);
+	static Array mesh_surface_get_blend_shape_arrays(const RID mesh, const int64_t surface);
+	static int64_t mesh_surface_get_format(const RID mesh, const int64_t surface);
+	static VisualServer::PrimitiveType mesh_surface_get_primitive_type(const RID mesh, const int64_t surface);
+	static AABB mesh_surface_get_aabb(const RID mesh, const int64_t surface);
+	static Array mesh_surface_get_skeleton_aabb(const RID mesh, const int64_t surface);
+	static void mesh_remove_surface(const RID mesh, const int64_t index);
+	static int64_t mesh_get_surface_count(const RID mesh);
+	static void mesh_set_custom_aabb(const RID mesh, const AABB aabb);
+	static AABB mesh_get_custom_aabb(const RID mesh);
+	static void mesh_clear(const RID mesh);
+	static void multimesh_allocate(const RID multimesh, const int64_t instances, const int64_t transform_format, const int64_t color_format, const int64_t custom_data_format = 0);
+	static int64_t multimesh_get_instance_count(const RID multimesh);
+	static void multimesh_set_mesh(const RID multimesh, const RID mesh);
+	static void multimesh_instance_set_transform(const RID multimesh, const int64_t index, const Transform transform);
+	static void multimesh_instance_set_transform_2d(const RID multimesh, const int64_t index, const Transform2D transform);
+	static void multimesh_instance_set_color(const RID multimesh, const int64_t index, const Color color);
+	static void multimesh_instance_set_custom_data(const RID multimesh, const int64_t index, const Color custom_data);
+	static RID multimesh_get_mesh(const RID multimesh);
+	static AABB multimesh_get_aabb(const RID multimesh);
+	static Transform multimesh_instance_get_transform(const RID multimesh, const int64_t index);
+	static Transform2D multimesh_instance_get_transform_2d(const RID multimesh, const int64_t index);
+	static Color multimesh_instance_get_color(const RID multimesh, const int64_t index);
+	static Color multimesh_instance_get_custom_data(const RID multimesh, const int64_t index);
+	static void multimesh_set_visible_instances(const RID multimesh, const int64_t visible);
+	static int64_t multimesh_get_visible_instances(const RID multimesh);
+	static void multimesh_set_as_bulk_array(const RID multimesh, const PoolRealArray array);
+	static RID immediate_create();
+	static void immediate_begin(const RID immediate, const int64_t primitive, const RID texture = RID());
+	static void immediate_vertex(const RID immediate, const Vector3 vertex);
+	static void immediate_vertex_2d(const RID immediate, const Vector2 vertex);
+	static void immediate_normal(const RID immediate, const Vector3 normal);
+	static void immediate_tangent(const RID immediate, const Plane tangent);
+	static void immediate_color(const RID immediate, const Color color);
+	static void immediate_uv(const RID immediate, const Vector2 tex_uv);
+	static void immediate_uv2(const RID immediate, const Vector2 tex_uv);
+	static void immediate_end(const RID immediate);
+	static void immediate_clear(const RID immediate);
+	static void immediate_set_material(const RID immediate, const RID material);
+	static RID immediate_get_material(const RID immediate);
+	static RID skeleton_create();
+	static void skeleton_allocate(const RID skeleton, const int64_t bones, const bool is_2d_skeleton = false);
+	static int64_t skeleton_get_bone_count(const RID skeleton);
+	static void skeleton_bone_set_transform(const RID skeleton, const int64_t bone, const Transform transform);
+	static Transform skeleton_bone_get_transform(const RID skeleton, const int64_t bone);
+	static void skeleton_bone_set_transform_2d(const RID skeleton, const int64_t bone, const Transform2D transform);
+	static Transform2D skeleton_bone_get_transform_2d(const RID skeleton, const int64_t bone);
+	static RID directional_light_create();
+	static RID omni_light_create();
+	static RID spot_light_create();
+	static void light_set_color(const RID light, const Color color);
+	static void light_set_param(const RID light, const int64_t param, const double value);
+	static void light_set_shadow(const RID light, const bool enabled);
+	static void light_set_shadow_color(const RID light, const Color color);
+	static void light_set_projector(const RID light, const RID texture);
+	static void light_set_negative(const RID light, const bool enable);
+	static void light_set_cull_mask(const RID light, const int64_t mask);
+	static void light_set_reverse_cull_face_mode(const RID light, const bool enabled);
+	static void light_omni_set_shadow_mode(const RID light, const int64_t mode);
+	static void light_omni_set_shadow_detail(const RID light, const int64_t detail);
+	static void light_directional_set_shadow_mode(const RID light, const int64_t mode);
+	static void light_directional_set_blend_splits(const RID light, const bool enable);
+	static void light_directional_set_shadow_depth_range_mode(const RID light, const int64_t range_mode);
+	static RID reflection_probe_create();
+	static void reflection_probe_set_update_mode(const RID probe, const int64_t mode);
+	static void reflection_probe_set_intensity(const RID probe, const double intensity);
+	static void reflection_probe_set_interior_ambient(const RID probe, const Color color);
+	static void reflection_probe_set_interior_ambient_energy(const RID probe, const double energy);
+	static void reflection_probe_set_interior_ambient_probe_contribution(const RID probe, const double contrib);
+	static void reflection_probe_set_max_distance(const RID probe, const double distance);
+	static void reflection_probe_set_extents(const RID probe, const Vector3 extents);
+	static void reflection_probe_set_origin_offset(const RID probe, const Vector3 offset);
+	static void reflection_probe_set_as_interior(const RID probe, const bool enable);
+	static void reflection_probe_set_enable_box_projection(const RID probe, const bool enable);
+	static void reflection_probe_set_enable_shadows(const RID probe, const bool enable);
+	static void reflection_probe_set_cull_mask(const RID probe, const int64_t layers);
+	static RID gi_probe_create();
+	static void gi_probe_set_bounds(const RID probe, const AABB bounds);
+	static AABB gi_probe_get_bounds(const RID probe);
+	static void gi_probe_set_cell_size(const RID probe, const double range);
+	static double gi_probe_get_cell_size(const RID probe);
+	static void gi_probe_set_to_cell_xform(const RID probe, const Transform xform);
+	static Transform gi_probe_get_to_cell_xform(const RID probe);
+	static void gi_probe_set_dynamic_data(const RID probe, const PoolIntArray data);
+	static PoolIntArray gi_probe_get_dynamic_data(const RID probe);
+	static void gi_probe_set_dynamic_range(const RID probe, const int64_t range);
+	static int64_t gi_probe_get_dynamic_range(const RID probe);
+	static void gi_probe_set_energy(const RID probe, const double energy);
+	static double gi_probe_get_energy(const RID probe);
+	static void gi_probe_set_bias(const RID probe, const double bias);
+	static double gi_probe_get_bias(const RID probe);
+	static void gi_probe_set_normal_bias(const RID probe, const double bias);
+	static double gi_probe_get_normal_bias(const RID probe);
+	static void gi_probe_set_propagation(const RID probe, const double propagation);
+	static double gi_probe_get_propagation(const RID probe);
+	static void gi_probe_set_interior(const RID probe, const bool enable);
+	static bool gi_probe_is_interior(const RID probe);
+	static void gi_probe_set_compress(const RID probe, const bool enable);
+	static bool gi_probe_is_compressed(const RID probe);
+	static RID lightmap_capture_create();
+	static void lightmap_capture_set_bounds(const RID capture, const AABB bounds);
+	static AABB lightmap_capture_get_bounds(const RID capture);
+	static void lightmap_capture_set_octree(const RID capture, const PoolByteArray octree);
+	static void lightmap_capture_set_octree_cell_transform(const RID capture, const Transform xform);
+	static Transform lightmap_capture_get_octree_cell_transform(const RID capture);
+	static void lightmap_capture_set_octree_cell_subdiv(const RID capture, const int64_t subdiv);
+	static int64_t lightmap_capture_get_octree_cell_subdiv(const RID capture);
+	static PoolByteArray lightmap_capture_get_octree(const RID capture);
+	static void lightmap_capture_set_energy(const RID capture, const double energy);
+	static double lightmap_capture_get_energy(const RID capture);
+	static RID particles_create();
+	static void particles_set_emitting(const RID particles, const bool emitting);
+	static bool particles_get_emitting(const RID particles);
+	static void particles_set_amount(const RID particles, const int64_t amount);
+	static void particles_set_lifetime(const RID particles, const double lifetime);
+	static void particles_set_one_shot(const RID particles, const bool one_shot);
+	static void particles_set_pre_process_time(const RID particles, const double time);
+	static void particles_set_explosiveness_ratio(const RID particles, const double ratio);
+	static void particles_set_randomness_ratio(const RID particles, const double ratio);
+	static void particles_set_custom_aabb(const RID particles, const AABB aabb);
+	static void particles_set_speed_scale(const RID particles, const double scale);
+	static void particles_set_use_local_coordinates(const RID particles, const bool enable);
+	static void particles_set_process_material(const RID particles, const RID material);
+	static void particles_set_fixed_fps(const RID particles, const int64_t fps);
+	static void particles_set_fractional_delta(const RID particles, const bool enable);
+	static void particles_restart(const RID particles);
+	static void particles_set_draw_order(const RID particles, const int64_t order);
+	static void particles_set_draw_passes(const RID particles, const int64_t count);
+	static void particles_set_draw_pass_mesh(const RID particles, const int64_t pass, const RID mesh);
+	static AABB particles_get_current_aabb(const RID particles);
+	static void particles_set_emission_transform(const RID particles, const Transform transform);
+	static RID camera_create();
+	static void camera_set_perspective(const RID camera, const double fovy_degrees, const double z_near, const double z_far);
+	static void camera_set_orthogonal(const RID camera, const double size, const double z_near, const double z_far);
+	static void camera_set_transform(const RID camera, const Transform transform);
+	static void camera_set_cull_mask(const RID camera, const int64_t layers);
+	static void camera_set_environment(const RID camera, const RID env);
+	static void camera_set_use_vertical_aspect(const RID camera, const bool enable);
+	static RID viewport_create();
+	static void viewport_set_use_arvr(const RID viewport, const bool use_arvr);
+	static void viewport_set_size(const RID viewport, const int64_t width, const int64_t height);
+	static void viewport_set_active(const RID viewport, const bool active);
+	static void viewport_set_parent_viewport(const RID viewport, const RID parent_viewport);
+	static void viewport_attach_to_screen(const RID viewport, const Rect2 rect = Rect2(0, 0, 0, 0), const int64_t screen = 0);
+	static void viewport_detach(const RID viewport);
+	static void viewport_set_update_mode(const RID viewport, const int64_t update_mode);
+	static void viewport_set_vflip(const RID viewport, const bool enabled);
+	static void viewport_set_clear_mode(const RID viewport, const int64_t clear_mode);
+	static RID viewport_get_texture(const RID viewport);
+	static void viewport_set_hide_scenario(const RID viewport, const bool hidden);
+	static void viewport_set_hide_canvas(const RID viewport, const bool hidden);
+	static void viewport_set_disable_environment(const RID viewport, const bool disabled);
+	static void viewport_set_disable_3d(const RID viewport, const bool disabled);
+	static void viewport_attach_camera(const RID viewport, const RID camera);
+	static void viewport_set_scenario(const RID viewport, const RID scenario);
+	static void viewport_attach_canvas(const RID viewport, const RID canvas);
+	static void viewport_remove_canvas(const RID viewport, const RID canvas);
+	static void viewport_set_canvas_transform(const RID viewport, const RID canvas, const Transform2D offset);
+	static void viewport_set_transparent_background(const RID viewport, const bool enabled);
+	static void viewport_set_global_canvas_transform(const RID viewport, const Transform2D transform);
+	static void viewport_set_canvas_layer(const RID viewport, const RID canvas, const int64_t layer);
+	static void viewport_set_shadow_atlas_size(const RID viewport, const int64_t size);
+	static void viewport_set_shadow_atlas_quadrant_subdivision(const RID viewport, const int64_t quadrant, const int64_t subdivision);
+	static void viewport_set_msaa(const RID viewport, const int64_t msaa);
+	static void viewport_set_hdr(const RID viewport, const bool enabled);
+	static void viewport_set_usage(const RID viewport, const int64_t usage);
+	static int64_t viewport_get_render_info(const RID viewport, const int64_t info);
+	static void viewport_set_debug_draw(const RID viewport, const int64_t draw);
+	static RID environment_create();
+	static void environment_set_background(const RID env, const int64_t bg);
+	static void environment_set_sky(const RID env, const RID sky);
+	static void environment_set_sky_custom_fov(const RID env, const double scale);
+	static void environment_set_bg_color(const RID env, const Color color);
+	static void environment_set_bg_energy(const RID env, const double energy);
+	static void environment_set_canvas_max_layer(const RID env, const int64_t max_layer);
+	static void environment_set_ambient_light(const RID env, const Color color, const double energy = 1, const double sky_contibution = 0);
+	static void environment_set_dof_blur_near(const RID env, const bool enable, const double distance, const double transition, const double far_amount, const int64_t quality);
+	static void environment_set_dof_blur_far(const RID env, const bool enable, const double distance, const double transition, const double far_amount, const int64_t quality);
+	static void environment_set_glow(const RID env, const bool enable, const int64_t level_flags, const double intensity, const double strength, const double bloom_threshold, const int64_t blend_mode, const double hdr_bleed_threshold, const double hdr_bleed_scale, const bool bicubic_upscale);
+	static void environment_set_tonemap(const RID env, const int64_t tone_mapper, const double exposure, const double white, const bool auto_exposure, const double min_luminance, const double max_luminance, const double auto_exp_speed, const double auto_exp_grey);
+	static void environment_set_adjustment(const RID env, const bool enable, const double brightness, const double contrast, const double saturation, const RID ramp);
+	static void environment_set_ssr(const RID env, const bool enable, const int64_t max_steps, const double fade_in, const double fade_out, const double depth_tolerance, const bool roughness);
+	static void environment_set_ssao(const RID env, const bool enable, const double radius, const double intensity, const double radius2, const double intensity2, const double bias, const double light_affect, const double ao_channel_affect, const Color color, const int64_t quality, const int64_t blur, const double bilateral_sharpness);
+	static void environment_set_fog(const RID env, const bool enable, const Color color, const Color sun_color, const double sun_amount);
+	static void environment_set_fog_depth(const RID env, const bool enable, const double depth_begin, const double depth_curve, const bool transmit, const double transmit_curve);
+	static void environment_set_fog_height(const RID env, const bool enable, const double min_height, const double max_height, const double height_curve);
+	static RID scenario_create();
+	static void scenario_set_debug(const RID scenario, const int64_t debug_mode);
+	static void scenario_set_environment(const RID scenario, const RID environment);
+	static void scenario_set_reflection_atlas_size(const RID scenario, const int64_t p_size, const int64_t subdiv);
+	static void scenario_set_fallback_environment(const RID scenario, const RID environment);
+	static RID instance_create2(const RID base, const RID scenario);
+	static RID instance_create();
+	static void instance_set_base(const RID instance, const RID base);
+	static void instance_set_scenario(const RID instance, const RID scenario);
+	static void instance_set_layer_mask(const RID instance, const int64_t mask);
+	static void instance_set_transform(const RID instance, const Transform transform);
+	static void instance_attach_object_instance_id(const RID instance, const int64_t id);
+	static void instance_set_blend_shape_weight(const RID instance, const int64_t shape, const double weight);
+	static void instance_set_surface_material(const RID instance, const int64_t surface, const RID material);
+	static void instance_set_visible(const RID instance, const bool visible);
+	static void instance_set_use_lightmap(const RID instance, const RID lightmap_instance, const RID lightmap);
+	static void instance_set_custom_aabb(const RID instance, const AABB aabb);
+	static void instance_attach_skeleton(const RID instance, const RID skeleton);
+	static void instance_set_exterior(const RID instance, const bool enabled);
+	static void instance_set_extra_visibility_margin(const RID instance, const double margin);
+	static void instance_geometry_set_flag(const RID instance, const int64_t flag, const bool enabled);
+	static void instance_geometry_set_cast_shadows_setting(const RID instance, const int64_t shadow_casting_setting);
+	static void instance_geometry_set_material_override(const RID instance, const RID material);
+	static void instance_geometry_set_draw_range(const RID instance, const double min, const double max, const double min_margin, const double max_margin);
+	static void instance_geometry_set_as_instance_lod(const RID instance, const RID as_lod_of_instance);
+	static Array instances_cull_aabb(const AABB aabb, const RID scenario = RID());
+	static Array instances_cull_ray(const Vector3 from, const Vector3 to, const RID scenario = RID());
+	static Array instances_cull_convex(const Array convex, const RID scenario = RID());
+	static RID canvas_create();
+	static void canvas_set_item_mirroring(const RID canvas, const RID item, const Vector2 mirroring);
+	static void canvas_set_modulate(const RID canvas, const Color color);
+	static RID canvas_item_create();
+	static void canvas_item_set_parent(const RID item, const RID parent);
+	static void canvas_item_set_visible(const RID item, const bool visible);
+	static void canvas_item_set_light_mask(const RID item, const int64_t mask);
+	static void canvas_item_set_transform(const RID item, const Transform2D transform);
+	static void canvas_item_set_clip(const RID item, const bool clip);
+	static void canvas_item_set_distance_field_mode(const RID item, const bool enabled);
+	static void canvas_item_set_custom_rect(const RID item, const bool use_custom_rect, const Rect2 rect = Rect2(0, 0, 0, 0));
+	static void canvas_item_set_modulate(const RID item, const Color color);
+	static void canvas_item_set_self_modulate(const RID item, const Color color);
+	static void canvas_item_set_draw_behind_parent(const RID item, const bool enabled);
+	static void canvas_item_add_line(const RID item, const Vector2 from, const Vector2 to, const Color color, const double width = 1, const bool antialiased = false);
+	static void canvas_item_add_polyline(const RID item, const PoolVector2Array points, const PoolColorArray colors, const double width = 1, const bool antialiased = false);
+	static void canvas_item_add_rect(const RID item, const Rect2 rect, const Color color);
+	static void canvas_item_add_circle(const RID item, const Vector2 pos, const double radius, const Color color);
+	static void canvas_item_add_texture_rect(const RID item, const Rect2 rect, const RID texture, const bool tile = false, const Color modulate = Color(1,1,1,1), const bool transpose = false, const RID normal_map = RID());
+	static void canvas_item_add_texture_rect_region(const RID item, const Rect2 rect, const RID texture, const Rect2 src_rect, const Color modulate = Color(1,1,1,1), const bool transpose = false, const RID normal_map = RID(), const bool clip_uv = true);
+	static void canvas_item_add_nine_patch(const RID item, const Rect2 rect, const Rect2 source, const RID texture, const Vector2 topleft, const Vector2 bottomright, const int64_t x_axis_mode = 0, const int64_t y_axis_mode = 0, const bool draw_center = true, const Color modulate = Color(1,1,1,1), const RID normal_map = RID());
+	static void canvas_item_add_primitive(const RID item, const PoolVector2Array points, const PoolColorArray colors, const PoolVector2Array uvs, const RID texture, const double width = 1, const RID normal_map = RID());
+	static void canvas_item_add_polygon(const RID item, const PoolVector2Array points, const PoolColorArray colors, const PoolVector2Array uvs = PoolVector2Array(), const RID texture = RID(), const RID normal_map = RID(), const bool antialiased = false);
+	static void canvas_item_add_triangle_array(const RID item, const PoolIntArray indices, const PoolVector2Array points, const PoolColorArray colors, const PoolVector2Array uvs = PoolVector2Array(), const PoolIntArray bones = PoolIntArray(), const PoolRealArray weights = PoolRealArray(), const RID texture = RID(), const int64_t count = -1, const RID normal_map = RID());
+	static void canvas_item_add_mesh(const RID item, const RID mesh, const RID texture, const RID normal_map = RID());
+	static void canvas_item_add_multimesh(const RID item, const RID mesh, const RID texture, const RID normal_map = RID());
+	static void canvas_item_add_particles(const RID item, const RID particles, const RID texture, const RID normal_map, const int64_t h_frames, const int64_t v_frames);
+	static void canvas_item_add_set_transform(const RID item, const Transform2D transform);
+	static void canvas_item_add_clip_ignore(const RID item, const bool ignore);
+	static void canvas_item_set_sort_children_by_y(const RID item, const bool enabled);
+	static void canvas_item_set_z_index(const RID item, const int64_t z_index);
+	static void canvas_item_set_z_as_relative_to_parent(const RID item, const bool enabled);
+	static void canvas_item_set_copy_to_backbuffer(const RID item, const bool enabled, const Rect2 rect);
+	static void canvas_item_clear(const RID item);
+	static void canvas_item_set_draw_index(const RID item, const int64_t index);
+	static void canvas_item_set_material(const RID item, const RID material);
+	static void canvas_item_set_use_parent_material(const RID item, const bool enabled);
+	static RID canvas_light_create();
+	static void canvas_light_attach_to_canvas(const RID light, const RID canvas);
+	static void canvas_light_set_enabled(const RID light, const bool enabled);
+	static void canvas_light_set_scale(const RID light, const double scale);
+	static void canvas_light_set_transform(const RID light, const Transform2D transform);
+	static void canvas_light_set_texture(const RID light, const RID texture);
+	static void canvas_light_set_texture_offset(const RID light, const Vector2 offset);
+	static void canvas_light_set_color(const RID light, const Color color);
+	static void canvas_light_set_height(const RID light, const double height);
+	static void canvas_light_set_energy(const RID light, const double energy);
+	static void canvas_light_set_z_range(const RID light, const int64_t min_z, const int64_t max_z);
+	static void canvas_light_set_layer_range(const RID light, const int64_t min_layer, const int64_t max_layer);
+	static void canvas_light_set_item_cull_mask(const RID light, const int64_t mask);
+	static void canvas_light_set_item_shadow_cull_mask(const RID light, const int64_t mask);
+	static void canvas_light_set_mode(const RID light, const int64_t mode);
+	static void canvas_light_set_shadow_enabled(const RID light, const bool enabled);
+	static void canvas_light_set_shadow_buffer_size(const RID light, const int64_t size);
+	static void canvas_light_set_shadow_gradient_length(const RID light, const double length);
+	static void canvas_light_set_shadow_filter(const RID light, const int64_t filter);
+	static void canvas_light_set_shadow_color(const RID light, const Color color);
+	static void canvas_light_set_shadow_smooth(const RID light, const double smooth);
+	static RID canvas_light_occluder_create();
+	static void canvas_light_occluder_attach_to_canvas(const RID occluder, const RID canvas);
+	static void canvas_light_occluder_set_enabled(const RID occluder, const bool enabled);
+	static void canvas_light_occluder_set_polygon(const RID occluder, const RID polygon);
+	static void canvas_light_occluder_set_transform(const RID occluder, const Transform2D transform);
+	static void canvas_light_occluder_set_light_mask(const RID occluder, const int64_t mask);
+	static RID canvas_occluder_polygon_create();
+	static void canvas_occluder_polygon_set_shape(const RID occluder_polygon, const PoolVector2Array shape, const bool closed);
+	static void canvas_occluder_polygon_set_shape_as_lines(const RID occluder_polygon, const PoolVector2Array shape);
+	static void canvas_occluder_polygon_set_cull_mode(const RID occluder_polygon, const int64_t mode);
+	static void black_bars_set_margins(const int64_t left, const int64_t top, const int64_t right, const int64_t bottom);
+	static void black_bars_set_images(const RID left, const RID top, const RID right, const RID bottom);
+	static void free_rid(const RID rid);
+	static void request_frame_drawn_callback(const Object *where, const String method, const Variant userdata);
+	static bool has_changed();
+	static void init();
+	static void finish();
+	static int64_t get_render_info(const int64_t info);
+	static RID make_sphere_mesh(const int64_t latitudes, const int64_t longitudes, const double radius);
+	static RID get_test_cube();
+	static RID get_test_texture();
+	static RID get_white_texture();
+	static void set_boot_image(const godot__ref_Image_ image, const Color color, const bool scale);
+	static void set_default_clear_color(const Color color);
+	static bool has_feature(const int64_t feature);
+	static bool has_os_feature(const String feature);
+	static void set_debug_generate_wireframes(const bool generate);
+};
+
+}
+
+//#endif

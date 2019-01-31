@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_EDITORFILESYSTEM_HPP
+//#define GODOT_CPP_EDITORFILESYSTEM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class EditorFileSystemDirectory;
+
+class Node;
+class EditorFileSystem : public Node {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	EditorFileSystemDirectory *get_filesystem();
+	bool is_scanning() const;
+	double get_scanning_progress() const;
+	void scan();
+	void scan_sources();
+	void update_file(const String path);
+	EditorFileSystemDirectory *get_filesystem_path(const String path);
+	String get_file_type(const String path) const;
+	void update_script_classes();
+};
+
+}
+
+//#endif

@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_WEBSOCKETCLIENT_HPP
+//#define GODOT_CPP_WEBSOCKETCLIENT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class WebSocketMultiplayerPeer;
+class WebSocketClient : public WebSocketMultiplayerPeer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	Error connect_to_url(const String url, const PoolStringArray protocols = PoolStringArray(), const bool gd_mp_api = false);
+	void disconnect_from_host();
+	void set_verify_ssl_enabled(const bool enabled);
+	bool is_verify_ssl_enabled() const;
+};
+
+}
+
+//#endif

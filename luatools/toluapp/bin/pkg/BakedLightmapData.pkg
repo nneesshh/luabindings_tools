@@ -1,0 +1,45 @@
+//#ifndef GODOT_CPP_BAKEDLIGHTMAPDATA_HPP
+//#define GODOT_CPP_BAKEDLIGHTMAPDATA_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Resource;
+class BakedLightmapData : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _set_user_data(const Array data);
+	Array _get_user_data() const;
+	void set_bounds(const AABB bounds);
+	AABB get_bounds() const;
+	void set_cell_space_transform(const Transform xform);
+	Transform get_cell_space_transform() const;
+	void set_cell_subdiv(const int64_t cell_subdiv);
+	int64_t get_cell_subdiv() const;
+	void set_octree(const PoolByteArray octree);
+	PoolByteArray get_octree() const;
+	void set_energy(const double energy);
+	double get_energy() const;
+	void add_user(const NodePath path, const godot__ref_Texture_ lightmap, const int64_t instance);
+	int64_t get_user_count() const;
+	NodePath get_user_path(const int64_t user_idx) const;
+	godot__ref_Texture_ get_user_lightmap(const int64_t user_idx) const;
+	void clear_users();
+};
+
+}
+
+//#endif

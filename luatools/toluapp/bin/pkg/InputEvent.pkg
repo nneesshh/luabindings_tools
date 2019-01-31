@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_INPUTEVENT_HPP
+//#define GODOT_CPP_INPUTEVENT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Resource;
+class InputEvent : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_device(const int64_t device);
+	int64_t get_device() const;
+	bool is_action(const String action) const;
+	bool is_action_pressed(const String action) const;
+	bool is_action_released(const String action) const;
+	double get_action_strength(const String action) const;
+	bool is_pressed() const;
+	bool is_echo() const;
+	String as_text() const;
+	bool shortcut_match(const godot__ref_InputEvent_ event) const;
+	bool is_action_type() const;
+	godot__ref_InputEvent_ xformed_by(const Transform2D xform, const Vector2 local_ofs = Vector2(0, 0)) const;
+};
+
+}
+
+//#endif

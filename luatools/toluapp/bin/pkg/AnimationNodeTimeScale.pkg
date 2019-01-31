@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_ANIMATIONNODETIMESCALE_HPP
+//#define GODOT_CPP_ANIMATIONNODETIMESCALE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AnimationNode;
+class AnimationNodeTimeScale : public AnimationNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

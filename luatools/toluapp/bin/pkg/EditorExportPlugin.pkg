@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_EDITOREXPORTPLUGIN_HPP
+//#define GODOT_CPP_EDITOREXPORTPLUGIN_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class EditorExportPlugin : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _export_file(const String path, const String type, const PoolStringArray features);
+	void _export_begin(const PoolStringArray features, const bool is_debug, const String path, const int64_t flags);
+	void add_shared_object(const String path, const PoolStringArray tags);
+	void add_file(const String path, const PoolByteArray file, const bool remap);
+	void add_ios_framework(const String path);
+	void add_ios_plist_content(const String plist_content);
+	void add_ios_linker_flags(const String flags);
+	void add_ios_bundle_file(const String path);
+	void add_ios_cpp_code(const String code);
+	void skip();
+};
+
+}
+
+//#endif

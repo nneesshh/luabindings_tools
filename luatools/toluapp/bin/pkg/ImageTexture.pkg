@@ -1,0 +1,44 @@
+//#ifndef GODOT_CPP_IMAGETEXTURE_HPP
+//#define GODOT_CPP_IMAGETEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Image;
+
+class Texture;
+class ImageTexture : public Texture {
+public:
+
+
+	// enums
+	enum Storage {
+		STORAGE_COMPRESS_LOSSY = 1,
+		STORAGE_COMPRESS_LOSSLESS = 2,
+		STORAGE_RAW = 0,
+	};
+
+	// constants
+
+	// methods
+	void create(const int64_t width, const int64_t height, const int64_t format, const int64_t flags = 7);
+	void create_from_image(const godot__ref_Image_ image, const int64_t flags = 7);
+	Image::Format get_format() const;
+	Error load(const String path);
+	void set_data(const godot__ref_Image_ image);
+	void set_storage(const int64_t mode);
+	ImageTexture::Storage get_storage() const;
+	void set_lossy_storage_quality(const double quality);
+	double get_lossy_storage_quality() const;
+	void set_size_override(const Vector2 size);
+	void _reload_hook(const RID rid);
+};
+
+}
+
+//#endif

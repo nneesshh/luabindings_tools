@@ -1,0 +1,53 @@
+//#ifndef GODOT_CPP_XMLPARSER_HPP
+//#define GODOT_CPP_XMLPARSER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class XMLParser : public Reference {
+public:
+
+
+	// enums
+	enum NodeType {
+		NODE_ELEMENT_END = 2,
+		NODE_COMMENT = 4,
+		NODE_TEXT = 3,
+		NODE_CDATA = 5,
+		NODE_ELEMENT = 1,
+		NODE_UNKNOWN = 6,
+		NODE_NONE = 0,
+	};
+
+	// constants
+
+	// methods
+	Error read();
+	XMLParser::NodeType get_node_type();
+	String get_node_name() const;
+	String get_node_data() const;
+	int64_t get_node_offset() const;
+	int64_t get_attribute_count() const;
+	String get_attribute_name(const int64_t idx) const;
+	String get_attribute_value(const int64_t idx) const;
+	bool has_attribute(const String name) const;
+	String get_named_attribute_value(const String name) const;
+	String get_named_attribute_value_safe(const String name) const;
+	bool is_empty() const;
+	int64_t get_current_line() const;
+	void skip_section();
+	Error seek(const int64_t position);
+	Error open(const String file);
+	Error open_buffer(const PoolByteArray buffer);
+};
+
+}
+
+//#endif

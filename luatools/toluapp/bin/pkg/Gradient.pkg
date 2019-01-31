@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_GRADIENT_HPP
+//#define GODOT_CPP_GRADIENT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Resource;
+class Gradient : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void add_point(const double offset, const Color color);
+	void remove_point(const int64_t offset);
+	void set_offset(const int64_t point, const double offset);
+	double get_offset(const int64_t point) const;
+	void set_color(const int64_t point, const Color color);
+	Color get_color(const int64_t point) const;
+	Color interpolate(const double offset);
+	int64_t get_point_count() const;
+	void set_offsets(const PoolRealArray offsets);
+	PoolRealArray get_offsets() const;
+	void set_colors(const PoolColorArray colors);
+	PoolColorArray get_colors() const;
+};
+
+}
+
+//#endif

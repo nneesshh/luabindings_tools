@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTRESOURCEPATH_HPP
+//#define GODOT_CPP_VISUALSCRIPTRESOURCEPATH_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptResourcePath : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_resource_path(const String path);
+	String get_resource_path();
+};
+
+}
+
+//#endif

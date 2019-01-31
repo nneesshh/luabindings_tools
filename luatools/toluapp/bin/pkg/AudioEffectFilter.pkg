@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTFILTER_HPP
+//#define GODOT_CPP_AUDIOEFFECTFILTER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectFilter : public AudioEffect {
+public:
+
+
+	// enums
+	enum FilterDB {
+		FILTER_12DB = 1,
+		FILTER_18DB = 2,
+		FILTER_24DB = 3,
+		FILTER_6DB = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_cutoff(const double freq);
+	double get_cutoff() const;
+	void set_resonance(const double amount);
+	double get_resonance() const;
+	void set_gain(const double amount);
+	double get_gain() const;
+	void set_db(const int64_t amount);
+	AudioEffectFilter::FilterDB get_db() const;
+};
+
+}
+
+//#endif

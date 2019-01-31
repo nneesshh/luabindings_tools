@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_EDITORINSPECTORPLUGIN_HPP
+//#define GODOT_CPP_EDITORINSPECTORPLUGIN_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class Reference;
+class EditorInspectorPlugin : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	bool can_handle(const Object *object);
+	void parse_begin(const Object *object);
+	void parse_category(const Object *object, const String category);
+	bool parse_property(const Object *object, const int64_t type, const String path, const int64_t hint, const String hint_text, const int64_t usage);
+	void parse_end();
+	void add_custom_control(const Object *control);
+	void add_property_editor(const String property, const Object *editor);
+	void add_property_editor_for_multiple_properties(const String label, const PoolStringArray properties, const Object *editor);
+};
+
+}
+
+//#endif

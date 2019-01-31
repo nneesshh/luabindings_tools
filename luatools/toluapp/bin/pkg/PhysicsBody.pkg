@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_PHYSICSBODY_HPP
+//#define GODOT_CPP_PHYSICSBODY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+
+class CollisionObject;
+class PhysicsBody : public CollisionObject {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_collision_layer(const int64_t layer);
+	int64_t get_collision_layer() const;
+	void set_collision_mask(const int64_t mask);
+	int64_t get_collision_mask() const;
+	void set_collision_mask_bit(const int64_t bit, const bool value);
+	bool get_collision_mask_bit(const int64_t bit) const;
+	void set_collision_layer_bit(const int64_t bit, const bool value);
+	bool get_collision_layer_bit(const int64_t bit) const;
+	void _set_layers(const int64_t mask);
+	int64_t _get_layers() const;
+	void add_collision_exception_with(const Object *body);
+	void remove_collision_exception_with(const Object *body);
+};
+
+}
+
+//#endif

@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_PACKETPEERGDNATIVE_HPP
+//#define GODOT_CPP_PACKETPEERGDNATIVE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class PacketPeer;
+class PacketPeerGDNative : public PacketPeer {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

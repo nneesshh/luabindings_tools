@@ -1,0 +1,51 @@
+//#ifndef GODOT_CPP_ANIMATIONTREE_HPP
+//#define GODOT_CPP_ANIMATIONTREE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class AnimationNode;
+class Object;
+
+class Node;
+class AnimationTree : public Node {
+public:
+
+
+	// enums
+	enum AnimationProcessMode {
+		ANIMATION_PROCESS_IDLE = 1,
+		ANIMATION_PROCESS_MANUAL = 2,
+		ANIMATION_PROCESS_PHYSICS = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_active(const bool active);
+	bool is_active() const;
+	void set_tree_root(const godot__ref_AnimationNode_ root);
+	godot__ref_AnimationNode_ get_tree_root() const;
+	void set_process_mode(const int64_t mode);
+	AnimationTree::AnimationProcessMode get_process_mode() const;
+	void set_animation_player(const NodePath root);
+	NodePath get_animation_player() const;
+	void set_root_motion_track(const NodePath path);
+	NodePath get_root_motion_track() const;
+	Transform get_root_motion_transform() const;
+	void _tree_changed();
+	void _update_properties();
+	void rename_parameter(const String old_name, const String new_name);
+	void advance(const double delta);
+	void _node_removed(const Object *arg0);
+	void _clear_caches();
+};
+
+}
+
+//#endif

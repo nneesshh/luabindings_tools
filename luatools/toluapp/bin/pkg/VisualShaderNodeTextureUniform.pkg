@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_VISUALSHADERNODETEXTUREUNIFORM_HPP
+//#define GODOT_CPP_VISUALSHADERNODETEXTUREUNIFORM_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualShaderNodeUniform;
+class VisualShaderNodeTextureUniform : public VisualShaderNodeUniform {
+public:
+
+
+	// enums
+	enum TextureType {
+		TYPE_NORMALMAP = 2,
+		TYPE_DATA = 0,
+		TYPE_COLOR = 1,
+		TYPE_ANISO = 3,
+	};
+	enum ColorDefault {
+		COLOR_DEFAULT_WHITE = 0,
+		COLOR_DEFAULT_BLACK = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_texture_type(const int64_t type);
+	VisualShaderNodeTextureUniform::TextureType get_texture_type() const;
+	void set_color_default(const int64_t type);
+	VisualShaderNodeTextureUniform::ColorDefault get_color_default() const;
+};
+
+}
+
+//#endif

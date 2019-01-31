@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_CONFIGFILE_HPP
+//#define GODOT_CPP_CONFIGFILE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class ConfigFile : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_value(const String section, const String key, const Variant value);
+	Variant get_value(const String section, const String key, const Variant _default = Variant()) const;
+	bool has_section(const String section) const;
+	bool has_section_key(const String section, const String key) const;
+	PoolStringArray get_sections() const;
+	PoolStringArray get_section_keys(const String section) const;
+	void erase_section(const String section);
+	Error load(const String path);
+	Error save(const String path);
+};
+
+}
+
+//#endif

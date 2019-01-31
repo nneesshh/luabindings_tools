@@ -1,0 +1,58 @@
+//#ifndef GODOT_CPP_GIPROBE_HPP
+//#define GODOT_CPP_GIPROBE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class GIProbeData;
+class Object;
+
+class VisualInstance;
+class GIProbe : public VisualInstance {
+public:
+
+
+	// enums
+	enum Subdiv {
+		SUBDIV_64 = 0,
+		SUBDIV_128 = 1,
+		SUBDIV_256 = 2,
+		SUBDIV_512 = 3,
+		SUBDIV_MAX = 4,
+	};
+
+	// constants
+
+	// methods
+	void set_probe_data(const godot__ref_GIProbeData_ data);
+	godot__ref_GIProbeData_ get_probe_data() const;
+	void set_subdiv(const int64_t subdiv);
+	GIProbe::Subdiv get_subdiv() const;
+	void set_extents(const Vector3 extents);
+	Vector3 get_extents() const;
+	void set_dynamic_range(const int64_t max);
+	int64_t get_dynamic_range() const;
+	void set_energy(const double max);
+	double get_energy() const;
+	void set_bias(const double max);
+	double get_bias() const;
+	void set_normal_bias(const double max);
+	double get_normal_bias() const;
+	void set_propagation(const double max);
+	double get_propagation() const;
+	void set_interior(const bool enable);
+	bool is_interior() const;
+	void set_compress(const bool enable);
+	bool is_compressed() const;
+	void bake(const Object *from_node = nullptr, const bool create_visual_debug = false);
+	void debug_bake();
+};
+
+}
+
+//#endif

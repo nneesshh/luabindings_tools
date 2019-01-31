@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_PRIMITIVEMESH_HPP
+//#define GODOT_CPP_PRIMITIVEMESH_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+
+class Mesh;
+class PrimitiveMesh : public Mesh {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _update() const;
+	void set_material(const godot__ref_Material_ material);
+	godot__ref_Material_ get_material() const;
+	Array get_mesh_arrays() const;
+	void set_custom_aabb(const AABB aabb);
+	AABB get_custom_aabb() const;
+	void set_flip_faces(const bool flip_faces);
+	bool get_flip_faces() const;
+};
+
+}
+
+//#endif

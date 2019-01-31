@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTCONSTRUCTOR_HPP
+//#define GODOT_CPP_VISUALSCRIPTCONSTRUCTOR_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptConstructor : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_constructor_type(const int64_t type);
+	Variant::Type get_constructor_type() const;
+	void set_constructor(const Dictionary constructor);
+	Dictionary get_constructor() const;
+};
+
+}
+
+//#endif

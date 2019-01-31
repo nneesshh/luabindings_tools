@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP__MARSHALLS_HPP
+//#define GODOT_CPP__MARSHALLS_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Reference;
+class _Marshalls : public Reference {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	static String variant_to_base64(const Variant variant);
+	static Variant base64_to_variant(const String base64_str);
+	static String raw_to_base64(const PoolByteArray array);
+	static PoolByteArray base64_to_raw(const String base64_str);
+	static String utf8_to_base64(const String utf8_str);
+	static String base64_to_utf8(const String base64_str);
+};
+
+}
+
+//#endif

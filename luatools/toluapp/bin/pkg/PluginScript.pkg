@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_PLUGINSCRIPT_HPP
+//#define GODOT_CPP_PLUGINSCRIPT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Script;
+class PluginScript : public Script {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

@@ -1,0 +1,29 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTSELECT_HPP
+//#define GODOT_CPP_VISUALSCRIPTSELECT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptSelect : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_typed(const int64_t type);
+	Variant::Type get_typed() const;
+};
+
+}
+
+//#endif

@@ -9,15 +9,9 @@
     <ClCompile Include="..\src\bin\tolua.c">
       <Filter>bin</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\bin\toluabind.c">
-      <Filter>bin</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="toluapp\include\tolua++.h">
-      <Filter>bin</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\bin\toluabind.h">
+    <ClInclude Include="..\include\tolua++.h">
       <Filter>bin</Filter>
     </ClInclude>
   </ItemGroup>

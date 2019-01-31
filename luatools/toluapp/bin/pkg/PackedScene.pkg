@@ -1,0 +1,41 @@
+//#ifndef GODOT_CPP_PACKEDSCENE_HPP
+//#define GODOT_CPP_PACKEDSCENE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Object;
+class Node;
+class SceneState;
+
+class Resource;
+class PackedScene : public Resource {
+public:
+
+
+	// enums
+	enum GenEditState {
+		GEN_EDIT_STATE_MAIN = 2,
+		GEN_EDIT_STATE_DISABLED = 0,
+		GEN_EDIT_STATE_INSTANCE = 1,
+	};
+
+	// constants
+
+	// methods
+	Error pack(const Object *path);
+	Node *instance(const int64_t edit_state = 0) const;
+	bool can_instance() const;
+	void _set_bundled_scene(const Dictionary arg0);
+	Dictionary _get_bundled_scene() const;
+	godot__ref_SceneState_ get_state();
+};
+
+}
+
+//#endif

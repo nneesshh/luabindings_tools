@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTFUNCTION_HPP
+//#define GODOT_CPP_VISUALSCRIPTFUNCTION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptFunction : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

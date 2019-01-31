@@ -1,0 +1,44 @@
+//#ifndef GODOT_CPP_TEXTURERECT_HPP
+//#define GODOT_CPP_TEXTURERECT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Control;
+class TextureRect : public Control {
+public:
+
+
+	// enums
+	enum StretchMode {
+		STRETCH_SCALE = 1,
+		STRETCH_TILE = 2,
+		STRETCH_KEEP_ASPECT_COVERED = 7,
+		STRETCH_SCALE_ON_EXPAND = 0,
+		STRETCH_KEEP = 3,
+		STRETCH_KEEP_ASPECT_CENTERED = 6,
+		STRETCH_KEEP_ASPECT = 5,
+		STRETCH_KEEP_CENTERED = 4,
+	};
+
+	// constants
+
+	// methods
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_expand(const bool enable);
+	bool has_expand() const;
+	void set_stretch_mode(const int64_t stretch_mode);
+	TextureRect::StretchMode get_stretch_mode() const;
+};
+
+}
+
+//#endif

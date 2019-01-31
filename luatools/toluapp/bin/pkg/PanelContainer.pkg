@@ -1,0 +1,27 @@
+//#ifndef GODOT_CPP_PANELCONTAINER_HPP
+//#define GODOT_CPP_PANELCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Container;
+class PanelContainer : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+};
+
+}
+
+//#endif

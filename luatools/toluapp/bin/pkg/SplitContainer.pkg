@@ -1,0 +1,40 @@
+//#ifndef GODOT_CPP_SPLITCONTAINER_HPP
+//#define GODOT_CPP_SPLITCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+
+class Container;
+class SplitContainer : public Container {
+public:
+
+
+	// enums
+	enum DraggerVisibility {
+		DRAGGER_VISIBLE = 0,
+		DRAGGER_HIDDEN = 1,
+		DRAGGER_HIDDEN_COLLAPSED = 2,
+	};
+
+	// constants
+
+	// methods
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void set_split_offset(const int64_t offset);
+	int64_t get_split_offset() const;
+	void set_collapsed(const bool collapsed);
+	bool is_collapsed() const;
+	void set_dragger_visibility(const int64_t mode);
+	SplitContainer::DraggerVisibility get_dragger_visibility() const;
+};
+
+}
+
+//#endif

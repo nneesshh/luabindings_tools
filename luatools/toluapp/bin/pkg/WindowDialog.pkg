@@ -1,0 +1,36 @@
+//#ifndef GODOT_CPP_WINDOWDIALOG_HPP
+//#define GODOT_CPP_WINDOWDIALOG_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class InputEvent;
+class TextureButton;
+
+class Popup;
+class WindowDialog : public Popup {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void _gui_input(const godot__ref_InputEvent_ arg0);
+	void set_title(const String title);
+	String get_title() const;
+	void set_resizable(const bool resizable);
+	bool get_resizable() const;
+	void _closed();
+	TextureButton *get_close_button();
+};
+
+}
+
+//#endif

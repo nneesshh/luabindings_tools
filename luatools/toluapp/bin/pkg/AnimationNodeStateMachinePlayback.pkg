@@ -1,0 +1,33 @@
+//#ifndef GODOT_CPP_ANIMATIONNODESTATEMACHINEPLAYBACK_HPP
+//#define GODOT_CPP_ANIMATIONNODESTATEMACHINEPLAYBACK_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Resource;
+class AnimationNodeStateMachinePlayback : public Resource {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void travel(const String to_node);
+	void start(const String node);
+	void stop();
+	bool is_playing() const;
+	String get_current_node() const;
+	PoolStringArray get_travel_path() const;
+};
+
+}
+
+//#endif

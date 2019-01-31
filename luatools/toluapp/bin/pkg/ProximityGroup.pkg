@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_PROXIMITYGROUP_HPP
+//#define GODOT_CPP_PROXIMITYGROUP_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class ProximityGroup : public Spatial {
+public:
+
+
+	// enums
+	enum DispatchMode {
+		MODE_PROXY = 0,
+		MODE_SIGNAL = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_group_name(const String name);
+	String get_group_name() const;
+	void set_dispatch_mode(const int64_t mode);
+	ProximityGroup::DispatchMode get_dispatch_mode() const;
+	void set_grid_radius(const Vector3 radius);
+	Vector3 get_grid_radius() const;
+	void broadcast(const String name, const Variant parameters);
+	void _proximity_group_broadcast(const String name, const Variant params);
+};
+
+}
+
+//#endif

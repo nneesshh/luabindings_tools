@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_PRISMMESH_HPP
+//#define GODOT_CPP_PRISMMESH_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class PrimitiveMesh;
+class PrismMesh : public PrimitiveMesh {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_left_to_right(const double left_to_right);
+	double get_left_to_right() const;
+	void set_size(const Vector3 size);
+	Vector3 get_size() const;
+	void set_subdivide_width(const int64_t segments);
+	int64_t get_subdivide_width() const;
+	void set_subdivide_height(const int64_t segments);
+	int64_t get_subdivide_height() const;
+	void set_subdivide_depth(const int64_t segments);
+	int64_t get_subdivide_depth() const;
+};
+
+}
+
+//#endif

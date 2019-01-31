@@ -1,0 +1,44 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTDISTORTION_HPP
+//#define GODOT_CPP_AUDIOEFFECTDISTORTION_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectDistortion : public AudioEffect {
+public:
+
+
+	// enums
+	enum Mode {
+		MODE_ATAN = 1,
+		MODE_CLIP = 0,
+		MODE_WAVESHAPE = 4,
+		MODE_OVERDRIVE = 3,
+		MODE_LOFI = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_mode(const int64_t mode);
+	AudioEffectDistortion::Mode get_mode() const;
+	void set_pre_gain(const double pre_gain);
+	double get_pre_gain() const;
+	void set_keep_hf_hz(const double keep_hf_hz);
+	double get_keep_hf_hz() const;
+	void set_drive(const double drive);
+	double get_drive() const;
+	void set_post_gain(const double post_gain);
+	double get_post_gain() const;
+};
+
+}
+
+//#endif

@@ -1,0 +1,71 @@
+//#ifndef GODOT_CPP_PARTICLES2D_HPP
+//#define GODOT_CPP_PARTICLES2D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Material;
+class Texture;
+
+class Node2D;
+class Particles2D : public Node2D {
+public:
+
+
+	// enums
+	enum DrawOrder {
+		DRAW_ORDER_INDEX = 0,
+		DRAW_ORDER_LIFETIME = 1,
+	};
+
+	// constants
+
+	// methods
+	void set_emitting(const bool emitting);
+	void set_amount(const int64_t amount);
+	void set_lifetime(const double secs);
+	void set_one_shot(const bool secs);
+	void set_pre_process_time(const double secs);
+	void set_explosiveness_ratio(const double ratio);
+	void set_randomness_ratio(const double ratio);
+	void set_visibility_rect(const Rect2 visibility_rect);
+	void set_use_local_coordinates(const bool enable);
+	void set_fixed_fps(const int64_t fps);
+	void set_fractional_delta(const bool enable);
+	void set_process_material(const godot__ref_Material_ material);
+	void set_speed_scale(const double scale);
+	bool is_emitting() const;
+	int64_t get_amount() const;
+	double get_lifetime() const;
+	bool get_one_shot() const;
+	double get_pre_process_time() const;
+	double get_explosiveness_ratio() const;
+	double get_randomness_ratio() const;
+	Rect2 get_visibility_rect() const;
+	bool get_use_local_coordinates() const;
+	int64_t get_fixed_fps() const;
+	bool get_fractional_delta() const;
+	godot__ref_Material_ get_process_material() const;
+	double get_speed_scale() const;
+	void set_draw_order(const int64_t order);
+	Particles2D::DrawOrder get_draw_order() const;
+	void set_texture(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_texture() const;
+	void set_normal_map(const godot__ref_Texture_ texture);
+	godot__ref_Texture_ get_normal_map() const;
+	Rect2 capture_rect() const;
+	void set_v_frames(const int64_t frames);
+	int64_t get_v_frames() const;
+	void set_h_frames(const int64_t frames);
+	int64_t get_h_frames() const;
+	void restart();
+};
+
+}
+
+//#endif

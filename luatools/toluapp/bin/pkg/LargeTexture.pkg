@@ -1,0 +1,38 @@
+//#ifndef GODOT_CPP_LARGETEXTURE_HPP
+//#define GODOT_CPP_LARGETEXTURE_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Texture;
+
+class Texture;
+class LargeTexture : public Texture {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	int64_t add_piece(const Vector2 ofs, const godot__ref_Texture_ texture);
+	void set_piece_offset(const int64_t idx, const Vector2 ofs);
+	void set_piece_texture(const int64_t idx, const godot__ref_Texture_ texture);
+	void set_size(const Vector2 size);
+	void clear();
+	int64_t get_piece_count() const;
+	Vector2 get_piece_offset(const int64_t idx) const;
+	godot__ref_Texture_ get_piece_texture(const int64_t idx) const;
+	void _set_data(const Array data);
+	Array _get_data() const;
+};
+
+}
+
+//#endif

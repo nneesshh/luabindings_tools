@@ -1,0 +1,32 @@
+//#ifndef GODOT_CPP_INPUTEVENTJOYPADBUTTON_HPP
+//#define GODOT_CPP_INPUTEVENTJOYPADBUTTON_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class InputEvent;
+class InputEventJoypadButton : public InputEvent {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_button_index(const int64_t button_index);
+	int64_t get_button_index() const;
+	void set_pressure(const double pressure);
+	double get_pressure() const;
+	void set_pressed(const bool pressed);
+};
+
+}
+
+//#endif

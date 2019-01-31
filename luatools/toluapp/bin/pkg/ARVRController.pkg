@@ -1,0 +1,37 @@
+//#ifndef GODOT_CPP_ARVRCONTROLLER_HPP
+//#define GODOT_CPP_ARVRCONTROLLER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class Spatial;
+class ARVRController : public Spatial {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_controller_id(const int64_t controller_id);
+	int64_t get_controller_id() const;
+	String get_controller_name() const;
+	int64_t get_joystick_id() const;
+	int64_t is_button_pressed(const int64_t button) const;
+	double get_joystick_axis(const int64_t axis) const;
+	bool get_is_active() const;
+	ARVRPositionalTracker::TrackerHand get_hand() const;
+	double get_rumble() const;
+	void set_rumble(const double rumble);
+};
+
+}
+
+//#endif

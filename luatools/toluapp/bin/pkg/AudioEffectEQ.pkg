@@ -1,0 +1,30 @@
+//#ifndef GODOT_CPP_AUDIOEFFECTEQ_HPP
+//#define GODOT_CPP_AUDIOEFFECTEQ_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AudioEffect;
+class AudioEffectEQ : public AudioEffect {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_band_gain_db(const int64_t band_idx, const double volume_db);
+	double get_band_gain_db(const int64_t band_idx) const;
+	int64_t get_band_count() const;
+};
+
+}
+
+//#endif

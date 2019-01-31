@@ -1,0 +1,39 @@
+//#ifndef GODOT_CPP_STATICBODY_HPP
+//#define GODOT_CPP_STATICBODY_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class PhysicsMaterial;
+
+class PhysicsBody;
+class StaticBody : public PhysicsBody {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_constant_linear_velocity(const Vector3 vel);
+	void set_constant_angular_velocity(const Vector3 vel);
+	Vector3 get_constant_linear_velocity() const;
+	Vector3 get_constant_angular_velocity() const;
+	void set_friction(const double friction);
+	double get_friction() const;
+	void set_bounce(const double bounce);
+	double get_bounce() const;
+	void set_physics_material_override(const godot__ref_PhysicsMaterial_ physics_material_override);
+	godot__ref_PhysicsMaterial_ get_physics_material_override() const;
+	void _reload_physics_characteristics();
+};
+
+}
+
+//#endif

@@ -1,0 +1,45 @@
+//#ifndef GODOT_CPP_ANIMATIONNODEONESHOT_HPP
+//#define GODOT_CPP_ANIMATIONNODEONESHOT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class AnimationNode;
+class AnimationNodeOneShot : public AnimationNode {
+public:
+
+
+	// enums
+	enum MixMode {
+		MIX_MODE_ADD = 1,
+		MIX_MODE_BLEND = 0,
+	};
+
+	// constants
+
+	// methods
+	void set_fadein_time(const double time);
+	double get_fadein_time() const;
+	void set_fadeout_time(const double time);
+	double get_fadeout_time() const;
+	void set_autorestart(const bool enable);
+	bool has_autorestart() const;
+	void set_autorestart_delay(const double enable);
+	double get_autorestart_delay() const;
+	void set_autorestart_random_delay(const double enable);
+	double get_autorestart_random_delay() const;
+	void set_mix_mode(const int64_t mode);
+	AnimationNodeOneShot::MixMode get_mix_mode() const;
+	void set_use_sync(const bool enable);
+	bool is_using_sync() const;
+};
+
+}
+
+//#endif

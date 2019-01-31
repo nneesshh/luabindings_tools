@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_VISUALSCRIPTCONSTANT_HPP
+//#define GODOT_CPP_VISUALSCRIPTCONSTANT_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+
+class VisualScriptNode;
+class VisualScriptConstant : public VisualScriptNode {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_constant_type(const int64_t type);
+	Variant::Type get_constant_type() const;
+	void set_constant_value(const Variant value);
+	Variant get_constant_value() const;
+};
+
+}
+
+//#endif

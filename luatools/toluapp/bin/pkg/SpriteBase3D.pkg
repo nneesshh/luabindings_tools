@@ -1,0 +1,63 @@
+//#ifndef GODOT_CPP_SPRITEBASE3D_HPP
+//#define GODOT_CPP_SPRITEBASE3D_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class TriangleMesh;
+
+class GeometryInstance;
+class SpriteBase3D : public GeometryInstance {
+public:
+
+
+	// enums
+	enum DrawFlags {
+		FLAG_SHADED = 1,
+		FLAG_DOUBLE_SIDED = 2,
+		FLAG_MAX = 3,
+		FLAG_TRANSPARENT = 0,
+	};
+	enum AlphaCutMode {
+		ALPHA_CUT_DISABLED = 0,
+		ALPHA_CUT_DISCARD = 1,
+		ALPHA_CUT_OPAQUE_PREPASS = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_centered(const bool centered);
+	bool is_centered() const;
+	void set_offset(const Vector2 offset);
+	Vector2 get_offset() const;
+	void set_flip_h(const bool flip_h);
+	bool is_flipped_h() const;
+	void set_flip_v(const bool flip_v);
+	bool is_flipped_v() const;
+	void set_modulate(const Color modulate);
+	Color get_modulate() const;
+	void set_opacity(const double opacity);
+	double get_opacity() const;
+	void set_pixel_size(const double pixel_size);
+	double get_pixel_size() const;
+	void set_axis(const int64_t axis);
+	Vector3::Axis get_axis() const;
+	void set_draw_flag(const int64_t flag, const bool enabled);
+	bool get_draw_flag(const int64_t flag) const;
+	void set_alpha_cut_mode(const int64_t mode);
+	SpriteBase3D::AlphaCutMode get_alpha_cut_mode() const;
+	Rect2 get_item_rect() const;
+	godot__ref_TriangleMesh_ generate_triangle_mesh() const;
+	void _queue_update();
+	void _im_update();
+};
+
+}
+
+//#endif

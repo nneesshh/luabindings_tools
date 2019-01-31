@@ -1,0 +1,46 @@
+//#ifndef GODOT_CPP_TEXTURELAYERED_HPP
+//#define GODOT_CPP_TEXTURELAYERED_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Image;
+
+class Resource;
+class TextureLayered : public Resource {
+public:
+
+
+	// enums
+	enum Flags {
+		FLAGS_DEFAULT = 4,
+		FLAG_MIPMAPS = 1,
+		FLAG_FILTER = 4,
+		FLAG_REPEAT = 2,
+	};
+
+	// constants
+
+	// methods
+	void set_flags(const int64_t flags);
+	int64_t get_flags() const;
+	Image::Format get_format() const;
+	int64_t get_width() const;
+	int64_t get_height() const;
+	int64_t get_depth() const;
+	void create(const int64_t width, const int64_t height, const int64_t depth, const int64_t format, const int64_t flags = 4);
+	void set_layer_data(const godot__ref_Image_ image, const int64_t layer);
+	godot__ref_Image_ get_layer_data(const int64_t layer) const;
+	void set_data_partial(const godot__ref_Image_ image, const int64_t x_offset, const int64_t y_offset, const int64_t layer, const int64_t mipmap = 0);
+	void _set_data(const Dictionary data);
+	Dictionary _get_data() const;
+};
+
+}
+
+//#endif

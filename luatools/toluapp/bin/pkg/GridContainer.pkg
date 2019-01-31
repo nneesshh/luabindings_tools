@@ -1,0 +1,31 @@
+//#ifndef GODOT_CPP_GRIDCONTAINER_HPP
+//#define GODOT_CPP_GRIDCONTAINER_HPP
+
+
+$#include <stdint.h>
+
+$#include "UsingGodot.hpp"
+
+
+namespace godot {
+
+class Control;
+
+class Container;
+class GridContainer : public Container {
+public:
+
+
+	// enums
+
+	// constants
+
+	// methods
+	void set_columns(const int64_t columns);
+	int64_t get_columns() const;
+	Control *get_child_control_at_cell(const int64_t row, const int64_t column);
+};
+
+}
+
+//#endif
